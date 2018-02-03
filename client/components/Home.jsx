@@ -9,25 +9,26 @@ class Home extends React.Component {
   }
   render () {
     return (
-      <div>
+      <div className='container'>
         <div className="header">
           <h1>Select Your Style: </h1>
         </div>
-        <div className="body">
-          <form>
-            <label>Running 
-              <input type='radio' name='type' value='0' />
-            </label>
-            <label>Strength 
-              <input type='radio' name='type' value='1' />
-            </label>
-            <label>OCR (Obstacle Course Racing) 
-              <input type='radio' name='type' value='2' />
-            </label>
+        <div>
+          <div className='flex-container'>
+            <form className="home-form">
+              <label>Running 
+                <input className='run-input' type='radio' name='type' value='0' />
+              </label>
+              <label>Strength 
+                <input className='strength-input' type='radio' name='type' value='1' />
+              </label>
+              <label>OCR 
+                <input className='ocr-input' type='radio' name='type' value='2' />
+              </label>
             {/* need to assing onClick=event handler to the button */}
-            <button type='button'>Next</button>
-
-          </form>
+              <button type='button'>Next</button>
+            </form>
+          </div>
         </div>
       </div>
    )
