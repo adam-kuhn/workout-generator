@@ -11,7 +11,7 @@ const App = () => {
     <div>
       <Router>
         <div>
-          <h1>React development has begun, for the Workout Generator!</h1>
+          <h1>WOD Generator</h1>
           <Route path='/' component={Home}/>
         </div>
       </Router>
