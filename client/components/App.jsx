@@ -10,7 +10,7 @@ const App = () => {
   return (
     <div>
       <Router>
-        <div>
+        <div className='container'>
           <h1>WOD Generator</h1>
           <Route path='/' component={Home}/>
         </div>
