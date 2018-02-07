@@ -16,24 +16,24 @@ class Home extends React.Component {
         <div>
           <div className='flex-container'>
             <form className="home-form">
-            <div className='form-body'>
-              <label>Running 
-                <input className='run-input' type='radio' name='type' value='0' />
-              </label>
-              <label>Strength 
-                <input className='strength-input' type='radio' name='type' value='1' />
-              </label>
-              <label>OCR 
-                <input className='ocr-input' type='radio' name='type' value='2' />
-              </label>
+              <div className='form-body'>
+                <label>Running
+                  <input className='run-input' type='radio' name='type' value='0' />
+                </label>
+                <label>Strength
+                  <input className='strength-input' type='radio' name='type' value='1' />
+                </label>
+                <label>OCR
+                  <input className='ocr-input' type='radio' name='type' value='2' />
+                </label>
               </div>
-            {/* need to assing onClick=event handler to the button */}
+              {/* need to assing onClick=event handler to the button */}
               <button type='button'>Next</button>
             </form>
           </div>
         </div>
       </div>
-   )
+    )
   }
 }
 
