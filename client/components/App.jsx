@@ -5,6 +5,7 @@ import {HashRouter as Router, Route} from 'react-router-dom'
 
 // components
 import Home from './Home'
+import Time from './Time'
 
 const App = () => {
   return (
@@ -12,7 +13,8 @@ const App = () => {
       <Router>
         <div className='container'>
           <h1>WOD Generator</h1>
-          <Route path='/' component={Home}/>
+          <Route exact path='/' component={Home}/>
+          <Route path='/time' component={Time}/>
         </div>
       </Router>
     </div>
