@@ -18,7 +18,7 @@ class Home extends React.Component {
             <form className="home-form">
               <div className='form-body'>
                 <label>Running
-                  <input className='run-input' type='radio' name='type' value='0' />
+                  <input className='genral-input' type='radio' name='type' value='0' />
                 </label>
                 <label>Strength
                   <input className='strength-input' type='radio' name='type' value='1' />

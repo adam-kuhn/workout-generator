@@ -16,16 +16,16 @@ class Time extends React.Component {
             <form className="home-form">
               <div className='form-body'>
                 <label>0-20 min
-                  <input className='run-input' type='radio' name='time' value='0' />
+                  <input className='general-input' type='radio' name='time' value='0' />
                 </label>
                 <label>20-40 min
-                  <input className='run-input' type='radio' name='time' value='1' />
+                  <input className='general-input' type='radio' name='time' value='1' />
                 </label>
                 <label>40-60 min
-                  <input className='run-input' type='radio' name='time' value='3' />
+                  <input className='general-input' type='radio' name='time' value='3' />
                 </label>
                 <label>>60 min
-                  <input className='run-input' type='radio' name='time' value='4' />
+                  <input className='general-input' type='radio' name='time' value='4' />
                 </label>
               </div>
               {/* need to assing onClick=event handler to the button */}
