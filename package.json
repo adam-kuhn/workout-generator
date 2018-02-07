@@ -7,7 +7,8 @@
   "scripts": {
     "start": "webpack && node server",
     "dev": "node server & webpack --watch",
-    "test": "jest --watch --noStackTrace"
+    "test": "jest --watch --noStackTrace",
+    "knex": "knex"
   },
   "babel": {
     "presets": [
@@ -21,6 +22,7 @@
     "body-parser": "^1.18.2",
     "express": "^4.16.2",
     "knex": "^0.14.2",
+    "sqlite3": "^3.1.13",
     "superagent": "^3.8.2"
   },
   "devDependencies": {
