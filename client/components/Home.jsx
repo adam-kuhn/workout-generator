@@ -15,7 +15,7 @@ class Home extends React.Component {
         </div>
         <div>
           <div className='flex-container'>
-            <form className="home-form">
+            <form className="general-form">
               <div className='form-body'>
                 <label>Running
                   <input className='general-input' type='radio' name='type' value='0' />
