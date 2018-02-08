@@ -31,6 +31,17 @@ exports.seed = function(knex, Promise) {
         {id: 24, workout_id: 19, gear_id: 3}, //Lunge FTW: pull up bar
         {id: 25, workout_id: 20, gear_id: 1}, //Uh-Oh: none
         {id: 26, workout_id: 21, gear_id: 1}, //Have Fun: none
+        {id: 27, workout_id: 22, gear_id: 3}, //Boxless: pull-up bar
+        {id: 28, workout_id: 22, gear_id: 2}, //Boxless: KB
+        {id: 29, workout_id: 23, gear_id: 4}, //Leg Day: barbell
+        {id: 30, workout_id: 23, gear_id: 2}, //Leg Day: KB
+        {id: 31, workout_id: 23, gear_id: 5}, //Leg Day: box
+        {id: 32, workout_id: 23, gear_id: 3}, //Leg Day: pull-up bar
+        {id: 33, workout_id: 24, gear_id: 2}, //Strong Leg: KB
+        {id: 34, workout_id: 24, gear_id: 5}, //Strong Leg: box
+        {id: 35, workout_id: 24, gear_id: 3}, //Strong Leg: pull-up bar
+        {id: 36, workout_id: 25, gear_id: 2}, //huMan Up: KB
+        {id: 37, workout_id: 25, gear_id: 3}, //huMan Up: pull-up bar
       ]);
     });
 };
