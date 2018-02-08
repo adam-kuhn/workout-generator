@@ -26,6 +26,10 @@ exports.seed = function(knex, Promise) {
         {id: 19, workout: 'Lunges FTW', description: '3x 20 reverse lunge (weighted), 15 toes 2 air - E2M0M for 10 min: 1 min wall sit, 1 min plank - 4x 10 walking lunges (weighted), 10 burpees', type: 'Strength', time: '40-60 min'},
         {id: 20, workout: 'Uh-Oh', description: 'For Time: 20x 5 squats, 5 push-ups, 5 sit-ups - For Time: 20! Burpees with 20 m walk between rounds (20 burpees, 19, 18,...1', type: 'Strength', time: '20-40 min'},
         {id: 21, workout: 'Have Fun', description: 'For Time: 10x 10 lunges, 10 push-ups - 2x 25 crunches, 50 bicycles, 50 back scratchers, 50 rotating crunches, 25 V-ups - Tabata (8x 20s work 10s rest, do 8 rounds of each individual exercise): push-ups, sit-ups, squats', type: 'Strength', time: '20-40 min'},
+        {id: 22, workout: 'Boxless', description: 'For Time: 50kb swing, 40 kb goblet lunges, 30 squat jumps, 20 pull ups, 10 burpees', type: 'Strength', time: '0-20 min'},
+        {id: 23, workout: 'Leg Day', description: '3x 20 Reverse Lunge (barbell), 15 toes 2 air - E2MOM for 10 min: 1 min wall sit, 1 min plank - 4x 10 step ups (KB), 10 burpee box jump overs', type: 'Strength', time: '40-60 min'},
+        {id: 24, workout: 'Strong Legs', description: '3x 20 Reverse Lunge (KB), 15 toes 2 air - E2MOM for 10 min: 1 min wall sit, 1 min plank - 4x 10 step ups (KB), 10 burpee box jump overs', type: 'Strength', time: '40-60 min'},
+        {id: 25, workout: 'HuMan Up', description: 'For Time: 21-15-9 manmakers, pull-ups, burpees', type: 'Strength', time: '0-20 min'},
       ]);
     });
 };
