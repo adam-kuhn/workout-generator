@@ -56,7 +56,9 @@ class App extends React.Component {
   }
   getGear (gear) {
     this.setState({
-      gearList: gear
+      gearList: gear,
+      showGear: false,
+      showWorkout: true
     })
   }
   // reverts to initial starting point
