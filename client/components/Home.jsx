@@ -1,4 +1,5 @@
 import React from 'react'
+import request from 'superagent'
 
 class Home extends React.Component {
   constructor () {
@@ -6,6 +7,16 @@ class Home extends React.Component {
     this.state = {
 
     }
+    this.handleClick = this.handleClick.bind(this)
+  }
+  handleClick () {
+    request
+      .get('/test')
+      // .set('Content-Type', 'application/json')
+      // .sesnd()
+      .then(result => {
+        console.log(result)
+      })
   }
   render () {
     return (
@@ -18,17 +29,17 @@ class Home extends React.Component {
             <form className="general-form">
               <div className='form-body'>
                 <label>Running
-                  <input className='general-input' type='radio' name='type' value='0' />
+                <input className='general-input' type='radio' name='type' value='0' />
                 </label>
                 <label>Strength
-                  <input className='strength-input' type='radio' name='type' value='1' />
+                <input className='strength-input' type='radio' name='type' value='1' />
                 </label>
                 <label>OCR
-                  <input className='ocr-input' type='radio' name='type' value='2' />
+                <input className='ocr-input' type='radio' name='type' value='2' />
                 </label>
               </div>
               {/* need to assing onClick=event handler to the button */}
-              <button type='button'>Next</button>
+              <button type='button' onClick={this.handleClick}>Next</button>
             </form>
           </div>
         </div>
