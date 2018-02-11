@@ -36,16 +36,16 @@ class Home extends React.Component {
             <form className="general-form">
               <div className='form-body'>
                 <label>Running
-                <input className='general-input' type='radio' name='type' value='running'
-                  checked={this.state.workoutType === 'running'} onChange={this.selectedWorkout}/>
+                <input className='general-input' type='radio' name='type' value='Running'
+                  checked={this.state.workoutType === 'Running'} onChange={this.selectedWorkout}/>
                 </label>
                 <label>Strength
-                <input className='strength-input' type='radio' name='type' value='strength'
-                  checked={this.state.workoutType === 'strength'} onChange={this.selectedWorkout} />
+                <input className='strength-input' type='radio' name='type' value='Strength'
+                  checked={this.state.workoutType === 'Strength'} onChange={this.selectedWorkout} />
                 </label>
                 <label>OCR
-                <input className='ocr-input' type='radio' name='type' value='ocr'
-                  checked={this.state.workoutType === 'ocr'} onChange={this.selectedWorkout}/>
+                <input className='ocr-input' type='radio' name='type' value='OCR'
+                  checked={this.state.workoutType === 'OCR'} onChange={this.selectedWorkout}/>
                 </label>
               </div>
               <button type='button' onClick={this.handleClick}>Next</button>
