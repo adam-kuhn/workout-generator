@@ -7,12 +7,17 @@ class Time extends React.Component {
       duration: ''
     }
     this.setTime = this.setTime.bind(this)
+    this.handleClick = this.handleClick.bind(this)
   }
 
   setTime (evt) {
     this.setState({
       duration: evt.target.value
     })
+  }
+
+  handleClick () {
+    this.props.time(this.state.duration)
   }
 
   render () {
@@ -43,7 +48,7 @@ class Time extends React.Component {
                 </label>
               </div>
               {/* need to assing onClick=event handler to the button */}
-              <button type='button'>Next</button>
+              <button type='button' onClick={this.handleClick}>Next</button>
               <button type='button' onClick={this.props.back}>Back</button>
             </form>
           </div>

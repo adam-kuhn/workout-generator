@@ -41,12 +41,13 @@ class App extends React.Component {
         showTime: false,
         showWorkout: true
       })
+    } else {
+      this.setState({
+        duration: time,
+        showTime: false,
+        showGear: true
+      })
     }
-    this.setState({
-      duration: time,
-      showTime: false,
-      showGear: true
-    })
   }
   // reverts to initial starting point
   backToHome () {
@@ -59,7 +60,7 @@ class App extends React.Component {
       duration: ''
     })
   }
-  
+
   render () {
     return (
       <div>
