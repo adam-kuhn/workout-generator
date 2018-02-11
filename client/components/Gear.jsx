@@ -15,22 +15,22 @@ class Gear extends React.Component {
           <div className='flex-container'>
             <form className="general-form">
               <div className='form-body'>
-                <label>None
+                <label className='gear'>None
                   <input className='general-input' type='checkbox' name='gear' value='0' />
                 </label>
-                <label>Kettle Bell/Dumbbell
+                <label className='gear'>Kettle Bell/Dumbbell
                   <input className='general-input' type='checkbox' name='gear' value='1' />
                 </label>
-                <label>Pull-Up Bar
+                <label className='gear'>Pull-Up Bar
                   <input className='general-input' type='checkbox' name='gear' value='3' />
                 </label>
-                <label>Sandbag/Bucket
+                <label className='gear'>Sandbag/Bucket
                   <input className='general-input' type='checkbox' name='gear' value='4' />
                 </label>
-                <label>Barbell
+                <label className='gear'>Barbell
                   <input className='general-input' type='checkbox' name='gear' value='4' />
                 </label>
-                <label>Box
+                <label className='gear'>Box
                   <input className='general-input' type='checkbox' name='gear' value='4' />
                 </label>
               </div>

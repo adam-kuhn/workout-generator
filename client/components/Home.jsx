@@ -1,4 +1,5 @@
 import React from 'react'
+import request from 'superagent'
 
 class Home extends React.Component {
   constructor () {
@@ -6,6 +7,15 @@ class Home extends React.Component {
     this.state = {
 
     }
+    this.handleClick = this.handleClick.bind(this)
+  }
+  handleClick () {
+    request
+      .get('/test')
+      // .set('Content-Type', 'application/json')
+      // .sesnd()
+      .then(result => {
+      })
   }
   render () {
     return (
@@ -28,7 +38,7 @@ class Home extends React.Component {
                 </label>
               </div>
               {/* need to assing onClick=event handler to the button */}
-              <button type='button'>Next</button>
+              <button type='button' onClick={this.handleClick}>Next</button>
             </form>
           </div>
         </div>
