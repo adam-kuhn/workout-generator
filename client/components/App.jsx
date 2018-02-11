@@ -20,6 +20,8 @@ class App extends React.Component {
       duration: ''
     }
     this.getType = this.getType.bind(this)
+    this.getTime = this.getTime.bind(this)
+    this.backToHome = this.backToHome.bind(this)
   }
   // get's workout type from Home component
   getType (type) {
@@ -44,6 +46,17 @@ class App extends React.Component {
       duration: time,
       showTime: false,
       showGear: true
+    })
+  }
+  // reverts to initial starting point
+  backToHome () {
+    this.setState({
+      showHome: true,
+      showTime: false,
+      showGear: false,
+      showWorkout: false,
+      workoutType: '',
+      duration: ''
     })
   }
   

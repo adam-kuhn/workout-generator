@@ -5,6 +5,8 @@ class Time extends React.Component {
     super(props)
     this.state = {}
   }
+
+
   render () {
     return (
       <div className='container'>
@@ -16,20 +18,21 @@ class Time extends React.Component {
             <form className="general-form">
               <div className='form-body'>
                 <label>0-20 min
-                  <input className='general-input' type='radio' name='time' value='0' />
+                <input className='general-input' type='radio' name='time' value='0-20' />
                 </label>
                 <label>20-40 min
-                  <input className='general-input' type='radio' name='time' value='1' />
+                <input className='general-input' type='radio' name='time' value='20-40' />
                 </label>
                 <label>40-60 min
-                  <input className='general-input' type='radio' name='time' value='3' />
+                <input className='general-input' type='radio' name='time' value='40-60' />
                 </label>
                 <label>>60 min
-                  <input className='general-input' type='radio' name='time' value='4' />
+                <input className='general-input' type='radio' name='time' value='>60' />
                 </label>
               </div>
               {/* need to assing onClick=event handler to the button */}
               <button type='button'>Next</button>
+              <button type='button' onClick={this.props.back}>Back</button>
             </form>
           </div>
         </div>
