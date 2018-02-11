@@ -16,15 +16,21 @@ class App extends React.Component {
       showTime: false,
       showGear: false,
       showWorkout: false,
-      workoutType: null
+      workoutType: ''
     }
+    this.getType = this.getType.bind(this)
+  }
+  getType (type) {
+    this.setState({
+      workoutType: type
+    })
   }
   render () {
     return (
       <div>
         <div >
           <h1>WOD Generator</h1>
-          {this.state.showHome && <Home />}
+          {this.state.showHome && <Home getType={this.getType} />}
           {this.state.showTime && <Time />}
           {this.state.showGear && <Gear />}
           {this.state.showWorkout && <Workout />}
