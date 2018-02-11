@@ -15,7 +15,6 @@ class Home extends React.Component {
       // .set('Content-Type', 'application/json')
       // .sesnd()
       .then(result => {
-        console.log(result)
       })
   }
   render () {
