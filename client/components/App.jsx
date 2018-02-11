@@ -15,7 +15,8 @@ class App extends React.Component {
       showHome: true,
       showTime: false,
       showGear: false,
-      showWorkout: false
+      showWorkout: false,
+      workoutType: null
     }
   }
   render () {

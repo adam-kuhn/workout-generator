@@ -2,13 +2,18 @@ import React from 'react'
 import request from 'superagent'
 
 class Home extends React.Component {
-  constructor () {
-    super()
+  constructor (props) {
+    super(props)
     this.state = {
-
+      workoutType: ''
     }
     this.handleClick = this.handleClick.bind(this)
+    this.typeOfWorkout = this.typeOfWorkout.bind(this)
   }
+  typeOfWorkout (evt) {
+    [evt.target.name] = evt.target.value
+  }
+
   handleClick () {
     request
       .get('/test')
@@ -28,16 +33,18 @@ class Home extends React.Component {
             <form className="general-form">
               <div className='form-body'>
                 <label>Running
-                <input className='general-input' type='radio' name='type' value='0' />
+                <input className='general-input' type='radio' name='type' value='running'
+                  checked={this.state.workoutType === 'running'} />
                 </label>
                 <label>Strength
-                <input className='strength-input' type='radio' name='type' value='1' />
+                <input className='strength-input' type='radio' name='type' value='strength'
+                  checked={this.state.workoutType === 'strength'} />
                 </label>
                 <label>OCR
-                <input className='ocr-input' type='radio' name='type' value='2' />
+                <input className='ocr-input' type='radio' name='type' value='ocr'
+                  checked={this.state.workoutType === 'ocr'} />
                 </label>
               </div>
-              {/* need to assing onClick=event handler to the button */}
               <button type='button' onClick={this.handleClick}>Next</button>
             </form>
           </div>
