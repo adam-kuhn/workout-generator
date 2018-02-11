@@ -16,26 +16,27 @@ class Gear extends React.Component {
             <form className="general-form">
               <div className='form-body'>
                 <label className='gear'>None
-                  <input className='general-input' type='checkbox' name='gear' value='0' />
+                <input className='general-input' type='checkbox' name='gear' value='0' />
                 </label>
                 <label className='gear'>Kettle Bell/Dumbbell
-                  <input className='general-input' type='checkbox' name='gear' value='1' />
+                <input className='general-input' type='checkbox' name='gear' value='1' />
                 </label>
                 <label className='gear'>Pull-Up Bar
-                  <input className='general-input' type='checkbox' name='gear' value='3' />
+                <input className='general-input' type='checkbox' name='gear' value='3' />
                 </label>
                 <label className='gear'>Sandbag/Bucket
-                  <input className='general-input' type='checkbox' name='gear' value='4' />
+                <input className='general-input' type='checkbox' name='gear' value='4' />
                 </label>
                 <label className='gear'>Barbell
-                  <input className='general-input' type='checkbox' name='gear' value='4' />
+                <input className='general-input' type='checkbox' name='gear' value='4' />
                 </label>
                 <label className='gear'>Box
-                  <input className='general-input' type='checkbox' name='gear' value='4' />
+                <input className='general-input' type='checkbox' name='gear' value='4' />
                 </label>
               </div>
               {/* need to assing onClick=event handler to the button */}
               <button type='button'>Next</button>
+              <button type='button' onClick={this.props.back}>Back</button>
             </form>
           </div>
         </div>

@@ -19,9 +19,12 @@ class App extends React.Component {
       workoutType: '',
       duration: ''
     }
+    // setting state from forms
     this.getType = this.getType.bind(this)
     this.getTime = this.getTime.bind(this)
+    // back buttons
     this.backToHome = this.backToHome.bind(this)
+    this.backToTime = this.backToTime.bind(this)
   }
   // get's workout type from Home component
   getType (type) {
@@ -49,15 +52,23 @@ class App extends React.Component {
       })
     }
   }
+  getGear (gear) {
+    console.log(gear)
+  }
   // reverts to initial starting point
   backToHome () {
     this.setState({
       showHome: true,
       showTime: false,
       showGear: false,
-      showWorkout: false,
-      workoutType: '',
-      duration: ''
+      showWorkout: false
+    })
+  }
+  // display Time form
+  backToTime () {
+    this.setState({
+      showTime: true,
+      showGear: false
     })
   }
 
@@ -68,7 +79,7 @@ class App extends React.Component {
           <h1>WOD Generator</h1>
           {this.state.showHome && <Home getType={this.getType} />}
           {this.state.showTime && <Time back={this.backToHome} time={this.getTime}/>}
-          {this.state.showGear && <Gear />}
+          {this.state.showGear && <Gear back={this.backToTime} gear={this.getGear} />}
           {this.state.showWorkout && <Workout />}
         </div>
       </div>
