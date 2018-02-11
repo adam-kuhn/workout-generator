@@ -8,18 +8,29 @@ import Time from './Time'
 import Gear from './Gear'
 import Workout from './Workout'
 
-const App = () => {
-  return (
-    <div>
-      <div >
-        <h1>WOD Generator</h1>
-        <Home />
-        <Time />
-        <Gear />
-        <Workout />
+class App extends React.Component {
+  constructor () {
+    super()
+    this.state = {
+      showHome: true,
+      showTime: false,
+      showGear: false,
+      showWorkout: false
+    }
+  }
+  render () {
+    return (
+      <div>
+        <div >
+          <h1>WOD Generator</h1>
+          {this.state.showHome && <Home />}
+          {this.state.showTime && <Time />}
+          {this.state.showGear && <Gear />}
+          {this.state.showWorkout && <Workout />}
+        </div>
       </div>
-    </div>
-  )
+    )
+  }
 }
 
 export default App
