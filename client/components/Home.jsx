@@ -8,10 +8,12 @@ class Home extends React.Component {
       workoutType: ''
     }
     this.handleClick = this.handleClick.bind(this)
-    this.typeOfWorkout = this.typeOfWorkout.bind(this)
+    this.selectedWorkout = this.selectedWorkout.bind(this)
   }
-  typeOfWorkout (evt) {
-    [evt.target.name] = evt.target.value
+  selectedWorkout (evt) {
+    this.setState({
+      workoutType: evt.target.value
+    })
   }
 
   handleClick () {
@@ -34,15 +36,15 @@ class Home extends React.Component {
               <div className='form-body'>
                 <label>Running
                 <input className='general-input' type='radio' name='type' value='running'
-                  checked={this.state.workoutType === 'running'} />
+                  checked={this.state.workoutType === 'running'} onChange={this.selectedWorkout}/>
                 </label>
                 <label>Strength
                 <input className='strength-input' type='radio' name='type' value='strength'
-                  checked={this.state.workoutType === 'strength'} />
+                  checked={this.state.workoutType === 'strength'} onChange={this.selectedWorkout} />
                 </label>
                 <label>OCR
                 <input className='ocr-input' type='radio' name='type' value='ocr'
-                  checked={this.state.workoutType === 'ocr'} />
+                  checked={this.state.workoutType === 'ocr'} onChange={this.selectedWorkout}/>
                 </label>
               </div>
               <button type='button' onClick={this.handleClick}>Next</button>
