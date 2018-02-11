@@ -4,7 +4,6 @@ class Gear extends React.Component {
   constructor (props) {
     super(props)
     this.state = {
-      gearList: [],
       none: null,
       kb: null,
       pullUp: null,
@@ -14,6 +13,7 @@ class Gear extends React.Component {
 
     }
     this.setGearList = this.setGearList.bind(this)
+    this.makeList = this.makeList.bind(this)
   }
   setGearList (evt) {
     if (this.state.none === evt.target.value ||
@@ -30,6 +30,13 @@ class Gear extends React.Component {
         [evt.target.name]: evt.target.value
       })
     }
+  }
+
+  makeList () {
+    const gear = Object.values(this.state).filter(equipment => {
+      return equipment !== null
+    })
+    console.log(gear)
   }
 
   render () {
@@ -62,7 +69,7 @@ class Gear extends React.Component {
                 </label>
               </div>
               {/* need to assing onClick=event handler to the button */}
-              <button type='button'>Next</button>
+              <button type='button' onClick={this.makeList}>Next</button>
               <button type='button' onClick={this.props.back}>Back</button>
             </form>
           </div>
