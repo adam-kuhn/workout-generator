@@ -33,10 +33,10 @@ class Gear extends React.Component {
   }
 
   makeList () {
-    const gear = Object.values(this.state).filter(equipment => {
+    const gearList = Object.values(this.state).filter(equipment => {
       return equipment !== null
     })
-    console.log(gear)
+    this.props.gear(gearList)
   }
 
   render () {

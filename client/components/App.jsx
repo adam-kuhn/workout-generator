@@ -17,11 +17,13 @@ class App extends React.Component {
       showGear: false,
       showWorkout: false,
       workoutType: '',
-      duration: ''
+      duration: '',
+      gearList: []
     }
     // setting state from forms
     this.getType = this.getType.bind(this)
     this.getTime = this.getTime.bind(this)
+    this.getGear = this.getGear.bind(this)
     // back buttons
     this.backToHome = this.backToHome.bind(this)
     this.backToTime = this.backToTime.bind(this)
@@ -53,7 +55,9 @@ class App extends React.Component {
     }
   }
   getGear (gear) {
-    console.log(gear)
+    this.setState({
+      gearList: gear
+    })
   }
   // reverts to initial starting point
   backToHome () {
