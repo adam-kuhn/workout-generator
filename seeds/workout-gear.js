@@ -1,10 +1,10 @@
 
 exports.seed = function(knex, Promise) {
   // Deletes ALL existing entries
-  return knex('table_name').del()
+  return knex('workout_gear').del()
     .then(function () {
       // Inserts seed entries
-      return knex('table_name').insert([
+      return knex('workout_gear').insert([
         {id: 1, workout_id: 1, gear_id: 2}, //400 m lunge&swing: kettle bell
         {id: 2, workout_id: 2, gear_id: 1}, //15x15: none
         {id: 3, workout_id: 3, gear_id: 1}, //hit the deck: none
