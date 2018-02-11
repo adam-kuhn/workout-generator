@@ -22,9 +22,12 @@ class App extends React.Component {
   }
   getType (type) {
     this.setState({
-      workoutType: type
+      workoutType: type,
+      showHome: false,
+      showTime: true
     })
   }
+  
   render () {
     return (
       <div>
