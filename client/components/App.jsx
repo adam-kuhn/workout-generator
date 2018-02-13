@@ -13,6 +13,7 @@ class App extends React.Component {
   constructor () {
     super()
     this.state = {
+      showHeader: false,
       showHome: true,
       showTime: false,
       showGear: false,
@@ -33,6 +34,7 @@ class App extends React.Component {
   getType (type) {
     this.setState({
       workoutType: type,
+      showHeader: true,
       showHome: false,
       showTime: true
     })
@@ -84,8 +86,8 @@ class App extends React.Component {
       <div>
         <div >
           <h1>WOD Generator</h1>
-          <FormHeader type={this.state.workoutType} duration={this.state.duration}
-            gear={this.state.gearList}/>
+          {this.state.showHeader && <FormHeader type={this.state.workoutType} duration={this.state.duration}
+            gear={this.state.gearList}/>}
           {this.state.showHome && <Home getType={this.getType} />}
           {this.state.showTime && <Time back={this.backToHome}
             time={this.getTime} type={this.state.workoutType}/>}
