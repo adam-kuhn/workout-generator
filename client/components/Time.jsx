@@ -24,6 +24,7 @@ class Time extends React.Component {
     return (
       <div className='container'>
         <div className="header">
+          <h1>{this.props.type}</h1>
           <h1>Select Duration: </h1>
         </div>
         <div>
