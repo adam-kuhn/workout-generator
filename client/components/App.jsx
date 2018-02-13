@@ -86,7 +86,9 @@ class App extends React.Component {
           {this.state.showHome && <Home getType={this.getType} />}
           {this.state.showTime && <Time back={this.backToHome}
             time={this.getTime} type={this.state.workoutType}/>}
-          {this.state.showGear && <Gear back={this.backToTime} gear={this.getGear} />}
+          {this.state.showGear && <Gear back={this.backToTime}
+            gear={this.getGear} type={this.state.workoutType}
+            duration={this.state.duration}/>}
           {this.state.showWorkout && <Workout />}
         </div>
       </div>

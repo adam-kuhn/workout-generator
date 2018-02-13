@@ -43,6 +43,7 @@ class Gear extends React.Component {
     return (
       <div className='container'>
         <div className="header">
+          <h1>{this.props.type}: {this.props.duration} min</h1>
           <h1>Select Equipment: </h1>
         </div>
         <div>
