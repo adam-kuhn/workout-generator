@@ -7,12 +7,12 @@ function Workout (props) {
     <div className='container'>
       <div className="header">
         {/* this will be the title from props */}
-        <h1>{props.type}: {props.duration} min</h1>
+        {/* <h1>{props.type}: {props.duration} min</h1>
         {props.gear.map(item => {
           return (
             <span key={item}>{item} </span>
           )
-        })}
+        })} */}
         <h1>Your Workout</h1>
       </div>
       <div>

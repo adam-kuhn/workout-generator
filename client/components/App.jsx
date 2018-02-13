@@ -3,6 +3,7 @@
 import React from 'react'
 
 // components
+import FormHeader from './FormHeader'
 import Home from './Home'
 import Time from './Time'
 import Gear from './Gear'
@@ -83,6 +84,8 @@ class App extends React.Component {
       <div>
         <div >
           <h1>WOD Generator</h1>
+          <FormHeader type={this.state.workoutType} duration={this.state.duration}
+            gear={this.state.gearList}/>
           {this.state.showHome && <Home getType={this.getType} />}
           {this.state.showTime && <Time back={this.backToHome}
             time={this.getTime} type={this.state.workoutType}/>}
