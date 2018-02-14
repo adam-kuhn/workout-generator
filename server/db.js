@@ -13,9 +13,19 @@ module.exports = {
 }
 
 function getWorkout (wodSelection, testDb) {
+  console.log(wodSelection)
+  const selectedType = wodSelection.type
+  const selectedDuration = wodSelection.duration
   // const db = testDb || devDb
   const db = testDb || connection
 // get items out of wod selection, req.body
   return db('workouts')
-    .join('workout_gear', )
+    .where({
+      type: selectedType,
+      time: selectedDuration
+    })
+    .select('id')
+    .catch(err => {
+      console.error(err)
+    })
 }

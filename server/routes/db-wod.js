@@ -7,6 +7,7 @@ router.post('/', (req, res) => {
   console.log(req.body)
   db.getWorkout(req.body)
     .then(result => {
+      console.log(result)
       res.status(200).send({})
     })
     .catch(err => {
