@@ -4,12 +4,12 @@ class Gear extends React.Component {
   constructor (props) {
     super(props)
     this.state = {
-      none: null,
-      kb: null,
-      pullUp: null,
-      sandbag: null,
-      barbell: null,
-      box: null
+      none: '',
+      kb: '',
+      pullUp: '',
+      sandbag: '',
+      barbell: '',
+      box: ''
 
     }
     this.setGearList = this.setGearList.bind(this)
@@ -23,7 +23,7 @@ class Gear extends React.Component {
         this.state.barbell === evt.target.value ||
         this.state.box === evt.target.value) {
       this.setState({
-        [evt.target.value]: null
+        [evt.target.value]: ''
       })
     } else {
       this.setState({
@@ -34,7 +34,7 @@ class Gear extends React.Component {
 
   makeList () {
     const gearList = Object.values(this.state).filter(equipment => {
-      return equipment !== null
+      return equipment !== ''
     })
     this.props.gear(gearList)
   }
