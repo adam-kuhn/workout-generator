@@ -57,7 +57,7 @@ class Gear extends React.Component {
                 <input className='general-input' type='checkbox' name='kb' value='kb' onChange={this.setGearList}/>
                 </label>
                 <label className='gear'>Pull-Up Bar
-                <input className='general-input' type='checkbox' name='pullUp' value='pullUp' onChange={this.setGearList}/>
+                <input className='general-input' type='checkbox' name='pullUp' value='pull-up' onChange={this.setGearList}/>
                 </label>
                 <label className='gear'>Sandbag/Bucket
                 <input className='general-input' type='checkbox' name='sandbag' value='sandbag' onChange={this.setGearList}/>
