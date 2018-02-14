@@ -9,11 +9,13 @@ const config = require('../knexfile')[environment]
 const connection = require('knex')(config)
 
 module.exports = {
-  testJsonData
+  getWorkout
 }
 
-function testJsonData (testDb) {
+function getWorkout (wodSelection, testDb) {
   // const db = testDb || devDb
   const db = testDb || connection
+// get items out of wod selection, req.body
   return db('workouts')
+    .join('workout_gear', )
 }

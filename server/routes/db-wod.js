@@ -5,7 +5,7 @@ const db = require('../db')
 
 router.post('/', (req, res) => {
   console.log(req.body)
-  db.testJsonData()
+  db.getWorkout(req.body)
     .then(result => {
       res.status(200).send({})
     })
