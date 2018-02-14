@@ -1,4 +1,5 @@
 import React from 'react'
+import request from 'superagent'
 
 class Workout extends React.Component {
   constructor (props) {
@@ -6,19 +7,22 @@ class Workout extends React.Component {
 
   }
 
-  // take props and display the workout
+  componentDidMount() {
+    request
+      .post('/api/v1/workouts')
+      // .set('Content-Type', 'application/json')
+      .send(this.props)
+      .then(workout => {
+        // console.log(workout.body)
+      })
+
+  }
+
   // have a button to display another/return to home
   render () {
     return (
     <div className='container'>
       <div className="header">
-        {/* this will be the title from props */}
-        {/* <h1>{props.type}: {props.duration} min</h1>
-        {props.gear.map(item => {
-          return (
-            <span key={item}>{item} </span>
-          )
-        })} */}
         <h1>Your Workout</h1>
       </div>
       <div>

@@ -3,7 +3,8 @@ const router = express.Router()
 
 const db = require('../db')
 
-router.get('/', (req, res) => {
+router.post('/', (req, res) => {
+  console.log(req.body)
   db.testJsonData()
     .then(result => {
       res.status(200).send({})

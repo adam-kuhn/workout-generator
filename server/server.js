@@ -9,6 +9,6 @@ var server = express()
 server.use(bodyParser.json())
 server.use(express.static(path.join(__dirname, './public')))
 
-server.use('/test', workouts)
+server.use('/api/v1/workouts', workouts)
 
 module.exports = server
