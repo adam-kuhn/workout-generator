@@ -16,15 +16,31 @@ function getWorkout (wodSelection, testDb) {
   console.log(wodSelection)
   const selectedType = wodSelection.type
   const selectedDuration = wodSelection.duration
+  const selectedGear = wodSelection.gear
   // const db = testDb || devDb
   const db = testDb || connection
-// get items out of wod selection, req.body
+  // get items out of wod selection, req.body
   return db('workouts')
-    .where({
-      type: selectedType,
-      time: selectedDuration
+    .join('workout_gear', 'workouts.id', 'workout_gear.workout_id')
+    .join('gear', 'gear.id', 'workout_gear.gear_id')
+    // .select('workouts.id', 'workouts.workout', 'workouts.description')
+    // .where({      })
+    .then(result => {
+      console.log(result)
     })
-    .select('id')
+    // .where({
+    //   type: selectedType,
+    //   time: selectedDuration
+    // })
+    // .select('id')
+    // .then(wodIds => {
+
+    // }
+    //   return db('workouts_gear')
+    //     .where()
+    //   console.log(selectedGear)
+    //   console.log(wodIds)
+    // })
     .catch(err => {
       console.error(err)
     })
