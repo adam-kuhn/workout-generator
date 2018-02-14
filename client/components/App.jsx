@@ -67,10 +67,14 @@ class App extends React.Component {
   // reverts to initial starting point
   backToHome () {
     this.setState({
+      showHeader: false,
       showHome: true,
       showTime: false,
       showGear: false,
-      showWorkout: false
+      showWorkout: false,
+      workoutType: '',
+      duration: '',
+      gearList: []
     })
   }
   // display Time form
@@ -85,19 +89,29 @@ class App extends React.Component {
     return (
       <div>
         <div>
-          <h1>WOD Generator</h1>
-         
-          {this.state.showHeader && <FormHeader type={this.state.workoutType} duration={this.state.duration}
-            gear={this.state.gearList}/>}
-           
+          <h1>WOD Generator</h1>     
+          {this.state.showHeader &&  <FormHeader
+           type={this.state.workoutType} 
+           duration={this.state.duration}
+           gear={this.state.gearList}/>}
+
           {this.state.showHome && <Home getType={this.getType} />}
+
           {this.state.showTime && <Time back={this.backToHome}
-            time={this.getTime} type={this.state.workoutType}/>}
-          {this.state.showGear && <Gear back={this.backToTime}
-            gear={this.getGear} type={this.state.workoutType}
+            time={this.getTime} 
+            type={this.state.workoutType}/>}
+
+          {this.state.showGear && <Gear 
+            back={this.backToTime}
+            gear={this.getGear} 
+            type={this.state.workoutType}
             duration={this.state.duration}/>}
-          {this.state.showWorkout && <Workout type={this.state.workoutType}
-            duration={this.state.duration} gear={this.state.gearList} />}
+
+          {this.state.showWorkout && <Workout 
+            type={this.state.workoutType}
+            duration={this.state.duration} 
+            gear={this.state.gearList} 
+            home={this.backToHome} />}
         </div>
       </div>
     )

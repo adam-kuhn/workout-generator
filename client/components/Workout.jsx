@@ -1,9 +1,15 @@
 import React from 'react'
 
-function Workout (props) {
+class Workout extends React.Component {
+  constructor (props) {
+    super(props)
+
+  }
+
   // take props and display the workout
   // have a button to display another/return to home
-  return (
+  render () {
+    return (
     <div className='container'>
       <div className="header">
         {/* this will be the title from props */}
@@ -30,12 +36,16 @@ function Workout (props) {
             {/* need to assing onClick=event handler to the button */}
             <button type='button'>See All</button>
             {/* need to assing onClick=event handler to the button */}
-            <button type='button'>Start Over</button>
+            <button type='button' onClick={this.props.home}>Start Over</button>
           </div>
         </div>
       </div>
     </div>
-  )
+    )
+  }
 }
+
+
+
 
 export default Workout
