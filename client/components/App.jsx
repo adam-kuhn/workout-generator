@@ -84,10 +84,12 @@ class App extends React.Component {
   render () {
     return (
       <div>
-        <div >
+        <div>
           <h1>WOD Generator</h1>
+         
           {this.state.showHeader && <FormHeader type={this.state.workoutType} duration={this.state.duration}
             gear={this.state.gearList}/>}
+           
           {this.state.showHome && <Home getType={this.getType} />}
           {this.state.showTime && <Time back={this.backToHome}
             time={this.getTime} type={this.state.workoutType}/>}
