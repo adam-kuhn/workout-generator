@@ -51,24 +51,18 @@ function getWorkout (wodSelection, testDb) {
             console.log('unwanted', unwantedIds)
             console.log('starting wod id', wodId)
             // console.log(new Set(unwantedIds))
+
+            // filters the original wodId by returning what is NOT in unwantedIds
             const goodWod = wodId.filter(ids => {
               return !unwantedIds.includes(ids)
             })
             console.log('good wod', goodWod)
-
-            // for (let i = 0; i < unwantedIds.length; i++) {
-            //   for (let j = 0; j < wodId.length; j++) {
-            //     if (unwantedIds[i] !== wodId[j]) {
-            //       goodWod.push(wodId[j])
-            //     }
-            //   }
-            // }
-            // console.log('good', goodWod)
-            // for (let workouts in result) {
-            //   for (let filtered in doesNotHaveEquipment) {
-            //     if (workouts.workout_id === )
-            //   }
-            // }
+            return db('workouts')
+              .whereIn('id', goodWod)
+              .select('workout', 'description')
+              .catch(err => {
+                console.error(err)
+              })
           })
       })
   }

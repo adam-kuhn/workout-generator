@@ -6,7 +6,7 @@ const db = require('../db')
 router.post('/', (req, res) => {
   db.getWorkout(req.body)
     .then(result => {
-      // console.log(result)
+      console.log('returned', result)
       res.status(200).send({})
     })
     .catch(err => {
