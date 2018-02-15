@@ -21,6 +21,7 @@ function getWorkout (wodSelection, testDb) {
   const db = testDb || connection
   const gearAmount = selectedGear.length
   if (gearAmount === 1) {
+    // get workouts on Type and Time
     return db('workouts')
       .where({
         type: selectedType,
@@ -30,10 +31,12 @@ function getWorkout (wodSelection, testDb) {
       .then(wodIds => {
         console.log(wodIds)
         // turn above object to an array
+        // get id's of workouts
         const wodId = []
         for (let id in wodIds) {
           wodId.push(wodIds[id].id)
         }
+        // join tables to see what gear the above workouts need
         return db('workout_gear')
           .join('gear', 'gear.id', 'workout_gear.gear_id')
           .whereIn('workout_gear.workout_id', wodId)
@@ -42,6 +45,7 @@ function getWorkout (wodSelection, testDb) {
             console.log(result)
             const doesNotHaveEquipment = result.filter(workouts => {
               return workouts.equipment !== selectedGear[0]
+              // return !selectedGear.includes(workouts.equipment) 
             })
             console.log('does not equip', doesNotHaveEquipment)
             const unwantedIds = []
