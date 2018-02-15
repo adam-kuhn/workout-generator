@@ -44,13 +44,31 @@ function getWorkout (wodSelection, testDb) {
               return workouts.equipment !== selectedGear[0]
             })
             console.log('does not equip', doesNotHaveEquipment)
+            const unwantedIds = []
+            for (let i = 0; i < doesNotHaveEquipment.length; i++) {
+              unwantedIds.push(doesNotHaveEquipment[i].workout_id)
+            }
+            console.log('unwanted', unwantedIds)
+            console.log('starting wod id', wodId)
+            // console.log(new Set(unwantedIds))
+            const goodWod = wodId.filter(ids => {
+              return !unwantedIds.includes(ids)
+            })
+            console.log('good wod', goodWod)
+
+            // for (let i = 0; i < unwantedIds.length; i++) {
+            //   for (let j = 0; j < wodId.length; j++) {
+            //     if (unwantedIds[i] !== wodId[j]) {
+            //       goodWod.push(wodId[j])
+            //     }
+            //   }
+            // }
+            // console.log('good', goodWod)
             // for (let workouts in result) {
             //   for (let filtered in doesNotHaveEquipment) {
             //     if (workouts.workout_id === )
             //   }
             // }
-
-
           })
       })
   }
