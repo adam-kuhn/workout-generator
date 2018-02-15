@@ -17,31 +17,83 @@ function getWorkout (wodSelection, testDb) {
   const selectedType = wodSelection.type
   const selectedDuration = wodSelection.duration
   const selectedGear = wodSelection.gear
-  // const db = testDb || devDb
+  console.log(selectedGear)
   const db = testDb || connection
-  // get items out of wod selection, req.body
-  return db('workouts')
-    .join('workout_gear', 'workouts.id', 'workout_gear.workout_id')
-    .join('gear', 'gear.id', 'workout_gear.gear_id')
-    // .select('workouts.id', 'workouts.workout', 'workouts.description')
-    // .where({      })
-    .then(result => {
-      console.log(result)
-    })
-    // .where({
-    //   type: selectedType,
-    //   time: selectedDuration
-    // })
-    // .select('id')
-    // .then(wodIds => {
+  const gearAmount = selectedGear.length
+  if (gearAmount === 1) {
+    return db('workouts')
+      .where({
+        type: selectedType,
+        time: selectedDuration
+      })
+      .select('id')
+      .then(wodIds => {
+        console.log(wodIds)
+        // turn above object to an array
+        const wodId = []
+        for (let id in wodIds) {
+          wodId.push(wodIds[id].id)
+        }
+        return db('workout_gear')
+          .join('gear', 'gear.id', 'workout_gear.gear_id')
+          .whereIn('workout_gear.workout_id', wodId)
+          .select('workout_gear.id', 'workout_gear.workout_id', 'workout_gear.gear_id', 'gear.equipment')
+          .then(result => {
+            console.log(result)
+            const doesNotHaveEquipment = result.filter(workouts => {
+              return workouts.equipment !== selectedGear[0]
+            })
+            console.log('does not equip', doesNotHaveEquipment)
+            // for (let workouts in result) {
+            //   for (let filtered in doesNotHaveEquipment) {
+            //     if (workouts.workout_id === )
+            //   }
+            // }
 
-    // }
-    //   return db('workouts_gear')
-    //     .where()
-    //   console.log(selectedGear)
-    //   console.log(wodIds)
-    // })
-    .catch(err => {
-      console.error(err)
-    })
+
+          })
+      })
+  }
+  // const wodList = []
+  else {
+    return db('workouts')
+      .where({
+        type: selectedType,
+        time: selectedDuration
+      })
+      .select('id')
+      .then(wodIds => {
+        console.log(wodIds)
+        // turn above object to an array
+        const wodId = []
+        for (let id in wodIds) {
+          wodId.push(wodIds[id].id)
+        }
+        console.log(wodId)
+        return db('workouts')
+          .join('workout_gear', 'workouts.id', 'workout_gear.workout_id')
+          .join('gear', 'gear.id', 'workout_gear.gear_id')
+          .whereIn('workouts.id', wodId)
+        // .whereIn('gear.equipment', selectedGear)
+          .select('workouts.id', 'workouts.workout', 'workout_gear.id as joinId', 'gear.equipment')
+          .then(result => {
+            console.log(result)
+          // const workoutGear = []
+          // for (let gear in result) {
+          // }
+          })
+      })
+      .catch(err => {
+        console.error(err)
+      })
+  }
+
+  // get items out of wod selection, req.body
+}
+
+function getOneGearWorkout (wodSelection, testDb) {
+  const selectedType = wodSelection.type
+  const selectedDuration = wodSelection.duration
+  const selectedGear = wodSelection.gear[0]
+  const db = testDb || connection
 }

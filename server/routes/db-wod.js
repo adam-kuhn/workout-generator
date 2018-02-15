@@ -4,7 +4,6 @@ const router = express.Router()
 const db = require('../db')
 
 router.post('/', (req, res) => {
-  console.log(req.body)
   db.getWorkout(req.body)
     .then(result => {
       // console.log(result)

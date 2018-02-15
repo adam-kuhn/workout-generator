@@ -54,7 +54,7 @@ class Gear extends React.Component {
                 <input className='general-input' type='checkbox' name='none' value='none' onChange={this.setGearList}/>
                 </label>
                 <label className='gear'>Kettle Bell/Dumbbell
-                <input className='general-input' type='checkbox' name='kb' value='kb' onChange={this.setGearList}/>
+                <input className='general-input' type='checkbox' name='kb' value='kb/db' onChange={this.setGearList}/>
                 </label>
                 <label className='gear'>Pull-Up Bar
                 <input className='general-input' type='checkbox' name='pullUp' value='pull-up' onChange={this.setGearList}/>
