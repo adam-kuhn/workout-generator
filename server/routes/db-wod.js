@@ -19,7 +19,7 @@ router.post('/', (req, res) => {
       })
   }
   else {
-    db.getWorkout(req.body)
+    db.getMultiGearWorkout(req.body)
       .then(result => {
       // console.log('returned', result)
       // need to randomize result

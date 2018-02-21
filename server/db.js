@@ -9,12 +9,12 @@ const config = require('../knexfile')[environment]
 const connection = require('knex')(config)
 
 module.exports = {
-  getWorkout,
+  getMultiGearWorkout,
   getOneGearWorkout,
   getRunningWorkout
 }
 
-function getWorkout (wodSelection, testDb) {
+function getMultiGearWorkout (wodSelection, testDb) {
   console.log(wodSelection)
   const selectedType = wodSelection.type
   const selectedDuration = wodSelection.duration
