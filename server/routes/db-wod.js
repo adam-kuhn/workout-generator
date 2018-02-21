@@ -4,17 +4,24 @@ const router = express.Router()
 const db = require('../db')
 
 router.post('/', (req, res) => {
-  db.getWorkout(req.body)
-    .then(result => {
+  if (req.body.gear.length === 1) {
+    db.getOneGearWorkout(req.body)
+      .then(result => {
+        res.status(200).send({result})
+      })
+  } else {
+    db.getWorkout(req.body)
+      .then(result => {
       // console.log('returned', result)
       // need to randomize result
       // const randoWorkout =randomizeFunction(result)
-      // send randoWorkout 
-      res.status(200).send({result})
-    })
-    .catch(err => {
-      res.status(500).send('DATABASE ERROR: ' + err.message)
-    })
+      // send randoWorkout
+        res.status(200).send({result})
+      })
+      .catch(err => {
+        res.status(500).send('DATABASE ERROR: ' + err.message)
+      })
+  }
 })
 
 module.exports = router
