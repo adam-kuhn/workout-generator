@@ -11,7 +11,36 @@ const connection = require('knex')(config)
 module.exports = {
   getMultiGearWorkout,
   getOneGearWorkout,
-  getRunningWorkout
+  getRunningWorkout,
+  getMulti
+}
+
+function getMulti (wodSelection, testDb) {
+  console.log(wodSelection)
+  const selectedType = wodSelection.type
+  const selectedDuration = wodSelection.duration
+  const selectedGear = wodSelection.gear
+  console.log(selectedGear)
+  const db = testDb || connection
+  const gearAmount = selectedGear.length
+
+  return db('workouts')
+    .join('workout_gear', 'workout_gear.gear_id', 'workout.id')
+    .join('gear', 'workout_gear.gear_id', 'gear.id')
+    .where('workout.time', selectedDuration)
+    .andWhere('workout.type', selectedType)
+    .select('workout', 'type', 'time',
+      db.raw('GROUP_CONCAT(gear.equipment AS equips)', ['workouts', 'gear', 'workout_gear']))
+      .where(db.raw(1))
+    // .groupBy('gear.equipment as equips')
+    .groupBy('workouts.workout')
+    .havingIn('equips', selectedGear)
+    .then(result => {
+      console.log(result)
+    })
+    .catch(err => {
+      console.error(err)
+    })
 }
 
 function getMultiGearWorkout (wodSelection, testDb) {
@@ -47,10 +76,10 @@ function getMultiGearWorkout (wodSelection, testDb) {
         .then(result => {
           console.log(result)
           console.log('selected gear', selectedGear)
-          //make an array of id length for each workout that has one or more of the selected gear
+          // make an array of id length for each workout that has one or more of the selected gear
           // if id length of the array === the length of the gear list, should have to the correct selection
           // except still need to filter out un need equipment
-       const allIds = []
+          const allIds = []
           for (let id in result) {
             allIds.push(result[id].id)
           }
