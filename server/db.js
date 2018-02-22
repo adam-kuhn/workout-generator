@@ -50,7 +50,11 @@ function getMultiGearWorkout (wodSelection, testDb) {
           //make an array of id length for each workout that has one or more of the selected gear
           // if id length of the array === the length of the gear list, should have to the correct selection
           // except still need to filter out un need equipment
-       
+       const allIds = []
+          for (let id in result) {
+            allIds.push(result[id].id)
+          }
+          console.log(allIds)
           // const workoutGear = []
           // for (let gear in result) {
           // }

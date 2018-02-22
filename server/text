@@ -1,0 +1,12 @@
+sql code to get workouts with only the selected gear
+
+select w.workout, w.type, w.time, group_concat(g.equipment) as equips
+from workouts as w
+left join workout_gear as wg on (w.id = wg.workout_id)
+left join gear as g on (wg.gear_id = g.id)
+where w.time = "0-20 min"
+and w.type ="Strength"
+group by w.workout
+having (
+equips = "kb/db,pull-up"
+) 
