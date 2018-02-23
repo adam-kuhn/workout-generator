@@ -11,6 +11,7 @@ class Time extends React.Component {
   }
 
   setTime (evt) {
+    console.log(evt.target.value)
     this.setState({
       duration: evt.target.value
     })
