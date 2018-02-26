@@ -20,21 +20,35 @@ function getMulti (wodSelection, testDb) {
   const selectedType = wodSelection.type
   const selectedDuration = wodSelection.duration
   const selectedGear = wodSelection.gear
+  const stringGear = selectedGear.join()
   console.log(selectedGear)
+  console.log(stringGear)
   const db = testDb || connection
   const gearAmount = selectedGear.length
 
   return db('workouts')
-    .join('workout_gear', 'workout_gear.gear_id', 'workout.id')
+    // .join('workout_gear', 'workout_gear.gear_id', 'workout.id')
+    // .join('gear', 'workout_gear.gear_id', 'gear.id')
+    // .where('workout.time', selectedDuration)
+    // .andWhere('workout.type', selectedType)
+    // .select('workout', 'type', 'time',
+    //   db.raw('GROUP_CONCAT(gear.equipment AS equips)', ['workouts', 'gear', 'workout_gear']))
+    //   .where(db.raw(1))
+    // // .groupBy('gear.equipment as equips')
+    // .groupBy('workouts.workout')
+    // .havingIn('equips', selectedGear)
+    // .then(result => {
+    //   console.log(result)
+    // })
+   
+    .columns(db.raw("workouts.workout || ' ' || workouts.time || ' ' || workouts.type || ' ' || gear.equipment as equips"))
+    .join('workout_gear', 'workout_gear.gear_id', 'gear.id')
     .join('gear', 'workout_gear.gear_id', 'gear.id')
-    .where('workout.time', selectedDuration)
-    .andWhere('workout.type', selectedType)
-    .select('workout', 'type', 'time',
-      db.raw('GROUP_CONCAT(gear.equipment AS equips)', ['workouts', 'gear', 'workout_gear']))
-      .where(db.raw(1))
-    // .groupBy('gear.equipment as equips')
+    
+    .where('workouts.time', selectedDuration)
+    .andWhere('workouts.type', selectedType)
     .groupBy('workouts.workout')
-    .havingIn('equips', selectedGear)
+    .havingIn('gear.equipment', ['pull-up', 'kb/db'])
     .then(result => {
       console.log(result)
     })
@@ -84,6 +98,7 @@ function getMultiGearWorkout (wodSelection, testDb) {
             allIds.push(result[id].id)
           }
           console.log(allIds)
+          
           // const workoutGear = []
           // for (let gear in result) {
           // }
