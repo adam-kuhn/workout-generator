@@ -65,12 +65,19 @@ function getMulti (wodSelection, testDb) {
         const workoutEquipmentAmount = workoutNames.filter(name => {
           return name === workoutNames[i]
         })
+        // if the workout name doesn't appear the same amount of times as the gear selected, then you know it is doesn't fill the required selection
+        // compare length of the filtered Name array, to the amount of gear selected
         if (workoutEquipmentAmount.length === gearAmount) {
           hasEquipmentAmount.push(workoutEquipmentAmount)
         }
       }
       console.log(workoutNames)
       console.log(hasEquipmentAmount)
+      // need to double check workouts now and make sure that gear that wasn't selected isn't passing through
+      // const hasSpecificGear = hasEquipmentAmount.filter(workoutName => {
+      //   return workouts.includes(workoutName[0])
+      // })
+      console.log(hasSpecificGear)
     })
     .catch(err => {
       console.error(err)
