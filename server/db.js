@@ -27,50 +27,68 @@ function getMulti (wodSelection, testDb) {
   const gearAmount = selectedGear.length
 
   // return db('workouts')
-    // .join('workout_gear', 'workout_gear.gear_id', 'workout.id')
-    // .join('gear', 'workout_gear.gear_id', 'gear.id')
-    // .where('workout.time', selectedDuration)
-    // .andWhere('workout.type', selectedType)
-    // .select('workout', 'type', 'time',
-    //   db.raw('GROUP_CONCAT(gear.equipment AS equips)', ['workouts', 'gear', 'workout_gear']))
-    //   .where(db.raw(1))
-    // // .groupBy('gear.equipment as equips')
-    // .groupBy('workouts.workout')
-    // .havingIn('equips', selectedGear)
-    // .then(result => {
-    //   console.log(result)
-    // })
-  const selectedEquipmentIds = [2, 3] //kb/db and pull-up
-  const nonMatchingEquipmentIds = db('gear')
-    .whereNotIn('id', selectedEquipmentIds).select('id')
+  // .join('workout_gear', 'workout_gear.gear_id', 'workout.id')
+  // .join('gear', 'workout_gear.gear_id', 'gear.id')
+  // .where('workout.time', selectedDuration)
+  // .andWhere('workout.type', selectedType)
+  // .select('workout', 'type', 'time',
+  //   db.raw('GROUP_CONCAT(gear.equipment AS equips)', ['workouts', 'gear', 'workout_gear']))
+  //   .where(db.raw(1))
+  // // .groupBy('gear.equipment as equips')
+  // .groupBy('workouts.workout')
+  // .havingIn('equips', selectedGear)
+  // .then(result => {
+  //   console.log(result)
+  // })
+  // const selectedEquipmentIds = [2, 3] //kb/db and pull-up
+  // const nonMatchingEquipmentIds = db('gear')
+  //   .whereNotIn('id', selectedEquipmentIds).select('id')
 
-    return db('workouts')
-      .join('workout_gear', 'workouts.id', 'workout_gear.workout_id')
-      .join('gear', 'workout_gear.gear_id', 'gear.id')
-      .whereNotIn('gear.id', nonMatchingEquipmentIds)
-      .andWhere('workouts.type', selectedType)
-      .andWhere('workouts.time', selectedDuration)
-      .select('workouts.workout', 'gear.equipment', 'workouts.type', 'workouts.time')
-      .then(workouts => {
-        console.log(workouts)
-      })
-      .catch(err => {
-        console.error(err)
-      })
-    // .join('workout_gear', 'workout_gear.gear_id', 'gear.id')
-    // .join('gear', 'workout_gear.gear_id', 'gear.id')
-    
-    // .where('workouts.time', selectedDuration)
-    // .andWhere('workouts.type', selectedType)
-    // .groupBy('workouts.workout')
-    // .havingIn('gear.equipment', ['pull-up', 'kb/db'])
-    // .then(result => {
-    //   console.log(result)
-    // })
-    // .catch(err => {
-    //   console.error(err)
-    // })
+  const nonMatchingEquipment = db('gear')
+    .whereNotIn('equipment', selectedGear).select('equipment')
+
+  return db('workouts')
+    .join('workout_gear', 'workouts.id', 'workout_gear.workout_id')
+    .join('gear', 'workout_gear.gear_id', 'gear.id')
+    .whereNotIn('gear.equipment', nonMatchingEquipment)
+    .andWhere('workouts.type', selectedType)
+    .andWhere('workouts.time', selectedDuration)
+    .select('workouts.workout', 'gear.equipment', 'workouts.type', 'workouts.time')
+    .then(workouts => {
+      console.log(workouts)
+      const workoutNames = []
+      for (let i = 0; i < workouts.length; i++) {
+        workoutNames.push(workouts[i].workout)
+      }
+      const hasEquipmentAmount = []
+      for (let i = 0; i < workoutNames.length; i++) {
+        const workoutEquipmentAmount = workoutNames.filter(name => {
+          return name === workoutNames[i]
+        })
+        if (workoutEquipmentAmount.length === gearAmount) {
+          hasEquipmentAmount.push(workoutEquipmentAmount)
+        }
+      }
+      console.log(workoutNames)
+      console.log(hasEquipmentAmount)
+    })
+    .catch(err => {
+      console.error(err)
+    })
 }
+// .join('workout_gear', 'workout_gear.gear_id', 'gear.id')
+// .join('gear', 'workout_gear.gear_id', 'gear.id')
+
+// .where('workouts.time', selectedDuration)
+// .andWhere('workouts.type', selectedType)
+// .groupBy('workouts.workout')
+// .havingIn('gear.equipment', ['pull-up', 'kb/db'])
+// .then(result => {
+//   console.log(result)
+// })
+// .catch(err => {
+//   console.error(err)
+// })
 
 function getMultiGearWorkout (wodSelection, testDb) {
   console.log(wodSelection)
@@ -113,7 +131,7 @@ function getMultiGearWorkout (wodSelection, testDb) {
             allIds.push(result[id].id)
           }
           console.log(allIds)
-          
+
           // const workoutGear = []
           // for (let gear in result) {
           // }
