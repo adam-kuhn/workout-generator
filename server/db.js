@@ -21,12 +21,12 @@ function getMulti (wodSelection, testDb) {
   const selectedDuration = wodSelection.duration
   const selectedGear = wodSelection.gear
   const stringGear = selectedGear.join()
-  console.log(selectedGear)
+  console.log('selected', selectedGear)
   console.log(stringGear)
   const db = testDb || connection
   const gearAmount = selectedGear.length
 
-  return db('workouts')
+  // return db('workouts')
     // .join('workout_gear', 'workout_gear.gear_id', 'workout.id')
     // .join('gear', 'workout_gear.gear_id', 'gear.id')
     // .where('workout.time', selectedDuration)
@@ -40,21 +40,36 @@ function getMulti (wodSelection, testDb) {
     // .then(result => {
     //   console.log(result)
     // })
-   
-    .columns(db.raw("workouts.workout || ' ' || workouts.time || ' ' || workouts.type || ' ' || gear.equipment as equips"))
-    .join('workout_gear', 'workout_gear.gear_id', 'gear.id')
-    .join('gear', 'workout_gear.gear_id', 'gear.id')
+  const selectedEquipmentIds = [2, 3] //kb/db and pull-up
+  const nonMatchingEquipmentIds = db('gear')
+    .whereNotIn('id', selectedEquipmentIds).select('id')
+
+    return db('workouts')
+      .join('workout_gear', 'workouts.id', 'workout_gear.workout_id')
+      .join('gear', 'workout_gear.gear_id', 'gear.id')
+      .whereNotIn('gear.id', nonMatchingEquipmentIds)
+      .andWhere('workouts.type', selectedType)
+      .andWhere('workouts.time', selectedDuration)
+      .select('workouts.workout', 'gear.equipment', 'workouts.type', 'workouts.time')
+      .then(workouts => {
+        console.log(workouts)
+      })
+      .catch(err => {
+        console.error(err)
+      })
+    // .join('workout_gear', 'workout_gear.gear_id', 'gear.id')
+    // .join('gear', 'workout_gear.gear_id', 'gear.id')
     
-    .where('workouts.time', selectedDuration)
-    .andWhere('workouts.type', selectedType)
-    .groupBy('workouts.workout')
-    .havingIn('gear.equipment', ['pull-up', 'kb/db'])
-    .then(result => {
-      console.log(result)
-    })
-    .catch(err => {
-      console.error(err)
-    })
+    // .where('workouts.time', selectedDuration)
+    // .andWhere('workouts.type', selectedType)
+    // .groupBy('workouts.workout')
+    // .havingIn('gear.equipment', ['pull-up', 'kb/db'])
+    // .then(result => {
+    //   console.log(result)
+    // })
+    // .catch(err => {
+    //   console.error(err)
+    // })
 }
 
 function getMultiGearWorkout (wodSelection, testDb) {
