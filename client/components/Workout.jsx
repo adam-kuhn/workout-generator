@@ -15,8 +15,6 @@ class Workout extends React.Component {
       .set('Content-Type', 'application/json')
       .send(this.props)
       .then(workout => {
-        // console.log('on workout page', workout.body.result)
-        // const wod = JSON.parse(worz/kout)
         const wod = workout.body.result[0]
         console.log('on workout page', wod)
         console.log('on workout page', wod.workout)

@@ -43,7 +43,6 @@ class Gear extends React.Component {
     return (
       <div className='container'>
         <div className="header">
-          {/* <h1>{this.props.type}: {this.props.duration} min</h1> */}
           <h1>Select Equipment: </h1>
         </div>
         <div>
@@ -69,7 +68,6 @@ class Gear extends React.Component {
                 <input className='general-input' type='checkbox' name='box' value='box' onChange={this.setGearList}/>
                 </label>
               </div>
-              {/* need to assing onClick=event handler to the button */}
               <button type='button' onClick={this.makeList}>Next</button>
               <button type='button' onClick={this.props.back}>Back</button>
             </form>

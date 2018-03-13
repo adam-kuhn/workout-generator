@@ -1,7 +1,3 @@
-// const knex = require('knex')('production') try with just not using this line
-// // const knex = require('knex')
-// const config = require('../knexfile').devlopment
-// const devDb = knex(config)
 
 // set up for deployment to heroku
 const environment = process.env.NODE_ENV || 'development'

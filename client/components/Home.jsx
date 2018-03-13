@@ -18,12 +18,6 @@ class Home extends React.Component {
 
   handleClick () {
     this.props.getType(this.state.workoutType)
-    // request
-    //   .get('/test')
-    //   // .set('Content-Type', 'application/json')
-    //   // .sesnd()
-    //   .then(result => {
-    //   })
   }
   render () {
     return (
