@@ -11,6 +11,16 @@ module.exports = {
   getMulti
 }
 
+// manual test
+const test = [
+  {workout: 'one', equipment: 'xx'},
+  {workout: 'one', equipment: 'yy'},
+  {workout: 'two', equipment: 'xx'},
+  {workout: 'two', equipment: 'zz'},
+  {workout: 'three', equipment: 'xx'},
+  {workout: 'three', equipment: 'yy'}
+]
+
 function getMulti (wodSelection, testDb) {
   console.log(wodSelection)
   const selectedType = wodSelection.type
@@ -70,10 +80,12 @@ function getMulti (wodSelection, testDb) {
       console.log(workoutNames)
       console.log(hasEquipmentAmount)
       // need to double check workouts now and make sure that gear that wasn't selected isn't passing through
-      // const hasSpecificGear = hasEquipmentAmount.filter(workoutName => {
-      //   return workouts.includes(workoutName[0])
-      // })
-      console.log(hasSpecificGear)
+      // get all gear items from the workouts provided
+      const allGear = workouts.map(workout => {
+        return workout.equipment
+      })
+      
+      console.log('all gear', allGear)
     })
     .catch(err => {
       console.error(err)
