@@ -11,16 +11,6 @@ module.exports = {
   getMulti
 }
 
-// manual test
-const test = [
-  {workout: 'one', equipment: 'xx'},
-  {workout: 'one', equipment: 'yy'},
-  {workout: 'two', equipment: 'xx'},
-  {workout: 'two', equipment: 'zz'},
-  {workout: 'three', equipment: 'xx'},
-  {workout: 'three', equipment: 'yy'}
-]
-
 function getMulti (wodSelection, testDb) {
   console.log(wodSelection)
   const selectedType = wodSelection.type
@@ -60,7 +50,7 @@ function getMulti (wodSelection, testDb) {
     .andWhere('workouts.type', selectedType)
     .andWhere('workouts.time', selectedDuration)
     .select('workouts.workout', 'gear.equipment', 'workouts.type', 'workouts.time')
-    .then(workouts => {
+      .then(workouts => {
       console.log(workouts)
       const workoutNames = []
       for (let i = 0; i < workouts.length; i++) {
@@ -81,6 +71,10 @@ function getMulti (wodSelection, testDb) {
       console.log(hasEquipmentAmount)
       // need to double check workouts now and make sure that gear that wasn't selected isn't passing through
       // get all gear items from the workouts provided
+      // try running another query, to see how what other equipment is used in the workout - atm when str, 0-20, kb and pu, selected we get chipper, but chipper alos needs a box
+      // can try to run another query to see all gear of the given workout, and test against what we already have
+      // search for workouts that have additional items then the selected gear, and remove them from our first query
+      // seems hacky but maybe hardcore some form of an array to test against? 
       const allGear = workouts.map(workout => {
         return workout.equipment
       })
