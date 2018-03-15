@@ -33,7 +33,6 @@ class Workout extends React.Component {
           <div className='flex-container'>
             <div className="general-form">
               <div className='form-body'>
-                {/* description will come from props */}
                 {/* will have to figure out how to display this nicely */}
                 <p>{this.state.wod.description || this.state.wod}
                 </p>
