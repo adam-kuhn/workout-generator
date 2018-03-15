@@ -13,7 +13,6 @@ function getMulti (wodSelection, testDb) {
   const selectedType = wodSelection.type
   const selectedDuration = wodSelection.duration
   const selectedGear = wodSelection.gear
-  console.log('selected', selectedGear)
   const db = testDb || connection
   const gearAmount = selectedGear.length
 
@@ -28,7 +27,6 @@ function getMulti (wodSelection, testDb) {
     .andWhere('workouts.time', selectedDuration)
     .select('workouts.workout', 'gear.equipment', 'workouts.type', 'workouts.time')
       .then(workouts => {
-      console.log(workouts)
       const workoutNames = []
       for (let i = 0; i < workouts.length; i++) {
         workoutNames.push(workouts[i].workout)
@@ -44,8 +42,6 @@ function getMulti (wodSelection, testDb) {
           hasEquipmentAmount.push(workoutEquipmentAmount)
         }
       }
-      console.log(workoutNames)
-      console.log(hasEquipmentAmount)
       // need to double check workouts now and make sure that gear that wasn't selected isn't passing through
       // get all gear items from the workouts provided
       // try running another query, to see how what other equipment is used in the workout - atm when str, 0-20, kb and pu, selected we get chipper, but chipper alos needs a box
@@ -59,12 +55,9 @@ function getMulti (wodSelection, testDb) {
       for (i = 0; i < hasEquipmentAmount.length; i++) {
         namesWithEquipment.push(hasEquipmentAmount[i][0])
       }
-      console.log('names for query', namesWithEquipment)
     // remove dupes with a set
     const rmvDupe = new Set(namesWithEquipment)
-    console.log(rmvDupe)
     const reducedNames = [...rmvDupe]
-    console.log(reducedNames)
 
       return db('workouts')
       .join('workout_gear', 'workouts.id', 'workout_gear.workout_id')
@@ -83,18 +76,15 @@ function getMulti (wodSelection, testDb) {
          })
          itemsForWorkout.push(numberOfItems)
        }
-       console.log('how much gear?', itemsForWorkout)
        const finalWorkoutNames = []
        for (let i = 0; i < itemsForWorkout.length; i ++) {
          if (itemsForWorkout[i].length === gearAmount) {
            finalWorkoutNames.push(itemsForWorkout[i][0])
          }
        }
-       console.log('final names', finalWorkoutNames)
        // rmv dupes, can break a lot of this code into other functions
        const finalRmvDupes = new Set(finalWorkoutNames)
        const finalNames = [...finalRmvDupes]
-       console.log('no dupes', finalNames)
        return db('workouts')
        .whereIn('workouts.workout', finalNames)
        .select('workout', 'description')
@@ -114,7 +104,6 @@ function getRunningWorkout (wodSelection, testDb) {
   const db = connection || testDb
   const selectedType = wodSelection.type
   const selectedDuration = wodSelection.duration
-  console.log('running')
   return db('workouts')
     .where({
       type: selectedType,

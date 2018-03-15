@@ -16,9 +16,6 @@ class Workout extends React.Component {
       .send(this.props)
       .then(workout => {
         const wod = workout.body.result[0] || 'There are no workouts based on your selection. Please try again'
-        console.log('on workout page', wod)
-        console.log('on workout page', wod.workout)
-        console.log('on workout page', wod.description)
         this.setState({
           wod: wod
         })
