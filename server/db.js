@@ -5,20 +5,16 @@ const config = require('../knexfile')[environment]
 const connection = require('knex')(config)
 
 module.exports = {
-  getMultiGearWorkout,
   getOneGearWorkout,
   getRunningWorkout,
   getMulti
 }
 
 function getMulti (wodSelection, testDb) {
-  console.log(wodSelection)
   const selectedType = wodSelection.type
   const selectedDuration = wodSelection.duration
   const selectedGear = wodSelection.gear
-  const stringGear = selectedGear.join()
   console.log('selected', selectedGear)
-  console.log(stringGear)
   const db = testDb || connection
   const gearAmount = selectedGear.length
 
@@ -110,71 +106,6 @@ function getMulti (wodSelection, testDb) {
     // above we take the case where if we only have 1 item appearing (line 65), current code should never return workouts more than the amount of gear selected.
     // so if we run an original query to see all the gear for the already returned workouts, we will no be able to filter out any that are above the gear requirement and therefore all workouts that don't have the exact gear requirements will have been removed!!...i thinks
 
-    .catch(err => {
-      console.error(err)
-    })
-}
-// .join('workout_gear', 'workout_gear.gear_id', 'gear.id')
-// .join('gear', 'workout_gear.gear_id', 'gear.id')
-
-// .where('workouts.time', selectedDuration)
-// .andWhere('workouts.type', selectedType)
-// .groupBy('workouts.workout')
-// .havingIn('gear.equipment', ['pull-up', 'kb/db'])
-// .then(result => {
-//   console.log(result)
-// })
-// .catch(err => {
-//   console.error(err)
-// })
-
-function getMultiGearWorkout (wodSelection, testDb) {
-  console.log(wodSelection)
-  const selectedType = wodSelection.type
-  const selectedDuration = wodSelection.duration
-  const selectedGear = wodSelection.gear
-  console.log(selectedGear)
-  const db = testDb || connection
-  const gearAmount = selectedGear.length
-  // const wodList = []
-
-  return db('workouts')
-    .where({
-      type: selectedType,
-      time: selectedDuration
-    })
-    .select('id')
-    .then(wodIds => {
-      console.log(wodIds)
-      // turn above object to an array
-      const wodId = []
-      for (let id in wodIds) {
-        wodId.push(wodIds[id].id)
-      }
-      console.log(wodId)
-      return db('workouts')
-        .join('workout_gear', 'workouts.id', 'workout_gear.workout_id')
-        .join('gear', 'gear.id', 'workout_gear.gear_id')
-        .whereIn('workouts.id', wodId)
-        // .whereIn('gear.equipment', selectedGear)
-        .select('workouts.id', 'workouts.workout', 'workout_gear.id as joinId', 'gear.equipment')
-        .then(result => {
-          console.log(result)
-          console.log('selected gear', selectedGear)
-          // make an array of id length for each workout that has one or more of the selected gear
-          // if id length of the array === the length of the gear list, should have to the correct selection
-          // except still need to filter out un need equipment
-          const allIds = []
-          for (let id in result) {
-            allIds.push(result[id].id)
-          }
-          console.log(allIds)
-
-          // const workoutGear = []
-          // for (let gear in result) {
-          // }
-        })
-    })
     .catch(err => {
       console.error(err)
     })
