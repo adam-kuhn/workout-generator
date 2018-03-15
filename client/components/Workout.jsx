@@ -15,7 +15,7 @@ class Workout extends React.Component {
       .set('Content-Type', 'application/json')
       .send(this.props)
       .then(workout => {
-        const wod = workout.body.result[0]
+        const wod = workout.body.result[0] || 'There are no workouts based on your selection. Please try again'
         console.log('on workout page', wod)
         console.log('on workout page', wod.workout)
         console.log('on workout page', wod.description)
@@ -30,7 +30,7 @@ class Workout extends React.Component {
     return (
       <div className='container'>
         <div className="header">
-          <h1>{this.state.wod.workout || 'Your Workout'}</h1>
+          <h1>{this.state.wod.workout || 'Sorry'}</h1>
         </div>
         <div>
           <div className='flex-container'>
@@ -38,7 +38,7 @@ class Workout extends React.Component {
               <div className='form-body'>
                 {/* description will come from props */}
                 {/* will have to figure out how to display this nicely */}
-                <p>{this.state.wod.description || 'GENERIC 3x20 Reverse Lunge (weighted), 15 toes 2 air - E2MOM for 10 min: 1 min wall sit, 1 min plank - 4x 10 walking lunges (weighted), 10 burpees'}
+                <p>{this.state.wod.description || this.state.wod}
                 </p>
               </div>
               {/* need to assing onClick=event handler to the button */}
