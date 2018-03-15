@@ -11,6 +11,7 @@ class Time extends React.Component {
   }
 
   setTime (evt) {
+    console.log(evt.target.value)
     this.setState({
       duration: evt.target.value
     })
@@ -24,7 +25,6 @@ class Time extends React.Component {
     return (
       <div className='container'>
         <div className="header">
-          {/* <h1>{this.props.type}</h1> */}
           <h1>Select Duration: </h1>
         </div>
         <div>
@@ -48,7 +48,6 @@ class Time extends React.Component {
                   checked={this.state.duration === '>60 min'} onChange={this.setTime} />
                 </label>
               </div>
-              {/* need to assing onClick=event handler to the button */}
               <button type='button' onClick={this.handleClick}>Next</button>
               <button type='button' onClick={this.props.back}>Back</button>
             </form>

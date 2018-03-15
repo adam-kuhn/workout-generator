@@ -1,7 +1,3 @@
-// const knex = require('knex')('production') try with just not using this line
-// // const knex = require('knex')
-// const config = require('../knexfile').devlopment
-// const devDb = knex(config)
 
 // set up for deployment to heroku
 const environment = process.env.NODE_ENV || 'development'
@@ -9,107 +5,102 @@ const config = require('../knexfile')[environment]
 const connection = require('knex')(config)
 
 module.exports = {
-  getWorkout
+  getRunningWorkout,
+  getMulti
 }
 
-function getWorkout (wodSelection, testDb) {
-  console.log(wodSelection)
+function getMulti (wodSelection, testDb) {
   const selectedType = wodSelection.type
   const selectedDuration = wodSelection.duration
   const selectedGear = wodSelection.gear
-  console.log(selectedGear)
   const db = testDb || connection
   const gearAmount = selectedGear.length
-  if (gearAmount === 1) {
-    // get workouts on Type and Time
-    return db('workouts')
-      .where({
-        type: selectedType,
-        time: selectedDuration
-      })
-      .select('id')
-      .then(wodIds => {
-        console.log(wodIds)
-        // turn above object to an array
-        // get id's of workouts
-        const wodId = []
-        for (let id in wodIds) {
-          wodId.push(wodIds[id].id)
-        }
-        // join tables to see what gear the above workouts need
-        return db('workout_gear')
-          .join('gear', 'gear.id', 'workout_gear.gear_id')
-          .whereIn('workout_gear.workout_id', wodId)
-          .select('workout_gear.id', 'workout_gear.workout_id', 'workout_gear.gear_id', 'gear.equipment')
-          .then(result => {
-            console.log(result)
-            const doesNotHaveEquipment = result.filter(workouts => {
-              return workouts.equipment !== selectedGear[0]
-              // return !selectedGear.includes(workouts.equipment) 
-            })
-            console.log('does not equip', doesNotHaveEquipment)
-            const unwantedIds = []
-            for (let i = 0; i < doesNotHaveEquipment.length; i++) {
-              unwantedIds.push(doesNotHaveEquipment[i].workout_id)
-            }
-            console.log('unwanted', unwantedIds)
-            console.log('starting wod id', wodId)
-            // console.log(new Set(unwantedIds))
 
-            // filters the original wodId by returning what is NOT in unwantedIds
-            const goodWod = wodId.filter(ids => {
-              return !unwantedIds.includes(ids)
-            })
-            console.log('good wod', goodWod)
-            return db('workouts')
-              .whereIn('id', goodWod)
-              .select('workout', 'description')
-              .catch(err => {
-                console.error(err)
-              })
-          })
-      })
-  }
-  // const wodList = []
-  else {
-    return db('workouts')
-      .where({
-        type: selectedType,
-        time: selectedDuration
-      })
-      .select('id')
-      .then(wodIds => {
-        console.log(wodIds)
-        // turn above object to an array
-        const wodId = []
-        for (let id in wodIds) {
-          wodId.push(wodIds[id].id)
+  const nonMatchingEquipment = db('gear')
+    .whereNotIn('equipment', selectedGear).select('equipment')
+  // returns instances that have one of the selected items
+  return db('workouts')
+    .join('workout_gear', 'workouts.id', 'workout_gear.workout_id')
+    .join('gear', 'workout_gear.gear_id', 'gear.id')
+    .whereNotIn('gear.equipment', nonMatchingEquipment)
+    .andWhere('workouts.type', selectedType)
+    .andWhere('workouts.time', selectedDuration)
+    .select('workouts.workout', 'gear.equipment', 'workouts.type', 'workouts.time')
+      .then(workouts => {
+      const workoutNames = []
+      for (let i = 0; i < workouts.length; i++) {
+        workoutNames.push(workouts[i].workout)
+      }
+      const hasEquipmentAmount = []
+      for (let i = 0; i < workoutNames.length; i++) {
+        const workoutEquipmentAmount = workoutNames.filter(name => {
+          return name === workoutNames[i]
+        })
+        // if workout instances don't match the amount of gear -> by comparing lengths
+        // then it doesn't have all the needed items
+        if (workoutEquipmentAmount.length === gearAmount) {
+          hasEquipmentAmount.push(workoutEquipmentAmount)
         }
-        console.log(wodId)
-        return db('workouts')
-          .join('workout_gear', 'workouts.id', 'workout_gear.workout_id')
-          .join('gear', 'gear.id', 'workout_gear.gear_id')
-          .whereIn('workouts.id', wodId)
-        // .whereIn('gear.equipment', selectedGear)
-          .select('workouts.id', 'workouts.workout', 'workout_gear.id as joinId', 'gear.equipment')
-          .then(result => {
-            console.log(result)
-          // const workoutGear = []
-          // for (let gear in result) {
-          // }
-          })
+      }
+      // get the names to run another query
+      // it is possible for some of these workouts to have extra gear items
+      const namesWithEquipment = []
+      for (i = 0; i < hasEquipmentAmount.length; i++) {
+        namesWithEquipment.push(hasEquipmentAmount[i][0])
+      }
+    // remove dupes with a set
+    const rmvDupe = new Set(namesWithEquipment)
+    const namesForFinalQuery = [...rmvDupe]
+      // return will show all required gear
+      // if number of iterations is again not = gearAmount -> length
+      // then there is extra gear in the workout that was not selected
+      return db('workouts')
+      .join('workout_gear', 'workouts.id', 'workout_gear.workout_id')
+      .join('gear', 'workout_gear.gear_id', 'gear.id')
+      .whereIn('workouts.workout', namesForFinalQuery)
+      .select('workouts.workout', 'gear.equipment')
+      .then(result => {
+       const names = result.map(workout => {
+         return workout.workout
+       })
+       // referring to the length of the array that will be created inside the array
+       const itemsForWorkout = []
+       for (let i = 0; i < names.length; i ++ ) {
+         const numberOfItems = names.filter(name => {
+           return name === names[i]
+         })
+         itemsForWorkout.push(numberOfItems)
+       }
+       const finalWorkoutNames = []
+       for (let i = 0; i < itemsForWorkout.length; i ++) {
+         if (itemsForWorkout[i].length === gearAmount) {
+           finalWorkoutNames.push(itemsForWorkout[i][0])
+         }
+       }
+       // rmv dupes, can break a lot of this code into other functions
+       const finalRmvDupes = new Set(finalWorkoutNames)
+       const finalNames = [...finalRmvDupes]
+       return db('workouts')
+       .whereIn('workouts.workout', finalNames)
+       .select('workout', 'description')
       })
-      .catch(err => {
-        console.error(err)
-      })
-  }
-
-  // get items out of wod selection, req.body
+    })
+    .catch(err => {
+      console.error(err)
+    })
 }
 
-function getOneGearWorkout (wodSelection, testDb) {
+function getRunningWorkout (wodSelection, testDb) {
+  const db = connection || testDb
   const selectedType = wodSelection.type
   const selectedDuration = wodSelection.duration
-  const selectedGear = wodSelection.gear[0]
-  const db = testDb || connection
+  return db('workouts')
+    .where({
+      type: selectedType,
+      time: selectedDuration
+    })
+    .select('workout', 'description')
+    .catch(err => {
+      console.error(err)
+    })
 }
