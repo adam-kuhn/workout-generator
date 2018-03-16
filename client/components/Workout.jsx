@@ -5,8 +5,18 @@ class Workout extends React.Component {
   constructor (props) {
     super(props)
     this.state = {
-      wod: ''
+      noneAvailable: '',
+      allWorkouts: '',
+      workoutNumber: ''
     }
+    this.anotherWorkout = this.anotherWorkout.bind(this)
+  }
+
+  randomizeWorkout(workouts) {
+    const randomNumber = Math.floor(Math.random() * (workouts.length))
+    this.setState({
+      workoutNumber: randomNumber
+    })
   }
 
   componentDidMount () {
@@ -15,34 +25,54 @@ class Workout extends React.Component {
       .set('Content-Type', 'application/json')
       .send(this.props)
       .then(workout => {
-        const wod = workout.body.result[0] || 'There are no workouts based on your selection. Please try again'
+        console.log(workout.body.result)
+        let noneAvailable = ''
+        let allWorkouts = false
+        if (workout.body.result.length < 1){
+          noneAvailable = 'There are no workouts based on your selection. Please try again'
+        }
+        else {
+           allWorkouts = workout.body.result
+           this.randomizeWorkout(allWorkouts)
+          }
         this.setState({
-          wod: wod
-        })
+          noneAvailable,
+          allWorkouts
+        })  
       })
   }
 
-  // have a button to display another/return to home
+  anotherWorkout() {
+    const nextWorkout = this.state.workoutNumber + 1
+    if (nextWorkout === this.state.allWorkouts.length) {
+      this.setState({
+        workoutNumber: 0
+      })
+    } else {
+      this.setState({
+        workoutNumber: nextWorkout
+      })
+    }
+  }
+
   render () {
     return (
       <div className='container'>
         <div className="header">
-          <h1>{this.state.wod.workout || 'Sorry'}</h1>
+          <h1>{this.state.allWorkouts && this.state.allWorkouts[this.state.workoutNumber].workout || 'Sorry'}</h1>
         </div>
         <div>
           <div className='flex-container'>
             <div className="general-form">
               <div className='form-body'>
                 {/* will have to figure out how to display this nicely */}
-                <p>{this.state.wod.description || this.state.wod}
+                <p>{this.state.allWorkouts && this.state.allWorkouts[this.state.workoutNumber].description || this.state.noneAvailable}
                 </p>
+                <p>Number of Workouts: {this.state.allWorkouts.length || 0}</p>
               </div>
-              {/* need to assing onClick=event handler to the button */}
-              {/* go through the array to produce another...if null/undefined go back to [0] */}
-              <button type='button'>Give me Another</button>
+              <button type='button' onClick={this.anotherWorkout}>Give me Another</button>
               {/* need to assing onClick=event handler to the button */}
               <button type='button'>See All</button>
-              {/* need to assing onClick=event handler to the button */}
               <button type='button' onClick={this.props.home}>Start Over</button>
             </div>
           </div>
