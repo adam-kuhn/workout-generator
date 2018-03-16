@@ -4,7 +4,7 @@ const router = express.Router()
 const db = require('../db')
 
 router.post('/', (req, res) => {
-   if (req.body.type === 'Running') {
+if (req.body.type === 'Running') {
     // refactor the .then(result) to be a function as all are the same
     db.getRunningWorkout(req.body)
       .then(result => {
@@ -14,10 +14,6 @@ router.post('/', (req, res) => {
   else {
     db.getMulti(req.body)
       .then(result => {
-      // console.log('returned', result)
-      // need to randomize result
-      // const randoWorkout =randomizeFunction(result)
-      // send randoWorkout
         res.status(200).send({result})
       })
       .catch(err => {
