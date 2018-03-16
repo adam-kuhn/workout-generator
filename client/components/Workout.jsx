@@ -5,8 +5,15 @@ class Workout extends React.Component {
   constructor (props) {
     super(props)
     this.state = {
-      wod: ''
+      workouts: '',
+      allWorkouts: ''
     }
+    this.randomizeWorkout = this.randomizeWorkout.bind(this)
+  }
+
+  randomizeWorkout(workouts) {
+    const randomNumber = Math.floor(Math.random() * (workouts.length))
+    return workouts[randomNumber]
   }
 
   componentDidMount () {
@@ -15,26 +22,35 @@ class Workout extends React.Component {
       .set('Content-Type', 'application/json')
       .send(this.props)
       .then(workout => {
-        const wod = workout.body.result[0] || 'There are no workouts based on your selection. Please try again'
+        console.log(workout.body.result)
+        let workouts = ''
+        let allWorkouts = false
+        if (workout.body.result.length < 1){
+            workouts = 'There are no workouts based on your selection. Please try again'
+        }
+        else {
+           allWorkouts = workout.body.result
+           workouts = this.randomizeWorkout(allWorkouts)
+          }
         this.setState({
-          wod: wod
-        })
+          workouts,
+          allWorkouts
+        })  
       })
   }
 
-  // have a button to display another/return to home
   render () {
     return (
       <div className='container'>
         <div className="header">
-          <h1>{this.state.wod.workout || 'Sorry'}</h1>
+          <h1>{this.state.workouts.workout || 'Sorry'}</h1>
         </div>
         <div>
           <div className='flex-container'>
             <div className="general-form">
               <div className='form-body'>
                 {/* will have to figure out how to display this nicely */}
-                <p>{this.state.wod.description || this.state.wod}
+                <p>{this.state.workouts.description || this.state.workouts}
                 </p>
               </div>
               {/* need to assing onClick=event handler to the button */}
