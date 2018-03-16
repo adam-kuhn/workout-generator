@@ -25,7 +25,6 @@ class Workout extends React.Component {
       .set('Content-Type', 'application/json')
       .send(this.props)
       .then(workout => {
-        console.log(workout.body.result)
         let noneAvailable = ''
         let allWorkouts = false
         if (workout.body.result.length < 1){
