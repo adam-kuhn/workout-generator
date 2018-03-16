@@ -7,7 +7,7 @@ import App from '../client/components/App'
 Enzyme.configure({adapter: new Adapter()})
 
 test('<App />', () => {
-  const expected = 'React development has begun!'
+  const expected = 'WOD Generator<Home />'
   const wrapper = shallow(<App />)
   expect(wrapper.text()).toBe(expected)
 })
