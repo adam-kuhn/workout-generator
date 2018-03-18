@@ -53,9 +53,7 @@ function getMulti (wodSelection, testDb) {
       for (let i = 0; i < hasEquipmentAmount.length; i++) {
         namesWithEquipment.push(hasEquipmentAmount[i][0])
       }
-      // remove dupes with a set
-      const rmvDupe = new Set(namesWithEquipment)
-      const namesForFinalQuery = [...rmvDupe]
+      const namesForFinalQuery = removeDuplication(namesWithEquipment)
       // return will show all required gear
       // if number of iterations is again not = gearAmount -> length
       // then there is extra gear in the workout that was not selected
@@ -82,9 +80,7 @@ function getMulti (wodSelection, testDb) {
               finalWorkoutNames.push(itemsForWorkout[i][0])
             }
           }
-          // rmv dupes, can break a lot of this code into other functions
-          const finalRmvDupes = new Set(finalWorkoutNames)
-          const finalNames = [...finalRmvDupes]
+          const finalNames = removeDuplication(finalWorkoutNames)
           return db('workouts')
             .whereIn('workouts.workout', finalNames)
             .select('workout', 'description')
