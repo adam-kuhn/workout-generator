@@ -4,13 +4,12 @@ const router = express.Router()
 const db = require('../db')
 
 router.post('/', (req, res) => {
-if (req.body.type === 'Running') {
+  if (req.body.type === 'Running') {
     db.getRunningWorkout(req.body)
       .then(result => {
         res.status(200).send({result})
       })
-  }
-  else {
+  } else {
     db.getMulti(req.body)
       .then(result => {
         res.status(200).send({result})

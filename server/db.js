@@ -1,4 +1,3 @@
-
 // set up for deployment to heroku
 const environment = process.env.NODE_ENV || 'development'
 const config = require('../knexfile')[environment]
@@ -6,7 +5,13 @@ const connection = require('knex')(config)
 
 module.exports = {
   getRunningWorkout,
-  getMulti
+  getMulti,
+  removeDuplication
+}
+
+function removeDuplication (workoutNames) {
+  const setNames = new Set(workoutNames)
+  return [...setNames]
 }
 
 function getMulti (wodSelection, testDb) {
@@ -26,7 +31,7 @@ function getMulti (wodSelection, testDb) {
     .andWhere('workouts.type', selectedType)
     .andWhere('workouts.time', selectedDuration)
     .select('workouts.workout', 'gear.equipment', 'workouts.type', 'workouts.time')
-      .then(workouts => {
+    .then(workouts => {
       const workoutNames = []
       for (let i = 0; i < workouts.length; i++) {
         workoutNames.push(workouts[i].workout)
@@ -45,45 +50,45 @@ function getMulti (wodSelection, testDb) {
       // get the names to run another query
       // it is possible for some of these workouts to have extra gear items
       const namesWithEquipment = []
-      for (i = 0; i < hasEquipmentAmount.length; i++) {
+      for (let i = 0; i < hasEquipmentAmount.length; i++) {
         namesWithEquipment.push(hasEquipmentAmount[i][0])
       }
-    // remove dupes with a set
-    const rmvDupe = new Set(namesWithEquipment)
-    const namesForFinalQuery = [...rmvDupe]
+      // remove dupes with a set
+      const rmvDupe = new Set(namesWithEquipment)
+      const namesForFinalQuery = [...rmvDupe]
       // return will show all required gear
       // if number of iterations is again not = gearAmount -> length
       // then there is extra gear in the workout that was not selected
       return db('workouts')
-      .join('workout_gear', 'workouts.id', 'workout_gear.workout_id')
-      .join('gear', 'workout_gear.gear_id', 'gear.id')
-      .whereIn('workouts.workout', namesForFinalQuery)
-      .select('workouts.workout', 'gear.equipment')
-      .then(result => {
-       const names = result.map(workout => {
-         return workout.workout
-       })
-       // referring to the length of the array that will be created inside the array
-       const itemsForWorkout = []
-       for (let i = 0; i < names.length; i ++ ) {
-         const numberOfItems = names.filter(name => {
-           return name === names[i]
-         })
-         itemsForWorkout.push(numberOfItems)
-       }
-       const finalWorkoutNames = []
-       for (let i = 0; i < itemsForWorkout.length; i ++) {
-         if (itemsForWorkout[i].length === gearAmount) {
-           finalWorkoutNames.push(itemsForWorkout[i][0])
-         }
-       }
-       // rmv dupes, can break a lot of this code into other functions
-       const finalRmvDupes = new Set(finalWorkoutNames)
-       const finalNames = [...finalRmvDupes]
-       return db('workouts')
-       .whereIn('workouts.workout', finalNames)
-       .select('workout', 'description')
-      })
+        .join('workout_gear', 'workouts.id', 'workout_gear.workout_id')
+        .join('gear', 'workout_gear.gear_id', 'gear.id')
+        .whereIn('workouts.workout', namesForFinalQuery)
+        .select('workouts.workout', 'gear.equipment')
+        .then(result => {
+          const names = result.map(workout => {
+            return workout.workout
+          })
+          // referring to the length of the array that will be created inside the array
+          const itemsForWorkout = []
+          for (let i = 0; i < names.length; i++) {
+            const numberOfItems = names.filter(name => {
+              return name === names[i]
+            })
+            itemsForWorkout.push(numberOfItems)
+          }
+          const finalWorkoutNames = []
+          for (let i = 0; i < itemsForWorkout.length; i++) {
+            if (itemsForWorkout[i].length === gearAmount) {
+              finalWorkoutNames.push(itemsForWorkout[i][0])
+            }
+          }
+          // rmv dupes, can break a lot of this code into other functions
+          const finalRmvDupes = new Set(finalWorkoutNames)
+          const finalNames = [...finalRmvDupes]
+          return db('workouts')
+            .whereIn('workouts.workout', finalNames)
+            .select('workout', 'description')
+        })
     })
     .catch(err => {
       console.error(err)
