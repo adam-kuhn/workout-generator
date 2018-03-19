@@ -2,13 +2,27 @@ body {
   background-color: steelblue;
 }
 
-.container {
+.main-container {
+  width: 90%;
+  height: 80vh;
+  background-color: greenyellow;
+  margin: 5%;
+  display: flex;
+  flex-wrap: nowrap;
+  flex-direction: column; 
+  justify-content: center;
+}
+
+.main-item {
+  padding-left: 1rem;
+}
+
+/* .container {
   width: 90%;
   height: 80vh;
   background-color: orange;
-  margin: 5%;
-  
-}
+  margin: 5%; 
+} */
 
 .flex-container {
   display: flex;

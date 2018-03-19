@@ -87,30 +87,35 @@ class App extends React.Component {
   render () {
     return (
       <div>
-        <div>
-          <h1>WOD Generator</h1>
-          {this.state.showHeader && <FormHeader
-            type={this.state.workoutType}
-            duration={this.state.duration}
-            gear={this.state.gearList}/>}
+        <div className='main-container'>
+          <div className='main-item'>
+            <h1>WOD Generator</h1>
+          </div>
+          <div className='main-item'>
+            {this.state.showHeader && <FormHeader
+              type={this.state.workoutType}
+              duration={this.state.duration}
+              gear={this.state.gearList}/>}
+          </div>
+          <div className='main-item'>
+            {this.state.showHome && <Home getType={this.getType} />}
 
-          {this.state.showHome && <Home getType={this.getType} />}
+            {this.state.showTime && <Time back={this.backToHome}
+              time={this.getTime}
+              type={this.state.workoutType}/>}
 
-          {this.state.showTime && <Time back={this.backToHome}
-            time={this.getTime}
-            type={this.state.workoutType}/>}
+            {this.state.showGear && <Gear
+              back={this.backToTime}
+              gear={this.getGear}
+              type={this.state.workoutType}
+              duration={this.state.duration}/>}
 
-          {this.state.showGear && <Gear
-            back={this.backToTime}
-            gear={this.getGear}
-            type={this.state.workoutType}
-            duration={this.state.duration}/>}
-
-          {this.state.showWorkout && <Workout
-            type={this.state.workoutType}
-            duration={this.state.duration}
-            gear={this.state.gearList}
-            home={this.backToHome} />}
+            {this.state.showWorkout && <Workout
+              type={this.state.workoutType}
+              duration={this.state.duration}
+              gear={this.state.gearList}
+              home={this.backToHome} />}
+          </div>
         </div>
       </div>
     )
