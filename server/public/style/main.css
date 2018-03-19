@@ -11,6 +11,7 @@ body {
   flex-wrap: nowrap;
   flex-direction: column; 
   justify-content: center;
+  padding-bottom: 4rem;
 }
 
 .main-item {
@@ -19,9 +20,8 @@ body {
 
 .form-container {
   width: 90%;
-  /* height: 80vh; */
   background-color: orange;
-  margin: 5%; 
+  margin: 2% 8% 2% 3%; 
 }
 
 .flex-container {
