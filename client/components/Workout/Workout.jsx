@@ -57,14 +57,14 @@ class Workout extends React.Component {
     return (
       <div className='container'>
         <div className="header">
-          <h1>{this.state.allWorkouts && this.state.allWorkouts[this.state.workoutNumber].workout || 'Sorry'}</h1>
+          <h1>{this.state.allWorkouts ? this.state.allWorkouts[this.state.workoutNumber].workout : 'Sorry'}</h1>
         </div>
         <div>
           <div className='flex-container'>
             <div className="general-form">
               <div className='form-body'>
                 {/* will have to figure out how to display this nicely */}
-                <p>{this.state.allWorkouts && this.state.allWorkouts[this.state.workoutNumber].description || this.state.noneAvailable}
+                <p>{this.state.allWorkouts ? this.state.allWorkouts[this.state.workoutNumber].description : this.state.noneAvailable}
                 </p>
                 <p>Number of Workouts: {this.state.allWorkouts.length || 0}</p>
               </div>
