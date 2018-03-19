@@ -4,14 +4,16 @@ class Home extends React.Component {
   constructor (props) {
     super(props)
     this.state = {
-      workoutType: ''
+      workoutType: '',
+      disable: true
     }
     this.handleClick = this.handleClick.bind(this)
     this.selectedWorkout = this.selectedWorkout.bind(this)
   }
   selectedWorkout (evt) {
     this.setState({
-      workoutType: evt.target.value
+      workoutType: evt.target.value,
+      disable: false
     })
   }
 
@@ -41,7 +43,7 @@ class Home extends React.Component {
                     checked={this.state.workoutType === 'OCR'} onChange={this.selectedWorkout}/>
                 </label>
               </div>
-              <button type='button' onClick={this.handleClick}>Next</button>
+              <button type='button' onClick={this.handleClick} disabled={this.state.disable}>Next</button>
             </form>
           </div>
         </div>

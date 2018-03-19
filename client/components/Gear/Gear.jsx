@@ -10,7 +10,8 @@ class Gear extends React.Component {
       pullUp: '',
       sandbag: '',
       barbell: '',
-      box: ''
+      box: '',
+      disable: true
 
     }
     this.setGearList = this.setGearList.bind(this)
@@ -28,7 +29,8 @@ class Gear extends React.Component {
       })
     } else {
       this.setState({
-        [evt.target.name]: evt.target.value
+        [evt.target.name]: evt.target.value,
+        disable: false
       })
     }
   }
@@ -69,7 +71,7 @@ class Gear extends React.Component {
                   <input className='general-input' type='checkbox' name='box' value='box' onChange={this.setGearList}/>
                 </label>
               </div>
-              <button type='button' onClick={this.makeList}>Next</button>
+              <button type='button' onClick={this.makeList} disabled={this.state.disable}>Next</button>
               <button type='button' onClick={this.props.back}>Back</button>
             </form>
           </div>

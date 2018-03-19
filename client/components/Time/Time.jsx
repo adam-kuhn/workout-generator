@@ -5,7 +5,8 @@ class Time extends React.Component {
   constructor (props) {
     super(props)
     this.state = {
-      duration: ''
+      duration: '',
+      disable: true
     }
     this.setTime = this.setTime.bind(this)
     this.handleClick = this.handleClick.bind(this)
@@ -13,7 +14,8 @@ class Time extends React.Component {
 
   setTime (evt) {
     this.setState({
-      duration: evt.target.value
+      duration: evt.target.value,
+      disable: false
     })
   }
 
@@ -48,7 +50,7 @@ class Time extends React.Component {
                     checked={this.state.duration === '>60 min'} onChange={this.setTime} />
                 </label>
               </div>
-              <button type='button' onClick={this.handleClick}>Next</button>
+              <button type='button' onClick={this.handleClick} disabled={this.state.disable}>Next</button>
               <button type='button' onClick={this.props.back}>Back</button>
             </form>
           </div>
