@@ -69,7 +69,7 @@ class Gear extends React.Component {
                   <input className='general-input' type='checkbox' name='box' value='box' onChange={this.setGearList}/>
                 </label>
               </div>
-              <button type='button' onClick={this.makeList} disabled={this.state.disable}>Next</button>
+              <button type='button' onClick={this.makeList}>Next</button>
               <button type='button' onClick={this.props.back}>Back</button>
             </form>
           </div>
