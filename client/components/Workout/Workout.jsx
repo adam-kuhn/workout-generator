@@ -1,6 +1,6 @@
 import React from 'react'
 import request from 'superagent'
-import '.Workout/css'
+import './Workout/css'
 
 class Workout extends React.Component {
   constructor (props) {

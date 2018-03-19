@@ -17,12 +17,12 @@ body {
   padding-left: 1rem;
 }
 
-/* .container {
+.form-container {
   width: 90%;
-  height: 80vh;
+  /* height: 80vh; */
   background-color: orange;
   margin: 5%; 
-} */
+}
 
 .flex-container {
   display: flex;

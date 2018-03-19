@@ -1,5 +1,5 @@
 import React from 'react'
-import '.Home/css'
+import './Home/css'
 class Home extends React.Component {
   constructor (props) {
     super(props)
@@ -20,7 +20,7 @@ class Home extends React.Component {
   }
   render () {
     return (
-      <div className='container'>
+      <div className='form-container'>
         <div className="header">
           <h1>Select Your Style: </h1>
         </div>
