@@ -69,8 +69,6 @@ class Workout extends React.Component {
                 <p>Number of Workouts: {this.state.allWorkouts.length || 0}</p>
               </div>
               <button type='button' onClick={this.anotherWorkout}>Give me Another</button>
-              {/* need to assing onClick=event handler to the button */}
-              <button type='button'>See All</button>
               <button type='button' onClick={this.props.home}>Start Over</button>
             </div>
           </div>
