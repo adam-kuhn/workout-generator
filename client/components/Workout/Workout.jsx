@@ -12,7 +12,7 @@ class Workout extends React.Component {
     this.anotherWorkout = this.anotherWorkout.bind(this)
   }
 
-  randomizeWorkout(workouts) {
+  randomizeWorkout (workouts) {
     const randomNumber = Math.floor(Math.random() * (workouts.length))
     this.setState({
       workoutNumber: randomNumber
@@ -27,21 +27,20 @@ class Workout extends React.Component {
       .then(workout => {
         let noneAvailable = ''
         let allWorkouts = false
-        if (workout.body.result.length < 1){
+        if (workout.body.result.length < 1) {
           noneAvailable = 'There are no workouts based on your selection. Please try again'
+        } else {
+          allWorkouts = workout.body.result
+          this.randomizeWorkout(allWorkouts)
         }
-        else {
-           allWorkouts = workout.body.result
-           this.randomizeWorkout(allWorkouts)
-          }
         this.setState({
           noneAvailable,
           allWorkouts
-        })  
+        })
       })
   }
 
-  anotherWorkout() {
+  anotherWorkout () {
     const nextWorkout = this.state.workoutNumber + 1
     if (nextWorkout === this.state.allWorkouts.length) {
       this.setState({
@@ -70,8 +69,6 @@ class Workout extends React.Component {
                 <p>Number of Workouts: {this.state.allWorkouts.length || 0}</p>
               </div>
               <button type='button' onClick={this.anotherWorkout}>Give me Another</button>
-              {/* need to assing onClick=event handler to the button */}
-              <button type='button'>See All</button>
               <button type='button' onClick={this.props.home}>Start Over</button>
             </div>
           </div>
