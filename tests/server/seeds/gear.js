@@ -9,9 +9,7 @@ exports.seed = function (knex, Promise) {
         {id: 3, equipment: 'pull-up'},
         {id: 4, equipment: 'barbell'},
         {id: 5, equipment: 'box'},
-        {id: 6, equipment: 'sandbag'}, // includes bucket
-        {id: 7, equipment: 'rope'},
-        {id: 8, equipment: 'row'} // rowing maching
+        {id: 6, equipment: 'sandbag'} // includes bucket
       ])
     })
 }

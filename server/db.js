@@ -59,7 +59,12 @@ function getMulti (wodSelection, testDb) {
   const selectedGear = wodSelection.gear
   const db = testDb || connection
   const gearAmount = selectedGear.length
-
+  console.log('testing')
+  console.log('type', selectedType)
+  console.log('time', selectedDuration)
+  console.log('gear', selectedGear)
+  console.log('db', db)
+  console.log('amount', gearAmount)
   const nonMatchingEquipment = db('gear')
     .whereNotIn('equipment', selectedGear).select('equipment')
   // returns instances that have one of the selected items
