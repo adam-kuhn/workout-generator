@@ -10,8 +10,7 @@ class Gear extends React.Component {
       pullUp: '',
       sandbag: '',
       barbell: '',
-      box: '',
-      disable: true
+      box: ''
 
     }
     this.setGearList = this.setGearList.bind(this)
@@ -29,8 +28,7 @@ class Gear extends React.Component {
       })
     } else {
       this.setState({
-        [evt.target.name]: evt.target.value,
-        disable: false
+        [evt.target.name]: evt.target.value
       })
     }
   }
