@@ -16,9 +16,9 @@ exports.seed = function (knex, Promise) {
         {id: 10, workout: 'test10', description: 'description', type: 'Running', time: '>60 min'},
         {id: 11, workout: 'test11', description: 'description', type: 'Running', time: '40-60 min'},
         {id: 12, workout: 'test12', description: 'description', type: 'Running', time: '20-40 min'},
-        {id: 13, workout: 'test13', description: 'description', type: 'Strength', time: '20-40 min'}, // 3 gear (kb, box, pull-up)
+        {id: 13, workout: 'test13', description: 'description', type: 'Strength', time: '>60 min'}, // 3 gear (kb, box, pull-up)
         {id: 14, workout: 'test14', description: 'description', type: 'Strength', time: '>60 min'}, // 3 gear (kb, box, pull-up)
-        {id: 15, workout: 'test15', description: 'description', type: 'Strength', time: '0-20 min'} // 3 gear (kb, box, barbell)
+        {id: 15, workout: 'test15', description: 'description', type: 'Strength', time: '>60 min'} // 3 gear (kb, box, barbell)
       ])
     })
 }
