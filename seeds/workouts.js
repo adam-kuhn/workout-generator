@@ -1,5 +1,4 @@
-
-exports.seed = function(knex, Promise) {
+exports.seed = function (knex, Promise) {
   // Deletes ALL existing entries
   return knex('workouts').del()
     .then(function () {
@@ -29,7 +28,7 @@ exports.seed = function(knex, Promise) {
         {id: 22, workout: 'Boxless', description: 'For Time: 50kb swing, 40 kb goblet lunges, 30 squat jumps, 20 pull ups, 10 burpees', type: 'Strength', time: '0-20 min'},
         {id: 23, workout: 'Leg Day', description: '3x 20 Reverse Lunge (barbell), 15 toes 2 air - E2MOM for 10 min: 1 min wall sit, 1 min plank - 4x 10 step ups (KB), 10 burpee box jump overs', type: 'Strength', time: '40-60 min'},
         {id: 24, workout: 'Strong Legs', description: '3x 20 Reverse Lunge (KB), 15 toes 2 air - E2MOM for 10 min: 1 min wall sit, 1 min plank - 4x 10 step ups (KB), 10 burpee box jump overs', type: 'Strength', time: '40-60 min'},
-        {id: 25, workout: 'HuMan Up', description: 'For Time: 21-15-9 manmakers, pull-ups, burpees', type: 'Strength', time: '0-20 min'},
-      ]);
-    });
-};
+        {id: 25, workout: 'HuMan Up', description: 'For Time: 21-15-9 manmakers, pull-ups, burpees', type: 'Strength', time: '0-20 min'}
+      ])
+    })
+}

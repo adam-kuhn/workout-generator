@@ -1,8 +1,9 @@
-const removeDupes = require('../server/db').removeDuplication
-const howMuchGear = require('../server/db').howMuchGear
-const getNames = require('../server/db').getNames
-const neededGear = require('../server/db').neededGear
-const getRightGearAmount = require('../server/db').getRightGearAmount
+const removeDupes = require('../../server/db').removeDuplication
+const howMuchGear = require('../../server/db').howMuchGear
+const getNames = require('../../server/db').getNames
+const neededGear = require('../../server/db').neededGear
+const getRightGearAmount = require('../../server/db').getRightGearAmount
+
 const allWorkouts = [
   {
     workout: 'x',

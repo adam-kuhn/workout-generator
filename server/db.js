@@ -59,7 +59,6 @@ function getMulti (wodSelection, testDb) {
   const selectedGear = wodSelection.gear
   const db = testDb || connection
   const gearAmount = selectedGear.length
-
   const nonMatchingEquipment = db('gear')
     .whereNotIn('equipment', selectedGear).select('equipment')
   // returns instances that have one of the selected items
@@ -92,7 +91,7 @@ function getMulti (wodSelection, testDb) {
 }
 
 function getRunningWorkout (wodSelection, testDb) {
-  const db = connection || testDb
+  const db = testDb || connection
   const selectedType = wodSelection.type
   const selectedDuration = wodSelection.duration
   return db('workouts')
