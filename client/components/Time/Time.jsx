@@ -1,5 +1,5 @@
 import React from 'react'
-import './Time/css'
+import './Time.css'
 
 class Time extends React.Component {
   constructor (props) {
