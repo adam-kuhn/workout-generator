@@ -11,7 +11,6 @@ class Time extends React.Component {
   }
 
   setTime (evt) {
-    console.log(evt.target.value)
     this.setState({
       duration: evt.target.value
     })
@@ -32,20 +31,20 @@ class Time extends React.Component {
             <form className="general-form">
               <div className='form-body'>
                 <label>0-20 min
-                <input className='general-input' type='radio' name='time' value='0-20 min'
-                  checked={this.state.duration === '0-20 min'} onChange={this.setTime} />
+                  <input className='general-input' type='radio' name='time' value='0-20 min'
+                    checked={this.state.duration === '0-20 min'} onChange={this.setTime} />
                 </label>
                 <label>20-40 min
-                <input className='general-input' type='radio' name='time' value='20-40 min'
-                  checked={this.state.duration === '20-40 min'} onChange={this.setTime} />
+                  <input className='general-input' type='radio' name='time' value='20-40 min'
+                    checked={this.state.duration === '20-40 min'} onChange={this.setTime} />
                 </label>
                 <label>40-60 min
-                <input className='general-input' type='radio' name='time' value='40-60 min'
-                  checked={this.state.duration === '40-60 min'} onChange={this.setTime}/>
+                  <input className='general-input' type='radio' name='time' value='40-60 min'
+                    checked={this.state.duration === '40-60 min'} onChange={this.setTime}/>
                 </label>
                 <label>>60 min
-                <input className='general-input' type='radio' name='time' value='>60 min'
-                  checked={this.state.duration === '>60 min'} onChange={this.setTime} />
+                  <input className='general-input' type='radio' name='time' value='>60 min'
+                    checked={this.state.duration === '>60 min'} onChange={this.setTime} />
                 </label>
               </div>
               <button type='button' onClick={this.handleClick}>Next</button>

@@ -1,5 +1,4 @@
 import React from 'react'
-import request from 'superagent'
 
 class Home extends React.Component {
   constructor (props) {
@@ -30,16 +29,16 @@ class Home extends React.Component {
             <form className="general-form">
               <div className='form-body'>
                 <label>Running
-                <input className='general-input' type='radio' name='type' value='Running'
-                  checked={this.state.workoutType === 'Running'} onChange={this.selectedWorkout}/>
+                  <input className='general-input' type='radio' name='type' value='Running'
+                    checked={this.state.workoutType === 'Running'} onChange={this.selectedWorkout}/>
                 </label>
                 <label>Strength
-                <input className='strength-input' type='radio' name='type' value='Strength'
-                  checked={this.state.workoutType === 'Strength'} onChange={this.selectedWorkout} />
+                  <input className='strength-input' type='radio' name='type' value='Strength'
+                    checked={this.state.workoutType === 'Strength'} onChange={this.selectedWorkout} />
                 </label>
                 <label>OCR
-                <input className='ocr-input' type='radio' name='type' value='OCR'
-                  checked={this.state.workoutType === 'OCR'} onChange={this.selectedWorkout}/>
+                  <input className='ocr-input' type='radio' name='type' value='OCR'
+                    checked={this.state.workoutType === 'OCR'} onChange={this.selectedWorkout}/>
                 </label>
               </div>
               <button type='button' onClick={this.handleClick}>Next</button>
