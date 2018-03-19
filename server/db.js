@@ -91,7 +91,7 @@ function getMulti (wodSelection, testDb) {
 }
 
 function getRunningWorkout (wodSelection, testDb) {
-  const db = connection || testDb
+  const db = testDb || connection
   const selectedType = wodSelection.type
   const selectedDuration = wodSelection.duration
   return db('workouts')
