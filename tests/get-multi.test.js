@@ -1,6 +1,7 @@
 const removeDupes = require('../server/db').removeDuplication
 const howMuchGear = require('../server/db').howMuchGear
 const getNames = require('../server/db').getNames
+const neededGear = require('../server/db').neededGear
 
 const allWorkouts = [
   {
@@ -77,5 +78,21 @@ test('remove dupes, removes duplication', () => {
 test('getNames, returns a list of all iterations of the workout names', () => {
   const expected = ['x', 'x', 'x', 'y', 'z', 'z', 'AA', 'AA']
   const actual = getNames(allWorkouts)
+  expect(actual).toEqual(expected)
+})
+
+test('neededGear returns an of arrays, with like names grouped together', () => {
+  const workoutNames = ['x', 'x', 'x', 'y', 'z', 'z', 'AA', 'AA']
+  const expected = [
+    ['x', 'x', 'x'],
+    ['x', 'x', 'x'],
+    ['x', 'x', 'x'],
+    ['y'],
+    ['z', 'z'],
+    ['z', 'z'],
+    ['AA', 'AA'],
+    ['AA', 'AA']
+  ]
+  const actual = neededGear(workoutNames)
   expect(actual).toEqual(expected)
 })

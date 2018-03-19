@@ -8,7 +8,8 @@ module.exports = {
   getMulti,
   removeDuplication,
   howMuchGear,
-  getNames
+  getNames,
+  neededGear
 }
 
 function removeDuplication (workoutNames) {
@@ -21,6 +22,17 @@ function getNames (allWorkouts) {
     return workout.workout
   })
   return workoutsWithGear
+}
+
+function neededGear (workoutNames) {
+  const amountOfGear = []
+  for (let i = 0; i < workoutNames.length; i++) {
+    const numberOfItems = workoutNames.filter(name => {
+      return name === workoutNames[i]
+    })
+    amountOfGear.push(numberOfItems)
+  }
+  return amountOfGear
 }
 
 function howMuchGear (allWorkouts, gearAmount) {
