@@ -1,4 +1,5 @@
 import React from 'react'
+import './Gear.css'
 
 class Gear extends React.Component {
   constructor (props) {
@@ -41,7 +42,7 @@ class Gear extends React.Component {
 
   render () {
     return (
-      <div className='container'>
+      <div className='form-container'>
         <div className="header">
           <h1>Select Equipment: </h1>
         </div>

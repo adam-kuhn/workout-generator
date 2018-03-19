@@ -1,4 +1,5 @@
 import React from 'react'
+import './Time.css'
 
 class Time extends React.Component {
   constructor (props) {
@@ -22,7 +23,7 @@ class Time extends React.Component {
 
   render () {
     return (
-      <div className='container'>
+      <div className='form-container'>
         <div className="header">
           <h1>Select Duration: </h1>
         </div>

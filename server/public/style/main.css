@@ -2,12 +2,26 @@ body {
   background-color: steelblue;
 }
 
-.container {
+.main-container {
   width: 90%;
   height: 80vh;
-  background-color: orange;
+  background-color: greenyellow;
   margin: 5%;
-  
+  display: flex;
+  flex-wrap: nowrap;
+  flex-direction: column; 
+  justify-content: center;
+  padding-bottom: 4rem;
+}
+
+.main-item {
+  padding-left: 1rem;
+}
+
+.form-container {
+  width: 90%;
+  background-color: orange;
+  margin: 2% 8% 2% 3%; 
 }
 
 .flex-container {
@@ -26,7 +40,7 @@ body {
   align-content: flex-start;
   background-color: red;
   padding: 3rem 0;
-  margin: 0 0 10px 0;
+  margin: 1rem;
 }
 
 label {

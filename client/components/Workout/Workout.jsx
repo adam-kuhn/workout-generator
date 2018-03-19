@@ -1,5 +1,6 @@
 import React from 'react'
 import request from 'superagent'
+import './Workout.css'
 
 class Workout extends React.Component {
   constructor (props) {
@@ -55,7 +56,7 @@ class Workout extends React.Component {
 
   render () {
     return (
-      <div className='container'>
+      <div className='form-container'>
         <div className="header">
           <h1>{this.state.allWorkouts ? this.state.allWorkouts[this.state.workoutNumber].workout : 'Sorry'}</h1>
         </div>
