@@ -6,12 +6,39 @@ const connection = require('knex')(config)
 module.exports = {
   getRunningWorkout,
   getMulti,
-  removeDuplication
+  removeDuplication,
+  howMuchGear,
+  getNames
 }
 
 function removeDuplication (workoutNames) {
   const setNames = new Set(workoutNames)
   return [...setNames]
+}
+
+function getNames (allWorkouts) {
+  const workoutsWithGear = allWorkouts.map(workout => {
+    return workout.workout
+  })
+  return workoutsWithGear
+}
+
+function howMuchGear (allWorkouts, gearAmount) {
+  const workoutsWithGear = getNames(allWorkouts)
+  const amountOfGear = []
+  for (let i = 0; i < workoutsWithGear.length; i++) {
+    const numberOfItems = workoutsWithGear.filter(name => {
+      return name === workoutsWithGear[i]
+    })
+    amountOfGear.push(numberOfItems)
+  }
+  const rightGearAmount = []
+  for (let i = 0; i < amountOfGear.length; i++) {
+    if (amountOfGear[i].length === gearAmount) {
+      rightGearAmount.push(amountOfGear[i][0])
+    }
+    return rightGearAmount
+  }
 }
 
 function getMulti (wodSelection, testDb) {
@@ -33,6 +60,7 @@ function getMulti (wodSelection, testDb) {
     .select('workouts.workout', 'gear.equipment', 'workouts.type', 'workouts.time')
     .then(workouts => {
       const workoutNames = []
+      console.log(workouts)
       for (let i = 0; i < workouts.length; i++) {
         workoutNames.push(workouts[i].workout)
       }
