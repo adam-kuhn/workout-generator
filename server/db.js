@@ -9,7 +9,8 @@ module.exports = {
   removeDuplication,
   howMuchGear,
   getNames,
-  neededGear
+  neededGear,
+  getRightGearAmount
 }
 
 function removeDuplication (workoutNames) {
@@ -35,22 +36,21 @@ function neededGear (workoutNames) {
   return amountOfGear
 }
 
+function getRightGearAmount (amountOfEquipment, gearAmount) {
+  const rightGearAmount = []
+  for (let i = 0; i < amountOfEquipment.length; i++) {
+    if (amountOfEquipment[i].length === gearAmount) {
+      rightGearAmount.push(amountOfEquipment[i][0])
+    }
+  }
+  return rightGearAmount
+}
+
 function howMuchGear (allWorkouts, gearAmount) {
   const workoutsWithGear = getNames(allWorkouts)
-  const amountOfGear = []
-  for (let i = 0; i < workoutsWithGear.length; i++) {
-    const numberOfItems = workoutsWithGear.filter(name => {
-      return name === workoutsWithGear[i]
-    })
-    amountOfGear.push(numberOfItems)
-  }
-  const rightGearAmount = []
-  for (let i = 0; i < amountOfGear.length; i++) {
-    if (amountOfGear[i].length === gearAmount) {
-      rightGearAmount.push(amountOfGear[i][0])
-    }
-    return rightGearAmount
-  }
+  const amountOfEquipment = neededGear(workoutsWithGear)
+  const filteredWorkouts = getRightGearAmount(amountOfEquipment, gearAmount)
+  return filteredWorkouts
 }
 
 function getMulti (wodSelection, testDb) {
