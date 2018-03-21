@@ -44,7 +44,7 @@ body {
 }
 
 .main-title {
-  padding-top: 3rem;
+  padding: 3rem 0 0 1.3rem;
 }
 
 label {
