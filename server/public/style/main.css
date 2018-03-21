@@ -78,6 +78,23 @@ label {
 .input-60 {
   margin-left: 2.5rem;
 }
+.input-none {
+  margin-left: 8.8rem;
+}
+.input-pullup {
+  margin-left: 5.55rem;
+}
+.input-sandbag {
+  margin-left: 3.5rem;
+}
+.input-barbell {
+  margin-left: 7.9rem;
+}
+.input-box {
+  margin-left: 9.4rem;
+}
+
+
 
 button {
   margin: 0.5rem 1rem 0 5rem;
