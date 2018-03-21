@@ -52,7 +52,7 @@ exports.seed = function (knex, Promise) {
         {id: 46, workout: 'Fast like Faye', description: '10 min warm up, 1-2-3-4-5-4-3-2-1 min hard with half the rest (1 min hard, 30s easy, 2 min hard, 1 min easy..etc.,),5 min cool down', type: 'Running', time: '40-60 min'},
         {id: 47, workout: 'Bucket Ready', description: '4x 20 Front Rack Lunges(105 lbs), 3x 20 back extensions - 60s plank, 2x 20 KB step ups - 20 KB clean pull', type: 'Strength', time: '40-60 min'},
         {id: 48, workout: 'Leg Day - Boxless', description: '3x 20 Reverse Lunge (95 lbs) - 15 toes 2 air, E2MOM for 10 min: 1 mil wall sit - 1 mil plank, 4x 10 walking lunges (25 lb) - 10 burpees', type: 'Strength', time: '40-60 min'},
-        {id: 49, workout: 'BW Legs', description: '3x 20 Reverse Lunge - 15 toes 2 air, E2MOM for 10 min: 1 min wall sit - 1 min plank, 4x 10 step ups - 10 burpees', type: 'Strength', time: '40-60 min'},
+        {id: 49, workout: 'BW Legs', description: '3x 20 Reverse Lunge - 15 toes 2 air, E2MOM for 10 min: 1 min wall sit - 1 min plank, 4x 10 step ups - 10 burpees', type: 'Strength', time: '40-60 min'}
       ])
     })
 }

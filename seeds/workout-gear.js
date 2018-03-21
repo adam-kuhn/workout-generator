@@ -33,7 +33,21 @@ exports.seed = function (knex, Promise) {
         {id: 27, workout_id: 24, gear_id: 5}, // Strong Leg: box
         {id: 28, workout_id: 24, gear_id: 3}, // Strong Leg: pull-up bar
         {id: 29, workout_id: 25, gear_id: 2}, // huMan Up: KB
-        {id: 30, workout_id: 25, gear_id: 3} // huMan Up: pull-up bar
+        {id: 30, workout_id: 25, gear_id: 3}, // huMan Up: pull-up bar
+        {id: 31, workout_id: 26, gear_id: 1}, // hit the deck-3.0: none
+        {id: 32, workout_id: 27, gear_id: 1}, // pushamid-3.0: none
+        {id: 33, workout_id: 28, gear_id: 3}, // Hawaiian-3.0: pull-up bar
+        {id: 34, workout_id: 29, gear_id: 3}, // Hill assualt-2.0: pull-up bar
+        {id: 35, workout_id: 30, gear_id: 1}, // Run & Burpee: none
+        {id: 36, workout_id: 31, gear_id: 3}, // Murph: pull-up bar
+        {id: 37, workout_id: 31, gear_id: 3}, // Murph: pull-up bar
+        {id: 38, workout_id: 47, gear_id: 2}, // Bucket Ready: KB/DB
+        {id: 39, workout_id: 47, gear_id: 4}, // Bucket Ready: barbell
+        {id: 40, workout_id: 47, gear_id: 5}, // Bucket Ready: box
+        {id: 41, workout_id: 48, gear_id: 2}, // Leg Day - boxless: KB/DB
+        {id: 42, workout_id: 48, gear_id: 3}, // Leg Day - boxless: pull-up
+        {id: 43, workout_id: 48, gear_id: 4}, // Leg Day - boxless: barbell
+        {id: 44, workout_id: 49, gear_id: 3} // BW Legs: pull-up
       ])
     })
 }
