@@ -43,6 +43,7 @@ body {
   background-color: red;
   padding: 3rem 0;
   margin: 1rem;
+  border-radius: 0.8rem;
 }
 
 .main-title {
@@ -75,8 +76,6 @@ label {
   justify-content: center;
   align-content: flex-start;
 }
-
-
 
 .general-input {
   margin-left: 1rem
