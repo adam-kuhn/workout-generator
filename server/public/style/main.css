@@ -50,6 +50,12 @@ body {
 .wod-title {
   padding: 1rem 0 0 1.3rem;
 }
+.wod-desc {
+  padding-left: 1rem;
+}
+.gear-form {
+  margin-left: -0.5rem
+}
 
 
 label {
@@ -84,19 +90,22 @@ label {
   margin-left: 2.5rem;
 }
 .input-none {
-  margin-left: 8.8rem;
+  margin-left: 9.3rem;
+}
+.input-kb {
+  margin-left: 1.46rem;
 }
 .input-pullup {
-  margin-left: 5.55rem;
+  margin-left: 6.05rem;
 }
 .input-sandbag {
-  margin-left: 3.5rem;
+  margin-left: 4rem;
 }
 .input-barbell {
-  margin-left: 7.9rem;
+  margin-left: 8.4rem;
 }
 .input-box {
-  margin-left: 9.4rem;
+  margin-left: 9.9rem;
 }
 
 

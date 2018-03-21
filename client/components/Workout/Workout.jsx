@@ -64,10 +64,11 @@ class Workout extends React.Component {
           <div className='flex-container'>
             <div className="general-form">
               <div className='form-body'>
-                {/* will have to figure out how to display this nicely */}
-                <p>{this.state.allWorkouts ? this.state.allWorkouts[this.state.workoutNumber].description : this.state.noneAvailable}
-                </p>
-                <p>Number of Workouts: {this.state.allWorkouts.length || 0}</p>
+                <div className='wod-desc'>
+                  <p>{this.state.allWorkouts ? this.state.allWorkouts[this.state.workoutNumber].description : this.state.noneAvailable}
+                  </p>
+                  <p>Number of Workouts: {this.state.allWorkouts.length || 0}</p>
+                </div>
               </div>
               <button type='button' onClick={this.anotherWorkout}>Give me Another</button>
               <button type='button' onClick={this.props.home}>Start Over</button>
