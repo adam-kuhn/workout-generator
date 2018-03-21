@@ -89,7 +89,7 @@ class App extends React.Component {
       <div>
         <div className='main-container'>
           <div className='main-item'>
-            <h1>WOD Generator</h1>
+            <h1 className='main-title'>WOD Generator</h1>
           </div>
           <div className='main-item'>
             {this.state.showHeader && <FormHeader

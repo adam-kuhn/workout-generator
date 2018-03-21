@@ -43,6 +43,10 @@ body {
   margin: 1rem;
 }
 
+.main-title {
+  padding-top: 3rem;
+}
+
 label {
   margin: 0 0 0 2rem;
   font-size: 2rem;
