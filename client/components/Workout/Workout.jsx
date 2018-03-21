@@ -58,7 +58,7 @@ class Workout extends React.Component {
     return (
       <div className='form-container'>
         <div className="header">
-          <h1>{this.state.allWorkouts ? this.state.allWorkouts[this.state.workoutNumber].workout : 'Sorry'}</h1>
+          <h1 className='wod-title'>{this.state.allWorkouts ? this.state.allWorkouts[this.state.workoutNumber].workout : 'Sorry'}</h1>
         </div>
         <div>
           <div className='flex-container'>

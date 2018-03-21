@@ -47,6 +47,10 @@ body {
 .main-title {
   padding: 3rem 0 0 1.3rem;
 }
+.wod-title {
+  padding: 1rem 0 0 1.3rem;
+}
+
 
 label {
   margin: 0 0 0 2rem;
