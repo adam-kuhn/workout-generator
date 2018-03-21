@@ -67,13 +67,10 @@ label {
 
 
 .general-input {
-  margin: 0 1.5rem
-}
-.strength-input {
-  margin: 0 1rem;
+  margin: 0 1rem
 }
 .ocr-input {
-  margin: 0 5.15rem;
+  margin: 0 3.7rem;
 }
 
 button {
