@@ -40,14 +40,13 @@ exports.seed = function (knex, Promise) {
         {id: 34, workout_id: 29, gear_id: 3}, // Hill assualt-2.0: pull-up bar
         {id: 35, workout_id: 30, gear_id: 1}, // Run & Burpee: none
         {id: 36, workout_id: 31, gear_id: 3}, // Murph: pull-up bar
-        {id: 37, workout_id: 31, gear_id: 3}, // Murph: pull-up bar
-        {id: 38, workout_id: 47, gear_id: 2}, // Bucket Ready: KB/DB
-        {id: 39, workout_id: 47, gear_id: 4}, // Bucket Ready: barbell
-        {id: 40, workout_id: 47, gear_id: 5}, // Bucket Ready: box
-        {id: 41, workout_id: 48, gear_id: 2}, // Leg Day - boxless: KB/DB
-        {id: 42, workout_id: 48, gear_id: 3}, // Leg Day - boxless: pull-up
-        {id: 43, workout_id: 48, gear_id: 4}, // Leg Day - boxless: barbell
-        {id: 44, workout_id: 49, gear_id: 3} // BW Legs: pull-up
+        {id: 37, workout_id: 47, gear_id: 2}, // Bucket Ready: KB/DB
+        {id: 38, workout_id: 47, gear_id: 4}, // Bucket Ready: barbell
+        {id: 39, workout_id: 47, gear_id: 5}, // Bucket Ready: box
+        {id: 40, workout_id: 48, gear_id: 2}, // Leg Day - boxless: KB/DB
+        {id: 41, workout_id: 48, gear_id: 3}, // Leg Day - boxless: pull-up
+        {id: 42, workout_id: 48, gear_id: 4}, // Leg Day - boxless: barbell
+        {id: 43, workout_id: 49, gear_id: 3} // BW Legs: pull-up
       ])
     })
 }
