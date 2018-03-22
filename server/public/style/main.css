@@ -114,6 +114,10 @@ button {
   margin: 0.5rem 1rem 0 5.8rem;
   width: 5rem;
   border-radius: 2rem;
+  background-color: #b3b3da;
+  color: #252323;
+  border-color: #8383d4;
+  box-shadow: 1px 1px 0px 0.4px #8383d4;
 }
 
 @media (min-width: 400px) {
@@ -122,6 +126,6 @@ button {
     margin: 0 auto;
   }
   button {
-    margin: 0.5 7.8rem 0 7.8rem;
+    margin: 0.5rem 7.8rem 0 7.4rem;
   }
 }
