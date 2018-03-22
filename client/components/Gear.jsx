@@ -1,5 +1,4 @@
 import React from 'react'
-import './Gear.css'
 
 class Gear extends React.Component {
   constructor (props) {
@@ -49,27 +48,25 @@ class Gear extends React.Component {
         <div>
           <div className='flex-container'>
             <form className="general-form">
-              <div className='form-body'>
-                <div className='gear-form'>
-                  <label className='gear'>None
-                    <input className='input-none' type='checkbox' name='none' value='none' onChange={this.setGearList}/>
-                  </label>
-                  <label className='gear'>Kettle Bell/Dumbbell
-                    <input className='input-kb' type='checkbox' name='kb' value='kb/db' onChange={this.setGearList}/>
-                  </label>
-                  <label className='gear'>Pull-Up Bar
-                    <input className='input-pullup' type='checkbox' name='pullUp' value='pull-up' onChange={this.setGearList}/>
-                  </label>
-                  <label className='gear'>Sandbag/Bucket
-                    <input className='input-sandbag' type='checkbox' name='sandbag' value='sandbag' onChange={this.setGearList}/>
-                  </label>
-                  <label className='gear'>Barbell
-                    <input className='input-barbell' type='checkbox' name='barbell' value='barbell' onChange={this.setGearList}/>
-                  </label>
-                  <label className='gear'>Box
-                    <input className='input-box' type='checkbox' name='box' value='box' onChange={this.setGearList}/>
-                  </label>
-                </div>
+              <div className='form-body gear-form'>
+                <label className='gear'>None
+                  <input className='input-none' type='checkbox' name='none' value='none' onChange={this.setGearList}/>
+                </label>
+                <label className='gear'>Kettle Bell/Dumbbell
+                  <input className='input-kb' type='checkbox' name='kb' value='kb/db' onChange={this.setGearList}/>
+                </label>
+                <label className='gear'>Pull-Up Bar
+                  <input className='input-pullup' type='checkbox' name='pullUp' value='pull-up' onChange={this.setGearList}/>
+                </label>
+                <label className='gear'>Sandbag/Bucket
+                  <input className='input-sandbag' type='checkbox' name='sandbag' value='sandbag' onChange={this.setGearList}/>
+                </label>
+                <label className='gear'>Barbell
+                  <input className='input-barbell' type='checkbox' name='barbell' value='barbell' onChange={this.setGearList}/>
+                </label>
+                <label className='gear'>Box
+                  <input className='input-box' type='checkbox' name='box' value='box' onChange={this.setGearList}/>
+                </label>
               </div>
               <button type='button' onClick={this.makeList}>Next</button>
               <button type='button' onClick={this.props.back}>Back</button>
