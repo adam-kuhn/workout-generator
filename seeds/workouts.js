@@ -28,7 +28,31 @@ exports.seed = function (knex, Promise) {
         {id: 22, workout: 'Boxless', description: 'For Time: 50kb swing, 40 kb goblet lunges, 30 squat jumps, 20 pull ups, 10 burpees', type: 'Strength', time: '0-20 min'},
         {id: 23, workout: 'Leg Day', description: '3x 20 Reverse Lunge (barbell), 15 toes 2 air - E2MOM for 10 min: 1 min wall sit, 1 min plank - 4x 10 step ups (KB), 10 burpee box jump overs', type: 'Strength', time: '40-60 min'},
         {id: 24, workout: 'Strong Legs', description: '3x 20 Reverse Lunge (KB), 15 toes 2 air - E2MOM for 10 min: 1 min wall sit, 1 min plank - 4x 10 step ups (KB), 10 burpee box jump overs', type: 'Strength', time: '40-60 min'},
-        {id: 25, workout: 'HuMan Up', description: 'For Time: 21-15-9 manmakers, pull-ups, burpees', type: 'Strength', time: '0-20 min'}
+        {id: 25, workout: 'HuMan Up', description: 'For Time: 21-15-9 manmakers, pull-ups, burpees', type: 'Strength', time: '0-20 min'},
+        {id: 26, workout: 'Hit the deck-3.0', description: 'Repeat for time: 1 mile run, 20 push-ups, 20 crunches, 20 squats', type: 'OCR', time: '40-60 min'},
+        {id: 27, workout: 'Pushamid-3.0', description: 'Run for desire duration. E5MOM do 5 push-ups. Add 5 push-ups each time. Once unable to do the push-ups unbroken, run 10 min, then E5M0M back down to 0', type: 'OCR', time: '40-60 min'},
+        {id: 28, workout: 'Hawaiian-3.0', description: 'Run for desire duration. Every km, 10 push-ups, 10 burpees, 5 pull-ups, 10 squats', type: 'OCR', time: '40-60 min'},
+        {id: 29, workout: 'Hill Assualt-2.0', description: 'AMRAP: 1 hill climb (60-90s), 10 push-ups at the top, 10 pull ups at the bottom', type: 'OCR', time: '40-60 min'},
+        {id: 30, workout: 'Run & Burpee', description: '10x - run 1 km, 30 burpees', type: 'OCR', time: '>60 min'},
+        {id: 31, workout: 'Murph', description: 'For Time: 1 mile run, 100 pull ups, 200 push-ups, 300 squats, 1 mile run', type: 'OCR', time: '40-60 min'},
+        {id: 32, workout: 'Hill Repeats-2.0', description: '15 min warm up, 10x 1 min Hill Climb - 1 min rest, 10 min cool down', type: 'Running', time: '40-60 min'},
+        {id: 33, workout: 'Hill Sprints-2.0', description: '15 min warm up, 7x 85s hill sprint - 2 min rest, 10 min cool down', type: 'Running', time: '40-60 min'},
+        {id: 34, workout: 'Hill Breakdown-2.0', description: '10 min warm up, 3x 3 min hill, 3x 2 min hill, 3x 1 min hill, 10 min cool down', type: 'Running', time: '40-60 min'},
+        {id: 35, workout: 'Quick Tempo-3.0', description: '15 min warm up, 25 min tempo pace, 10 min cool down', type: 'Running', time: '40-60 min'},
+        {id: 36, workout: 'Long Hill', description: '10 min warm up, 3x 2 km hill - 2 min rest, 5 min cool down', type: 'Running', time: '40-60 min'},
+        {id: 37, workout: 'Tempo-Hill 2', description: '15 min warm up, 3 km tempo, 5x 1 min hill repeats, 10 min cool down', type: 'Running', time: '40-60 min'},
+        {id: 38, workout: 'Short Progression-2.0', description: '10 min warm up, 10 min easy, 10 min mod, 10 min hard, 10 min cool down', type: 'Running', time: '40-60 min'},
+        {id: 39, workout: "1000's", description: '10 min warm up, 5x 1000 m repeats - rest 2:00-2:30, 10 min cool down', type: 'Running', time: '40-60 min'},
+        {id: 40, workout: 'Fartlek', description: '10 min warm up, 7x 1 min hard - 6 min mod', type: 'Running', time: '40-60 min'},
+        {id: 41, workout: 'Speed Play', description: '15 min warm up, 5x 1 min hard - 1 min easy, 5 min easy, 5x 1 min hard - 1 min easy, 10 min cool down', type: 'Running', time: '40-60 min'},
+        {id: 42, workout: 'Fast 3', description: '15 min warm up, 1x 1000 m hard - 2 min rest, 2x 500 m hard - 90s rest, 5x 200 m hard - 60s rest, 10 min cool down', type: 'Running', time: '40-60 min'},
+        {id: 43, workout: "Faye's Hills", description: '10 min warm up, 6x 1-2 min hill followed by 600-800 m hard flat running at the top, 10 min cool down ', type: 'Running', time: '40-60 min'},
+        {id: 44, workout: 'Finishing Kick', description: '15 min warm up, 4x 1000 m hard - 30s rest - 200 m hard - rest 2:30, 10 min cool down ', type: 'Running', time: '40-60 min'},
+        {id: 45, workout: 'Fartlek-amid', description: '10 min warm up, 1-2-3-4-5-4-3-2-1 min hard with equal rest (1 min hard, 1 min easy, 2 min hard, 2 min easy..etc.,)', type: 'Running', time: '40-60 min'},
+        {id: 46, workout: 'Fast like Faye', description: '10 min warm up, 1-2-3-4-5-4-3-2-1 min hard with half the rest (1 min hard, 30s easy, 2 min hard, 1 min easy..etc.,),5 min cool down', type: 'Running', time: '40-60 min'},
+        {id: 47, workout: 'Bucket Ready', description: '4x 20 Front Rack Lunges(105 lbs), 3x 20 back extensions - 60s plank, 2x 20 KB step ups - 20 KB clean pull', type: 'Strength', time: '40-60 min'},
+        {id: 48, workout: 'Leg Day - Boxless', description: '3x 20 Reverse Lunge (95 lbs) - 15 toes 2 air, E2MOM for 10 min: 1 mil wall sit - 1 mil plank, 4x 10 walking lunges (25 lb) - 10 burpees', type: 'Strength', time: '40-60 min'},
+        {id: 49, workout: 'BW Legs', description: '3x 20 Reverse Lunge - 15 toes 2 air, E2MOM for 10 min: 1 min wall sit - 1 min plank, 4x 10 step ups - 10 burpees', type: 'Strength', time: '40-60 min'}
       ])
     })
 }
