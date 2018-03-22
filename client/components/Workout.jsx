@@ -70,6 +70,7 @@ class Workout extends React.Component {
                 </div>
               </div>
               <button type='button' onClick={this.anotherWorkout}>Give me Another</button>
+              <button type='button' onClick={this.props.back}>Back</button>
               <button type='button' onClick={this.props.home}>Start Over</button>
             </div>
           </div>
