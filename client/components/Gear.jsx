@@ -1,5 +1,4 @@
 import React from 'react'
-import './Gear.css'
 
 class Gear extends React.Component {
   constructor (props) {

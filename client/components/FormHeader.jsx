@@ -1,5 +1,4 @@
 import React from 'react'
-import './FormHeader.css'
 
 const FormHeader = (props) => {
   return (

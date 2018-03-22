@@ -2,11 +2,11 @@
 import React from 'react'
 
 // components
-import FormHeader from './FormHeader/FormHeader'
-import Home from './Home/Home'
-import Time from './Time/Time'
-import Gear from './Gear/Gear'
-import Workout from './Workout/Workout'
+import FormHeader from './FormHeader'
+import Home from './Home'
+import Time from './Time'
+import Gear from './Gear'
+import Workout from './Workout'
 
 class App extends React.Component {
   constructor () {
