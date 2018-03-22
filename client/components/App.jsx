@@ -28,6 +28,7 @@ class App extends React.Component {
     // back buttons
     this.backToHome = this.backToHome.bind(this)
     this.backToTime = this.backToTime.bind(this)
+    this.backToGear = this.backToGear.bind(this)
   }
   // get's workout type from Home component
   getType (type) {
@@ -80,7 +81,16 @@ class App extends React.Component {
   backToTime () {
     this.setState({
       showTime: true,
-      showGear: false
+      showGear: false,
+      duration: ''
+    })
+  }
+
+  backToGear () {
+    this.setState({
+      showWorkout: false,
+      showGear: true,
+      gearList: []
     })
   }
 
@@ -111,6 +121,7 @@ class App extends React.Component {
               duration={this.state.duration}/>}
 
             {this.state.showWorkout && <Workout
+              back={this.backToGear}
               type={this.state.workoutType}
               duration={this.state.duration}
               gear={this.state.gearList}
