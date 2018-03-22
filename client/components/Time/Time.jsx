@@ -34,7 +34,7 @@ class Time extends React.Component {
             <form className="general-form">
               <div className='form-body'>
                 <label>0-20 min
-                  <input className='general-input' type='radio' name='time' value='0-20 min'
+                  <input className='input-0-20' type='radio' name='time' value='0-20 min'
                     checked={this.state.duration === '0-20 min'} onChange={this.setTime} />
                 </label>
                 <label>20-40 min
@@ -46,7 +46,7 @@ class Time extends React.Component {
                     checked={this.state.duration === '40-60 min'} onChange={this.setTime}/>
                 </label>
                 <label>&gt;60 min
-                  <input className='general-input' type='radio' name='time' value='>60 min'
+                  <input className='input-60' type='radio' name='time' value='>60 min'
                     checked={this.state.duration === '>60 min'} onChange={this.setTime} />
                 </label>
               </div>
