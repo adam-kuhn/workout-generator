@@ -81,7 +81,8 @@ class App extends React.Component {
   backToTime () {
     this.setState({
       showTime: true,
-      showGear: false
+      showGear: false,
+      duration: ''
     })
   }
 
