@@ -1,6 +1,10 @@
 import {SET_TYPE} from '../actions'
 
-const initialState = {}
+const initialState = {
+  variety: '',
+  duration: '',
+  gear: []
+}
 
 function selection (state = initialState, action) {
   switch (action.type) {

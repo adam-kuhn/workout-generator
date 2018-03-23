@@ -1,4 +1,5 @@
 import React from 'react'
+import {connect} from 'react-redux'
 
 class Time extends React.Component {
   constructor (props) {
@@ -7,11 +8,11 @@ class Time extends React.Component {
       duration: '',
       disable: true
     }
-    this.setTime = this.setTime.bind(this)
+    this.selectedTime = this.selectedTime.bind(this)
     this.handleClick = this.handleClick.bind(this)
   }
 
-  setTime (evt) {
+  selectedTime (evt) {
     this.setState({
       duration: evt.target.value,
       disable: false
@@ -34,19 +35,19 @@ class Time extends React.Component {
               <div className='form-body'>
                 <label>0-20 min
                   <input className='input-0-20' type='radio' name='time' value='0-20 min'
-                    checked={this.state.duration === '0-20 min'} onChange={this.setTime} />
+                    checked={this.state.duration === '0-20 min'} onChange={this.selectedTime} />
                 </label>
                 <label>20-40 min
                   <input className='general-input' type='radio' name='time' value='20-40 min'
-                    checked={this.state.duration === '20-40 min'} onChange={this.setTime} />
+                    checked={this.state.duration === '20-40 min'} onChange={this.selectedTime} />
                 </label>
                 <label>40-60 min
                   <input className='general-input' type='radio' name='time' value='40-60 min'
-                    checked={this.state.duration === '40-60 min'} onChange={this.setTime}/>
+                    checked={this.state.duration === '40-60 min'} onChange={this.selectedTime}/>
                 </label>
                 <label>&gt;60 min
                   <input className='input-60' type='radio' name='time' value='>60 min'
-                    checked={this.state.duration === '>60 min'} onChange={this.setTime} />
+                    checked={this.state.duration === '>60 min'} onChange={this.selectedTime} />
                 </label>
               </div>
               <button type='button' onClick={this.handleClick} disabled={this.state.disable}>Next</button>
@@ -58,4 +59,10 @@ class Time extends React.Component {
     )
   }
 }
-export default Time
+
+function mapStateToProps (state) {
+  return {
+    time: state.time
+  }
+}
+export default connect(mapStateToProps)(Time)
