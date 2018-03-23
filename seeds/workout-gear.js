@@ -46,7 +46,24 @@ exports.seed = function (knex, Promise) {
         {id: 40, workout_id: 48, gear_id: 2}, // Leg Day - boxless: KB/DB
         {id: 41, workout_id: 48, gear_id: 3}, // Leg Day - boxless: pull-up
         {id: 42, workout_id: 48, gear_id: 4}, // Leg Day - boxless: barbell
-        {id: 43, workout_id: 49, gear_id: 3} // BW Legs: pull-up
+        {id: 43, workout_id: 49, gear_id: 3}, // BW Legs: pull-up
+        {id: 44, workout_id: 50, gear_id: 1}, // Hit the deck-1.0: none
+        {id: 45, workout_id: 51, gear_id: 3}, // Hawaiian-1.0: pull-up bar
+        {id: 46, workout_id: 52, gear_id: 1}, // 400 m lunge & squat: none
+        {id: 47, workout_id: 53, gear_id: 1}, // 15x15 A: none
+        {id: 48, workout_id: 54, gear_id: 1}, // Hit the deck-2.0: none
+        {id: 49, workout_id: 55, gear_id: 1}, // JayMan: none
+        {id: 50, workout_id: 56, gear_id: 1}, // Singled Out: none
+        {id: 51, workout_id: 67, gear_id: 1}, // 15x15 C: none
+        {id: 52, workout_id: 68, gear_id: 1}, // Pushamid-4.0: none
+        {id: 53, workout_id: 69, gear_id: 1}, // Hawaiian-4.0: none
+        {id: 54, workout_id: 70, gear_id: 3}, // Hill Assault-3.0: pull up
+        {id: 55, workout_id: 71, gear_id: 3}, // Cwy's Special Bonus: pull up
+        {id: 56, workout_id: 71, gear_id: 6}, // Cwy's Special Bonus: sandbag
+        {id: 57, workout_id: 72, gear_id: 3}, // Cwy's Special Bonus: pull up
+        {id: 58, workout_id: 72, gear_id: 5}, // Cwy's Special Bonus: box
+        {id: 59, workout_id: 72, gear_id: 6}, // Cwy's Special Bonus: sandbag
+        {id: 60, workout_id: 73, gear_id: 1} // JayMan XL: none
       ])
     })
 }
