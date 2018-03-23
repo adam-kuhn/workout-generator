@@ -1,4 +1,4 @@
-// import action string
+import {SET_TYPE} from '../actions'
 
 const initialState = {
   showHeader: false,
@@ -10,6 +10,14 @@ const initialState = {
 
 function display (state = initialState, action) {
   switch (action.type) {
+    case (SET_TYPE): {
+      return {
+        ...state,
+        showHeader: true,
+        showHome: false,
+        showTime: true
+      }
+    }
     default:
       return state
   }

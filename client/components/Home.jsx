@@ -1,5 +1,6 @@
 import React from 'react'
-
+import {connect} from 'react-redux'
+import {setType} from '../actions'
 class Home extends React.Component {
   constructor (props) {
     super(props)
@@ -18,8 +19,9 @@ class Home extends React.Component {
   }
 
   handleClick () {
-    this.props.getType(this.state.workoutType)
+    this.props.dispatch(setType(this.state.workoutType))
   }
+
   render () {
     return (
       <div className='form-container'>
@@ -52,4 +54,4 @@ class Home extends React.Component {
   }
 }
 
-export default Home
+export default connect()(Home)

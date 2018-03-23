@@ -1,6 +1,6 @@
 // Import modules
 import React from 'react'
-
+import {connect} from 'react-redux'
 // components
 import FormHeader from './FormHeader'
 import Home from './Home'
@@ -12,11 +12,6 @@ class App extends React.Component {
   constructor () {
     super()
     this.state = {
-      showHeader: false,
-      showHome: true,
-      showTime: false,
-      showGear: false,
-      showWorkout: false,
       workoutType: '',
       duration: '',
       gearList: []
@@ -102,25 +97,25 @@ class App extends React.Component {
             <h1 className='main-title'>WOD Generator</h1>
           </div>
           <div className='main-item'>
-            {this.state.showHeader && <FormHeader
+            {this.props.display.showHeader && <FormHeader
               type={this.state.workoutType}
               duration={this.state.duration}
               gear={this.state.gearList}/>}
           </div>
           <div className='main-item'>
-            {this.state.showHome && <Home getType={this.getType} />}
+            {this.props.display.showHome && <Home />}
 
-            {this.state.showTime && <Time back={this.backToHome}
+            {this.props.display.showTime && <Time back={this.backToHome}
               time={this.getTime}
               type={this.state.workoutType}/>}
 
-            {this.state.showGear && <Gear
+            {this.props.display.showGear && <Gear
               back={this.backToTime}
               gear={this.getGear}
               type={this.state.workoutType}
               duration={this.state.duration}/>}
 
-            {this.state.showWorkout && <Workout
+            {this.props.display.showWorkout && <Workout
               back={this.backToGear}
               type={this.state.workoutType}
               duration={this.state.duration}
@@ -133,4 +128,10 @@ class App extends React.Component {
   }
 }
 
-export default App
+function mapStateToProps (state) {
+  return {
+    display: state.display
+  }
+}
+
+export default connect(mapStateToProps)(App)
