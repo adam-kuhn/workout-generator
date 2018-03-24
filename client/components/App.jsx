@@ -17,59 +17,17 @@ class App extends React.Component {
       gearList: []
     }
     // setting state from forms
-    this.getType = this.getType.bind(this)
-    this.getTime = this.getTime.bind(this)
     this.getGear = this.getGear.bind(this)
     // back buttons
-    this.backToHome = this.backToHome.bind(this)
     this.backToTime = this.backToTime.bind(this)
     this.backToGear = this.backToGear.bind(this)
   }
-  // get's workout type from Home component
-  getType (type) {
-    this.setState({
-      workoutType: type,
-      showHeader: true,
-      showHome: false,
-      showTime: true
-    })
-  }
 
-  // get's time from Time componenet
-  getTime (time) {
-    // no gear for running workouts so go straight to workout page
-    if (this.state.workoutType === 'Running') {
-      this.setState({
-        duration: time,
-        showTime: false,
-        showWorkout: true
-      })
-    } else {
-      this.setState({
-        duration: time,
-        showTime: false,
-        showGear: true
-      })
-    }
-  }
   getGear (gear) {
     this.setState({
       gearList: gear,
       showGear: false,
       showWorkout: true
-    })
-  }
-  // reverts to initial starting point
-  backToHome () {
-    this.setState({
-      showHeader: false,
-      showHome: true,
-      showTime: false,
-      showGear: false,
-      showWorkout: false,
-      workoutType: '',
-      duration: '',
-      gearList: []
     })
   }
   // display Time form
@@ -97,17 +55,12 @@ class App extends React.Component {
             <h1 className='main-title'>WOD Generator</h1>
           </div>
           <div className='main-item'>
-            {this.props.display.showHeader && <FormHeader
-              type={this.state.workoutType}
-              duration={this.state.duration}
-              gear={this.state.gearList}/>}
+            {this.props.display.showHeader && <FormHeader/>}
           </div>
           <div className='main-item'>
             {this.props.display.showHome && <Home />}
 
-            {this.props.display.showTime && <Time back={this.backToHome}
-              time={this.getTime}
-              type={this.state.workoutType}/>}
+            {this.props.display.showTime && <Time />}
 
             {this.props.display.showGear && <Gear
               back={this.backToTime}
