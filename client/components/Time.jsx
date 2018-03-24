@@ -1,6 +1,8 @@
 import React from 'react'
 import {connect} from 'react-redux'
 
+import {setTime} from '../actions'
+
 class Time extends React.Component {
   constructor (props) {
     super(props)
@@ -20,7 +22,7 @@ class Time extends React.Component {
   }
 
   handleClick () {
-    this.props.time(this.state.duration)
+    this.props.dispatch(setTime(this.state.duration))
   }
 
   render () {
@@ -60,9 +62,4 @@ class Time extends React.Component {
   }
 }
 
-function mapStateToProps (state) {
-  return {
-    time: state.time
-  }
-}
-export default connect(mapStateToProps)(Time)
+export default connect()(Time)
