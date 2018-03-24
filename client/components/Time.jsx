@@ -23,7 +23,7 @@ class Time extends React.Component {
   }
 
   handleClick () {
-    this.props.dispatch(setTime(this.state.duration))
+    this.props.dispatch(setTime(this.props.wodType, this.state.duration))
   }
 
   goBack () {
@@ -67,4 +67,10 @@ class Time extends React.Component {
   }
 }
 
-export default connect()(Time)
+function mapStateToProps (state) {
+  return {
+    wodType: state.selection.variety
+  }
+}
+
+export default connect(mapStateToProps)(Time)

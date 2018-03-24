@@ -19,6 +19,13 @@ function display (state = initialState, action) {
       }
     }
     case (SET_TIME): {
+      if (action.variety === 'Running') {
+        return {
+          ...state,
+          showTime: false,
+          showWorkout: true
+        }
+      }
       return {
         ...state,
         showTime: false,

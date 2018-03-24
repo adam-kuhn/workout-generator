@@ -9,9 +9,10 @@ export const setType = (wodType) => {
   }
 }
 
-export const setTime = (duration) => {
+export const setTime = (variety, duration) => {
   return {
     type: SET_TIME,
+    variety,
     duration
   }
 }
