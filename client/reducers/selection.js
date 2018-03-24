@@ -1,4 +1,4 @@
-import {SET_TYPE, SET_TIME} from '../actions'
+import {SET_TYPE, SET_TIME, BACK_HOME} from '../actions'
 
 const initialState = {
   variety: '',
@@ -19,6 +19,9 @@ function selection (state = initialState, action) {
         ...state,
         duration: action.duration
       }
+    }
+    case (BACK_HOME): {
+      return initialState
     }
     default: {
       return state

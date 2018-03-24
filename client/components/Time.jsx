@@ -1,7 +1,7 @@
 import React from 'react'
 import {connect} from 'react-redux'
 
-import {setTime} from '../actions'
+import {setTime, backHome} from '../actions'
 
 class Time extends React.Component {
   constructor (props) {
@@ -12,6 +12,7 @@ class Time extends React.Component {
     }
     this.selectedTime = this.selectedTime.bind(this)
     this.handleClick = this.handleClick.bind(this)
+    this.goBack = this.goBack.bind(this)
   }
 
   selectedTime (evt) {
@@ -23,6 +24,10 @@ class Time extends React.Component {
 
   handleClick () {
     this.props.dispatch(setTime(this.state.duration))
+  }
+
+  goBack () {
+    this.props.dispatch(backHome())
   }
 
   render () {
@@ -53,7 +58,7 @@ class Time extends React.Component {
                 </label>
               </div>
               <button type='button' onClick={this.handleClick} disabled={this.state.disable}>Next</button>
-              <button type='button' onClick={this.props.back}>Back</button>
+              <button type='button' onClick={this.goBack}>Back</button>
             </form>
           </div>
         </div>
