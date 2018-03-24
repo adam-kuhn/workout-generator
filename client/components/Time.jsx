@@ -23,7 +23,9 @@ class Time extends React.Component {
   }
 
   handleClick () {
-    this.props.dispatch(setTime(this.props.wodType, this.state.duration))
+    this.props.dispatch(
+      setTime(this.props.wodType, this.state.duration)
+    )
   }
 
   goBack () {

@@ -1,4 +1,7 @@
 import React from 'react'
+import {connect} from 'react-redux'
+
+import {selectedGear} from '../actions'
 
 class Gear extends React.Component {
   constructor (props) {
@@ -36,7 +39,7 @@ class Gear extends React.Component {
     const gearList = Object.values(this.state).filter(equipment => {
       return equipment !== ''
     })
-    this.props.gear(gearList)
+    this.props.dispatch(selectedGear(gearList))
   }
 
   render () {
@@ -77,4 +80,4 @@ class Gear extends React.Component {
     )
   }
 }
-export default Gear
+export default connect()(Gear)

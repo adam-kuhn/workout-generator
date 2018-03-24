@@ -1,4 +1,4 @@
-import {SET_TYPE, SET_TIME, BACK_HOME} from '../actions'
+import {SET_TYPE, SET_TIME, SET_GEAR, BACK_HOME} from '../actions'
 
 const initialState = {
   wodType: '',
@@ -18,6 +18,12 @@ function selection (state = initialState, action) {
       return {
         ...state,
         duration: action.duration
+      }
+    }
+    case (SET_GEAR): {
+      return {
+        ...state,
+        gear: action.workouts
       }
     }
     case (BACK_HOME): {

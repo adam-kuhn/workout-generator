@@ -1,5 +1,5 @@
 import React from 'react'
-import request from 'superagent'
+// import request from 'superagent'
 
 class Workout extends React.Component {
   constructor (props) {
@@ -20,24 +20,24 @@ class Workout extends React.Component {
   }
 
   componentDidMount () {
-    request
-      .post('/api/v1/workouts')
-      .set('Content-Type', 'application/json')
-      .send(this.props)
-      .then(workout => {
-        let noneAvailable = ''
-        let allWorkouts = false
-        if (workout.body.result.length < 1) {
-          noneAvailable = 'There are no workouts based on your selection. Please try again'
-        } else {
-          allWorkouts = workout.body.result
-          this.randomizeWorkout(allWorkouts)
-        }
-        this.setState({
-          noneAvailable,
-          allWorkouts
-        })
-      })
+    // request
+    //   .post('/api/v1/workouts')
+    //   .set('Content-Type', 'application/json')
+    //   .send(this.props)
+    // .then(workout => {
+    //   let noneAvailable = ''
+    //   let allWorkouts = false
+    //   if (workout.body.result.length < 1) {
+    //     noneAvailable = 'There are no workouts based on your selection. Please try again'
+    //   } else {
+    //     allWorkouts = workout.body.result
+    //     this.randomizeWorkout(allWorkouts)
+    //   }
+    // this.setState({
+    //   noneAvailable,
+    //   allWorkouts
+    // })
+    // })
   }
 
   anotherWorkout () {
