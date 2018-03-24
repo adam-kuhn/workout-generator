@@ -5,14 +5,14 @@ export const BACK_HOME = 'BACK_HOME'
 export const setType = (wodType) => {
   return {
     type: SET_TYPE,
-    variety: wodType
+    wodType
   }
 }
 
-export const setTime = (variety, duration) => {
+export const setTime = (wodType, duration) => {
   return {
     type: SET_TIME,
-    variety,
+    wodType,
     duration
   }
 }

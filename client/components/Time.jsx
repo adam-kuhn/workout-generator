@@ -69,7 +69,7 @@ class Time extends React.Component {
 
 function mapStateToProps (state) {
   return {
-    wodType: state.selection.variety
+    wodType: state.selection.wodType
   }
 }
 

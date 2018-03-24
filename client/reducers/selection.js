@@ -1,7 +1,7 @@
 import {SET_TYPE, SET_TIME, BACK_HOME} from '../actions'
 
 const initialState = {
-  variety: '',
+  wodType: '',
   duration: '',
   gear: []
 }
@@ -11,7 +11,7 @@ function selection (state = initialState, action) {
     case (SET_TYPE): {
       return {
         ...state,
-        variety: action.variety
+        wodType: action.wodType
       }
     }
     case (SET_TIME): {

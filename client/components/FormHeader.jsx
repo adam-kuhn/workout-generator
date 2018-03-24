@@ -5,7 +5,7 @@ class FormHeader extends React.Component {
   render () {
     return (
       <div>
-        <h1>{this.props.selection.variety}: {this.props.selection.duration}</h1>
+        <h1>{this.props.selection.wodType}: {this.props.selection.duration}</h1>
         {this.props.selection.gear.map(item => {
           return (
             <span key={item}>{item} </span>

@@ -19,7 +19,7 @@ function display (state = initialState, action) {
       }
     }
     case (SET_TIME): {
-      if (action.variety === 'Running') {
+      if (action.wodType === 'Running') {
         return {
           ...state,
           showTime: false,
