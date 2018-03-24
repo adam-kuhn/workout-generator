@@ -2,8 +2,8 @@ import React from 'react'
 import {connect} from 'react-redux'
 import {setType} from '../actions'
 class Home extends React.Component {
-  constructor (props) {
-    super(props)
+  constructor () {
+    super()
     this.state = {
       workoutType: '',
       disable: true

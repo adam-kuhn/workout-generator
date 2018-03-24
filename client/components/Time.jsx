@@ -4,8 +4,8 @@ import {connect} from 'react-redux'
 import {setTime, backHome} from '../actions'
 
 class Time extends React.Component {
-  constructor (props) {
-    super(props)
+  constructor () {
+    super()
     this.state = {
       duration: '',
       disable: true
