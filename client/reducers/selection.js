@@ -23,7 +23,7 @@ function selection (state = initialState, action) {
     case (SET_GEAR): {
       return {
         ...state,
-        gear: action.workouts
+        gear: action.gearList
       }
     }
     case (BACK_HOME): {

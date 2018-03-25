@@ -1,7 +1,7 @@
 import React from 'react'
 import {connect} from 'react-redux'
 
-import {selectedGear} from '../actions'
+import {setGear} from '../actions'
 
 class Gear extends React.Component {
   constructor (props) {
@@ -39,7 +39,7 @@ class Gear extends React.Component {
     const gearList = Object.values(this.state).filter(equipment => {
       return equipment !== ''
     })
-    this.props.dispatch(selectedGear(gearList))
+    this.props.dispatch(setGear(gearList))
   }
 
   render () {

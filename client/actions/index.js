@@ -20,23 +20,11 @@ export const setTime = (wodType, duration) => {
   }
 }
 
-const workoutList = (workouts) => {
+export const setGear = (gearList) => {
   return {
     type: SET_GEAR,
-    workouts
+    gearList
   }
-}
-
-export const selectedGear = (gearList) => {
-  request
-    .post('/api/v1/workouts')
-    .set('Content-Type', 'application/json')
-    .send({gearList})
-    .then(workouts => {
-      return (dispatch) => {
-        return dispatch(workoutList(workouts))
-      }
-    })
 }
 
 export const backHome = () => {
