@@ -1,9 +1,8 @@
-import request from 'superagent'
-
 export const SET_TYPE = 'SET_TYPE'
 export const SET_TIME = 'SET_TIME'
 export const SET_GEAR = 'SET_GEAR'
 export const BACK_HOME = 'BACK_HOME'
+export const BACK_TIME = 'BACK_TIME'
 
 export const setType = (wodType) => {
   return {
@@ -30,5 +29,11 @@ export const setGear = (gearList) => {
 export const backHome = () => {
   return {
     type: BACK_HOME
+  }
+}
+
+export const toTime = () => {
+  return {
+    type: BACK_TIME
   }
 }

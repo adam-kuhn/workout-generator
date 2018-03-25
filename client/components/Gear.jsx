@@ -1,7 +1,7 @@
 import React from 'react'
 import {connect} from 'react-redux'
 
-import {setGear} from '../actions'
+import {setGear, toTime} from '../actions'
 
 class Gear extends React.Component {
   constructor (props) {
@@ -17,6 +17,7 @@ class Gear extends React.Component {
     }
     this.setGearList = this.setGearList.bind(this)
     this.makeList = this.makeList.bind(this)
+    this.backToTime = this.backToTime.bind(this)
   }
   setGearList (evt) {
     if (this.state.none === evt.target.value ||
@@ -40,6 +41,10 @@ class Gear extends React.Component {
       return equipment !== ''
     })
     this.props.dispatch(setGear(gearList))
+  }
+
+  backToTime () {
+    this.props.dispatch(toTime())
   }
 
   render () {
@@ -72,7 +77,7 @@ class Gear extends React.Component {
                 </label>
               </div>
               <button type='button' onClick={this.makeList}>Next</button>
-              <button type='button' onClick={this.props.back}>Back</button>
+              <button type='button' onClick={this.backToTime}>Back</button>
             </form>
           </div>
         </div>

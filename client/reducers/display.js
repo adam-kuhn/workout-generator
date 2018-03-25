@@ -1,4 +1,4 @@
-import {SET_TYPE, SET_TIME, SET_GEAR, BACK_HOME} from '../actions'
+import {SET_TYPE, SET_TIME, SET_GEAR, BACK_HOME, BACK_TIME} from '../actions'
 
 const initialState = {
   showHeader: false,
@@ -41,6 +41,13 @@ function display (state = initialState, action) {
     }
     case (BACK_HOME): {
       return initialState
+    }
+    case (BACK_TIME): {
+      return {
+        ...state,
+        showGear: false,
+        showTime: true
+      }
     }
     default:
       return state
