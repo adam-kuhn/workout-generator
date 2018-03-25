@@ -4,9 +4,12 @@ const router = express.Router()
 const db = require('../db')
 
 router.post('/', (req, res) => {
-  if (req.body.type === 'Running') {
+  if (req.body.wodType === 'Running') {
     db.getRunningWorkout(req.body)
       .then(result => {
+        // const workouts = JSON.stringify(result)
+        // const workouts = JSON.jsonify(result)
+
         res.status(200).send({result})
       })
   } else {

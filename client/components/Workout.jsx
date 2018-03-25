@@ -1,4 +1,7 @@
 import React from 'react'
+import {connect} from 'react-redux'
+
+import {getWorkouts} from '../actions'
 // import request from 'superagent'
 
 class Workout extends React.Component {
@@ -20,6 +23,7 @@ class Workout extends React.Component {
   }
 
   componentDidMount () {
+    this.props.dispatch(getWorkouts(this.props.selection))
     // request
     //   .post('/api/v1/workouts')
     //   .set('Content-Type', 'application/json')
@@ -80,4 +84,10 @@ class Workout extends React.Component {
   }
 }
 
-export default Workout
+function mapStateToProps (state) {
+  return {
+    selection: state.selection
+  }
+}
+
+export default connect(mapStateToProps)(Workout)
