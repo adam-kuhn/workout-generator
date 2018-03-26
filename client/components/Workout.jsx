@@ -15,9 +15,9 @@ class Workout extends React.Component {
     this.anotherWorkout = this.anotherWorkout.bind(this)
   }
 
-  componentDidMount () {
-    this.props.dispatch(getWorkouts(this.props.selection))
-  }
+  // componentDidMount () {
+  //   this.props.dispatch(getWorkouts(this.props.selection))
+  // }
 
   anotherWorkout () {
     const nextWorkout = this.state.workoutNumber + 1
