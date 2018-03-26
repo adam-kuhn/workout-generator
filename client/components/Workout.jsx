@@ -15,13 +15,6 @@ class Workout extends React.Component {
     this.anotherWorkout = this.anotherWorkout.bind(this)
   }
 
-  randomizeWorkout (workouts) {
-    const randomNumber = Math.floor(Math.random() * (workouts.length))
-    this.setState({
-      workoutNumber: randomNumber
-    })
-  }
-
   componentDidMount () {
     this.props.dispatch(getWorkouts(this.props.selection))
   }
@@ -38,19 +31,26 @@ class Workout extends React.Component {
       })
     }
   }
-
+  randomizeWorkout (workouts) {
+    if (workouts.length === 1) {
+      return 0
+    } else {
+      return Math.floor(Math.random() * (workouts.length))
+    }
+  }
   render () {
+    const randomNum = this.randomizeWorkout(this.props.wod) || 0
     return (
       <div className='form-container'>
         <div className="header">
-          <h1 className='wod-title'>{this.props.wod ? this.props.wod.workout : 'Sorry'}</h1>
+          <h1 className='wod-title'>{this.props.wod[randomNum] ? this.props.wod[randomNum].workout : 'Sorry'}</h1>
         </div>
         <div>
           <div className='flex-container'>
             <div className="general-form">
               <div className='form-body'>
                 <div className='wod-desc'>
-                  <p>{this.props.wod ? this.props.wod.description : 'There are no available workouts based on your selection. Please try again.'}
+                  <p>{this.props.wod[randomNum] ? this.props.wod[randomNum].description : 'There are no available workouts based on your selection. Please try again.'}
                   </p>
                   <p>Number of Workouts: {this.props.wod ? this.props.list.length : 0}</p>
                 </div>
@@ -69,7 +69,7 @@ class Workout extends React.Component {
 function mapStateToProps (state) {
   return {
     selection: state.selection,
-    wod: state.workouts.workoutList[0],
+    wod: state.workouts.workoutList,
     list: state.workouts.workoutList
   }
 }
