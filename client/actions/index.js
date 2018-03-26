@@ -5,6 +5,7 @@ export const SET_TIME = 'SET_TIME'
 export const SET_GEAR = 'SET_GEAR'
 export const BACK_HOME = 'BACK_HOME'
 export const BACK_TIME = 'BACK_TIME'
+export const SET_WOD = 'SET_WOD'
 export const SHOW_WOD = 'SHOW_WOD'
 
 export const setType = (wodType) => {
@@ -41,7 +42,7 @@ export const toTime = () => {
   }
 }
 
-const displayWorkouts = (workout) => {
+const showWorkouts = (workout) => {
   return {
     type: SHOW_WOD,
     workoutList: workout.body
@@ -55,7 +56,7 @@ export const getWorkouts = (selection) => {
       .set('Content-Type', 'application/json')
       .send(selection)
       .then(workout => {
-        dispatch(displayWorkouts(workout))
+        dispatch(showWorkouts(workout))
       }
       )
   }

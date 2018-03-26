@@ -7,7 +7,6 @@ import Home from './Home'
 import Time from './Time'
 import Gear from './Gear'
 import Workout from './Workout'
-import Waiting from './Waiting'
 
 class App extends React.Component {
   constructor () {
@@ -44,7 +43,6 @@ class App extends React.Component {
             {this.props.display.showTime && <Time />}
 
             {this.props.display.showGear && <Gear />}
-            {this.props.display.showWaiting && <Waiting />}
             {this.props.display.showWorkout && <Workout />}
           </div>
         </div>

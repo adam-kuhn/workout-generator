@@ -15,9 +15,9 @@ class Workout extends React.Component {
     this.anotherWorkout = this.anotherWorkout.bind(this)
   }
 
-  // componentDidMount () {
-  //   this.props.dispatch(getWorkouts(this.props.selection))
-  // }
+  componentDidMount () {
+    this.props.dispatch(getWorkouts(this.props.selection))
+  }
 
   anotherWorkout () {
     const nextWorkout = this.state.workoutNumber + 1
@@ -52,7 +52,7 @@ class Workout extends React.Component {
                 <div className='wod-desc'>
                   <p>{this.props.wod[randomNum] ? this.props.wod[randomNum].description : 'There are no available workouts based on your selection. Please try again.'}
                   </p>
-                  <p>Number of Workouts: {this.props.wod ? this.props.list.length : 0}</p>
+                  <p>Number of Workouts: {this.props.wod ? this.props.wod.length : 0}</p>
                 </div>
               </div>
               <button type='button' onClick={this.anotherWorkout}>Give me Another</button>

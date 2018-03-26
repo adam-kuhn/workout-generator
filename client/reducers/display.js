@@ -1,4 +1,4 @@
-import {SET_TYPE, SET_TIME, SET_GEAR, SHOW_WOD, BACK_HOME, BACK_TIME} from '../actions'
+import {SET_TYPE, SET_TIME, SET_GEAR, BACK_HOME, BACK_TIME} from '../actions'
 
 const initialState = {
   showHeader: false,
@@ -37,13 +37,6 @@ function display (state = initialState, action) {
       return {
         ...state,
         showGear: false,
-        showWaiting: true
-      }
-    }
-    case (SHOW_WOD): {
-      return {
-        ...state,
-        showWaiting: false,
         showWorkout: true
       }
     }
