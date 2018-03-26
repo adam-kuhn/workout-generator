@@ -1,7 +1,7 @@
 import {SHOW_WOD} from '../actions'
 
 const initialState = {
-  workouts: []
+  workoutList: []
 }
 
 function workouts (state = initialState, action) {

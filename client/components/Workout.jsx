@@ -52,7 +52,7 @@ class Workout extends React.Component {
                 <div className='wod-desc'>
                   <p>{this.props.wod ? this.props.wod.description : 'There are no available workouts based on your selection. Please try again.'}
                   </p>
-                  <p>Number of Workouts: {this.props.wod.length || 0}</p>
+                  <p>Number of Workouts: {this.props.wod ? this.props.list.length : 0}</p>
                 </div>
               </div>
               <button type='button' onClick={this.anotherWorkout}>Give me Another</button>
@@ -69,7 +69,8 @@ class Workout extends React.Component {
 function mapStateToProps (state) {
   return {
     selection: state.selection,
-    wod: state.workouts.workoutList[0]
+    wod: state.workouts.workoutList[0],
+    list: state.workouts.workoutList
   }
 }
 
