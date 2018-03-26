@@ -24,24 +24,6 @@ class Workout extends React.Component {
 
   componentDidMount () {
     this.props.dispatch(getWorkouts(this.props.selection))
-    // request
-    //   .post('/api/v1/workouts')
-    //   .set('Content-Type', 'application/json')
-    //   .send(this.props)
-    // .then(workout => {
-    //   let noneAvailable = ''
-    //   let allWorkouts = false
-    //   if (workout.body.result.length < 1) {
-    //     noneAvailable = 'There are no workouts based on your selection. Please try again'
-    //   } else {
-    //     allWorkouts = workout.body.result
-    //     this.randomizeWorkout(allWorkouts)
-    //   }
-    // this.setState({
-    //   noneAvailable,
-    //   allWorkouts
-    // })
-    // })
   }
 
   anotherWorkout () {
@@ -61,16 +43,16 @@ class Workout extends React.Component {
     return (
       <div className='form-container'>
         <div className="header">
-          <h1 className='wod-title'>{this.state.allWorkouts ? this.state.allWorkouts[this.state.workoutNumber].workout : 'Sorry'}</h1>
+          <h1 className='wod-title'>{this.props.wod ? this.props.wod.workout : 'Sorry'}</h1>
         </div>
         <div>
           <div className='flex-container'>
             <div className="general-form">
               <div className='form-body'>
                 <div className='wod-desc'>
-                  <p>{this.state.allWorkouts ? this.state.allWorkouts[this.state.workoutNumber].description : this.state.noneAvailable}
+                  <p>{this.props.wod ? this.props.wod.description : 'There are no available workouts based on your selection. Please try again.'}
                   </p>
-                  <p>Number of Workouts: {this.state.allWorkouts.length || 0}</p>
+                  <p>Number of Workouts: {this.props.wod.length || 0}</p>
                 </div>
               </div>
               <button type='button' onClick={this.anotherWorkout}>Give me Another</button>
@@ -86,7 +68,8 @@ class Workout extends React.Component {
 
 function mapStateToProps (state) {
   return {
-    selection: state.selection
+    selection: state.selection,
+    wod: state.workouts.workoutList[0]
   }
 }
 

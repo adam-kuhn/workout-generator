@@ -7,10 +7,7 @@ router.post('/', (req, res) => {
   if (req.body.wodType === 'Running') {
     db.getRunningWorkout(req.body)
       .then(result => {
-        // const workouts = JSON.stringify(result)
-        // const workouts = JSON.jsonify(result)
-
-        res.status(200).send({result})
+        res.status(200).send(result)
       })
   } else {
     db.getMulti(req.body)

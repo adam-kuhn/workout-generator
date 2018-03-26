@@ -42,18 +42,14 @@ export const toTime = () => {
 }
 
 const displayWorkouts = (workout) => {
-  console.log(workout)
-  console.log(workout.text[0])
   return {
     type: SHOW_WOD,
-    workout
+    workoutList: workout.body
   }
 }
 
 export const getWorkouts = (selection) => {
   return dispatch => {
-    console.log('here')
-    console.log(selection)
     request
       .post('/api/v1/workouts')
       .set('Content-Type', 'application/json')
