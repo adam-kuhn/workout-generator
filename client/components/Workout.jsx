@@ -1,7 +1,7 @@
 import React from 'react'
 import {connect} from 'react-redux'
 
-import {getWorkouts, backFromWod} from '../actions'
+import {getWorkouts, backFromWod, backHome} from '../actions'
 // import request from 'superagent'
 
 class Workout extends React.Component {
@@ -13,6 +13,7 @@ class Workout extends React.Component {
       workoutNumber: ''
     }
     this.handleBack = this.handleBack.bind(this)
+    this.handleHome = this.handleHome.bind(this)
     this.anotherWorkout = this.anotherWorkout.bind(this)
   }
 
@@ -22,6 +23,9 @@ class Workout extends React.Component {
 
   handleBack () {
     this.props.dispatch(backFromWod(this.props.selection.wodType))
+  }
+  handleHome () {
+    this.props.dispatch(backHome())
   }
   anotherWorkout () {
     const nextWorkout = this.state.workoutNumber + 1
@@ -61,7 +65,7 @@ class Workout extends React.Component {
               </div>
               <button type='button' onClick={this.anotherWorkout}>Give me Another</button>
               <button type='button' onClick={this.handleBack}>Back</button>
-              <button type='button' onClick={this.props.home}>Start Over</button>
+              <button type='button' onClick={this.handleHome}>Start Over</button>
             </div>
           </div>
         </div>
