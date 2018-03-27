@@ -5,13 +5,8 @@ import {getWorkouts, backFromWod, backHome} from '../actions'
 // import request from 'superagent'
 
 class Workout extends React.Component {
-  constructor (props) {
-    super(props)
-    this.state = {
-      noneAvailable: '',
-      allWorkouts: '',
-      workoutNumber: ''
-    }
+  constructor () {
+    super()
     this.handleBack = this.handleBack.bind(this)
     this.handleHome = this.handleHome.bind(this)
     this.anotherWorkout = this.anotherWorkout.bind(this)
