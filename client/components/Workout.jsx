@@ -69,8 +69,7 @@ class Workout extends React.Component {
 function mapStateToProps (state) {
   return {
     selection: state.selection,
-    wod: state.workouts.workoutList,
-    list: state.workouts.workoutList
+    wod: state.workouts.workoutList
   }
 }
 
