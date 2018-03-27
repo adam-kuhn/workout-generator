@@ -5,6 +5,7 @@ export const SET_TIME = 'SET_TIME'
 export const SET_GEAR = 'SET_GEAR'
 export const BACK_HOME = 'BACK_HOME'
 export const BACK_TIME = 'BACK_TIME'
+export const BACK_FROM_WOD = 'BACK_FROM_WOD'
 export const SET_WOD = 'SET_WOD'
 export const SHOW_WOD = 'SHOW_WOD'
 
@@ -39,6 +40,13 @@ export const backHome = () => {
 export const toTime = () => {
   return {
     type: BACK_TIME
+  }
+}
+
+export const backFromWod = (wodType) => {
+  return {
+    type: BACK_FROM_WOD,
+    wodType
   }
 }
 

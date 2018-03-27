@@ -1,4 +1,5 @@
-import {SET_TYPE, SET_TIME, SET_GEAR, BACK_HOME, BACK_TIME} from '../actions'
+import {SET_TYPE, SET_TIME, SET_GEAR,
+  BACK_HOME, BACK_TIME, BACK_FROM_WOD} from '../actions'
 
 const initialState = {
   showHeader: false,
@@ -48,6 +49,20 @@ function display (state = initialState, action) {
         ...state,
         showGear: false,
         showTime: true
+      }
+    }
+    case (BACK_FROM_WOD): {
+      if (action.wodType === 'Running') {
+        return {
+          ...state,
+          showTime: true,
+          showWorkout: false
+        }
+      }
+      return {
+        ...state,
+        showGear: true,
+        showWorkout: false
       }
     }
     default:

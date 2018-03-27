@@ -1,4 +1,5 @@
-import {SET_TYPE, SET_TIME, SET_GEAR, BACK_HOME, BACK_TIME} from '../actions'
+import {SET_TYPE, SET_TIME, SET_GEAR, BACK_HOME,
+  BACK_TIME, BACK_FROM_WOD} from '../actions'
 
 const initialState = {
   wodType: '',
@@ -33,6 +34,18 @@ function selection (state = initialState, action) {
       return {
         ...state,
         duration: ''
+      }
+    }
+    case (BACK_FROM_WOD): {
+      if (action.wodType === 'Running') {
+        return {
+          ...state,
+          duration: ''
+        }
+      }
+      return {
+        ...state,
+        gear: []
       }
     }
     default: {
