@@ -8,6 +8,7 @@ export const BACK_TIME = 'BACK_TIME'
 export const BACK_FROM_WOD = 'BACK_FROM_WOD'
 export const SET_WOD = 'SET_WOD'
 export const SHOW_WOD = 'SHOW_WOD'
+export const WOD_NUM = 'WOD_NUM'
 
 export const setType = (wodType) => {
   return {
@@ -67,5 +68,12 @@ export const getWorkouts = (selection) => {
         dispatch(showWorkouts(workout))
       }
       )
+  }
+}
+
+export const wodNumber = (number) => {
+  return {
+    type: WOD_NUM,
+    number
   }
 }

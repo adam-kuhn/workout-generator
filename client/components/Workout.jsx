@@ -1,8 +1,7 @@
 import React from 'react'
 import {connect} from 'react-redux'
 
-import {getWorkouts, backFromWod, backHome} from '../actions'
-// import request from 'superagent'
+import {getWorkouts, backFromWod, backHome, wodNumber} from '../actions'
 
 class Workout extends React.Component {
   constructor () {
@@ -23,26 +22,32 @@ class Workout extends React.Component {
     this.props.dispatch(backHome())
   }
   anotherWorkout () {
-    const nextWorkout = this.state.workoutNumber + 1
-    if (nextWorkout === this.state.allWorkouts.length) {
-      this.setState({
-        workoutNumber: 0
-      })
-    } else {
-      this.setState({
-        workoutNumber: nextWorkout
-      })
-    }
+    console.log('num', this.props.wodNumber)
+  //   const nextWorkout = this.state.workoutNumber + 1
+  //   if (nextWorkout === this.state.allWorkouts.length) {
+  //     this.setState({
+  //       workoutNumber: 0
+  //     })
+  //   } else {
+  //     this.setState({
+  //       workoutNumber: nextWorkout
+  //     })
+  //   }
   }
   randomizeWorkout (workouts) {
     if (workouts.length === 1) {
-      return 0
+      this.setState({
+        randomNum: 0
+      })
     } else {
-      return Math.floor(Math.random() * (workouts.length))
+      this.setState({
+        randomNum: Math.floor(Math.random() * (workouts.length))
+      })
     }
   }
   render () {
     const randomNum = this.randomizeWorkout(this.props.wod) || 0
+    this.props.dispatch(wodNumber(randomNum))
     return (
       <div className='form-container'>
         <div className="header">
@@ -72,7 +77,8 @@ class Workout extends React.Component {
 function mapStateToProps (state) {
   return {
     selection: state.selection,
-    wod: state.workouts.workoutList
+    wod: state.workouts.workoutList,
+    wodNumber: state.workouts.wodNumber
   }
 }
 

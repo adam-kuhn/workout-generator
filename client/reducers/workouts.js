@@ -1,14 +1,22 @@
-import {SHOW_WOD, BACK_HOME} from '../actions'
+import {SHOW_WOD, BACK_HOME, WOD_NUM} from '../actions'
 
 const initialState = {
-  workoutList: []
+  workoutList: [],
+  wodNumber: ''
 }
 
 function workouts (state = initialState, action) {
   switch (action.type) {
     case (SHOW_WOD): {
       return {
+        ...state,
         workoutList: action.workoutList
+      }
+    }
+    case (WOD_NUM): {
+      return {
+        ...state,
+        wodNumber: action.number
       }
     }
     case (BACK_HOME): {
