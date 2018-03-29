@@ -5,18 +5,22 @@ const initialState = {
   wodNumber: ''
 }
 
+function randomizeWorkout (workouts) {
+  if (workouts.length === 1) {
+    return 0
+  } else {
+    return Math.floor(Math.random() * (workouts.length))
+  }
+}
+
 function workouts (state = initialState, action) {
   switch (action.type) {
     case (SHOW_WOD): {
+      const randomNum = randomizeWorkout(action.workoutList)
       return {
         ...state,
-        workoutList: action.workoutList
-      }
-    }
-    case (WOD_NUM): {
-      return {
-        ...state,
-        wodNumber: action.number
+        workoutList: action.workoutList,
+        wodNumber: randomNum
       }
     }
     case (BACK_HOME): {
