@@ -1,7 +1,7 @@
 import React from 'react'
 import {connect} from 'react-redux'
 
-import {getWorkouts, backFromWod, backHome} from '../actions'
+import {getWorkouts, backFromWod, backHome, newNumber} from '../actions'
 
 class Workout extends React.Component {
   constructor () {
@@ -22,6 +22,7 @@ class Workout extends React.Component {
     this.props.dispatch(backHome())
   }
   anotherWorkout () {
+    this.props.dispatch(newNumber(this.props.wodNumber, this.props.wod))
   }
   render () {
     return (
