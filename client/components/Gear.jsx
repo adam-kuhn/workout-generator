@@ -57,24 +57,16 @@ class Gear extends React.Component {
           <div className='flex-container'>
             <form className="general-form">
               <div className='form-body gear-form'>
-                <label className='gear'>None
-                  <input className='input-none' type='checkbox' name='none' value='none' onChange={this.setGearList}/>
-                </label>
-                <label className='gear'>Kettle Bell/Dumbbell
-                  <input className='input-kb' type='checkbox' name='kb' value='kb/db' onChange={this.setGearList}/>
-                </label>
-                <label className='gear'>Pull-Up Bar
-                  <input className='input-pullup' type='checkbox' name='pullUp' value='pull-up' onChange={this.setGearList}/>
-                </label>
-                <label className='gear'>Sandbag/Bucket
-                  <input className='input-sandbag' type='checkbox' name='sandbag' value='sandbag' onChange={this.setGearList}/>
-                </label>
-                <label className='gear'>Barbell
-                  <input className='input-barbell' type='checkbox' name='barbell' value='barbell' onChange={this.setGearList}/>
-                </label>
-                <label className='gear'>Box
-                  <input className='input-box' type='checkbox' name='box' value='box' onChange={this.setGearList}/>
-                </label>
+                {this.props.gear.map(item => {
+                  return (
+                    <label key={item.id} className='gear'>{item.text}
+                      <input className={`input-${item.name}`}
+                        type='checkbox' name={item.name} value=
+                          {item.value} onChange={this.setGearList} />
+                    </label>
+                  )
+                }
+                )}
               </div>
               <button type='button' onClick={this.makeList}>Next</button>
               <button type='button' onClick={this.backToTime}>Back</button>
@@ -85,4 +77,10 @@ class Gear extends React.Component {
     )
   }
 }
-export default connect()(Gear)
+
+function mapStateToProps (state) {
+  return {
+    gear: state.gear.list
+  }
+}
+export default connect(mapStateToProps)(Gear)
