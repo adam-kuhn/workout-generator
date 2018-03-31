@@ -1,5 +1,6 @@
-import {SET_TYPE, SET_TIME, SET_GEAR,
+import {
   BACK_HOME, BACK_TIME, BACK_FROM_WOD} from '../actions'
+import {SET_TYPE, SET_TIME, SET_GEAR} from '../actions/selection'
 
 const initialState = {
   showHeader: false,

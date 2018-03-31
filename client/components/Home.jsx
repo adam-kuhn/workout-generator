@@ -1,6 +1,7 @@
 import React from 'react'
 import {connect} from 'react-redux'
-import {setType} from '../actions'
+import {setType} from '../actions/selection'
+
 class Home extends React.Component {
   constructor () {
     super()
