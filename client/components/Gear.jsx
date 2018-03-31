@@ -1,8 +1,8 @@
 import React from 'react'
 import {connect} from 'react-redux'
 
-import {toTime} from '../actions'
 import {setGear} from '../actions/selection'
+import {toTime} from '../actions/back'
 
 class Gear extends React.Component {
   constructor (props) {

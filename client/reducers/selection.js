@@ -1,7 +1,5 @@
-import {BACK_HOME,
-  BACK_TIME, BACK_FROM_WOD} from '../actions'
-
 import {SET_TYPE, SET_TIME, SET_GEAR} from '../actions/selection'
+import {BACK_HOME, BACK_TIME, BACK_FROM_WOD} from '../actions/back'
 
 const initialState = {
   wodType: '',

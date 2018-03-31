@@ -1,8 +1,8 @@
 import React from 'react'
 import {connect} from 'react-redux'
 
-import {backHome} from '../actions'
 import {setTime} from '../actions/selection'
+import {backHome} from '../actions/back'
 
 class Time extends React.Component {
   constructor () {
