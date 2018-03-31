@@ -1,4 +1,4 @@
-import {SHOW_WOD, BACK_HOME, NEW_NUM} from '../actions'
+import {SHOW_WOD, BACK_HOME, NEW_NUM} from '../actions/workout'
 
 const initialState = {
   workoutList: [],

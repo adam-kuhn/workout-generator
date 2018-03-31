@@ -1,8 +1,8 @@
 import React from 'react'
 import {connect} from 'react-redux'
 
-import {getWorkouts, newNumber} from '../actions'
 import {backFromWod, backHome} from '../actions/back'
+import {getWorkouts, newNumber} from '../actions/workout'
 
 class Workout extends React.Component {
   constructor () {
