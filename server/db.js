@@ -54,7 +54,7 @@ function howMuchGear (allWorkouts, gearAmount) {
 }
 
 function getMulti (wodSelection, testDb) {
-  const selectedType = wodSelection.type
+  const selectedType = wodSelection.wodType
   const selectedDuration = wodSelection.duration
   const selectedGear = wodSelection.gear
   const db = testDb || connection
@@ -92,7 +92,7 @@ function getMulti (wodSelection, testDb) {
 
 function getRunningWorkout (wodSelection, testDb) {
   const db = testDb || connection
-  const selectedType = wodSelection.type
+  const selectedType = wodSelection.wodType
   const selectedDuration = wodSelection.duration
   return db('workouts')
     .where({

@@ -1,4 +1,8 @@
 import React from 'react'
+import {connect} from 'react-redux'
+
+import {setGear} from '../actions/selection'
+import {toTime} from '../actions/back'
 
 class Gear extends React.Component {
   constructor (props) {
@@ -14,6 +18,7 @@ class Gear extends React.Component {
     }
     this.setGearList = this.setGearList.bind(this)
     this.makeList = this.makeList.bind(this)
+    this.backToTime = this.backToTime.bind(this)
   }
   setGearList (evt) {
     if (this.state.none === evt.target.value ||
@@ -36,7 +41,11 @@ class Gear extends React.Component {
     const gearList = Object.values(this.state).filter(equipment => {
       return equipment !== ''
     })
-    this.props.gear(gearList)
+    this.props.dispatch(setGear(gearList))
+  }
+
+  backToTime () {
+    this.props.dispatch(toTime())
   }
 
   render () {
@@ -49,27 +58,19 @@ class Gear extends React.Component {
           <div className='flex-container'>
             <form className="general-form">
               <div className='form-body gear-form'>
-                <label className='gear'>None
-                  <input className='input-none' type='checkbox' name='none' value='none' onChange={this.setGearList}/>
-                </label>
-                <label className='gear'>Kettle Bell/Dumbbell
-                  <input className='input-kb' type='checkbox' name='kb' value='kb/db' onChange={this.setGearList}/>
-                </label>
-                <label className='gear'>Pull-Up Bar
-                  <input className='input-pullup' type='checkbox' name='pullUp' value='pull-up' onChange={this.setGearList}/>
-                </label>
-                <label className='gear'>Sandbag/Bucket
-                  <input className='input-sandbag' type='checkbox' name='sandbag' value='sandbag' onChange={this.setGearList}/>
-                </label>
-                <label className='gear'>Barbell
-                  <input className='input-barbell' type='checkbox' name='barbell' value='barbell' onChange={this.setGearList}/>
-                </label>
-                <label className='gear'>Box
-                  <input className='input-box' type='checkbox' name='box' value='box' onChange={this.setGearList}/>
-                </label>
+                {this.props.gear.map(item => {
+                  return (
+                    <label key={item.id} className='gear'>{item.text}
+                      <input className={`input-${item.name}`}
+                        type='checkbox' name={item.name} value=
+                          {item.value} onChange={this.setGearList} />
+                    </label>
+                  )
+                }
+                )}
               </div>
               <button type='button' onClick={this.makeList}>Next</button>
-              <button type='button' onClick={this.props.back}>Back</button>
+              <button type='button' onClick={this.backToTime}>Back</button>
             </form>
           </div>
         </div>
@@ -77,4 +78,10 @@ class Gear extends React.Component {
     )
   }
 }
-export default Gear
+
+function mapStateToProps (state) {
+  return {
+    gear: state.gear.list
+  }
+}
+export default connect(mapStateToProps)(Gear)

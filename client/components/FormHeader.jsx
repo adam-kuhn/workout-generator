@@ -1,16 +1,25 @@
 import React from 'react'
+import {connect} from 'react-redux'
 
-const FormHeader = (props) => {
-  return (
-    <div>
-      <h1>{props.type}: {props.duration}</h1>
-      {props.gear.map(item => {
-        return (
-          <span key={item}>{item} </span>
-        )
-      })}
-    </div>
-  )
+class FormHeader extends React.Component {
+  render () {
+    return (
+      <div>
+        <h1>{this.props.selection.wodType}: {this.props.selection.duration}</h1>
+        {this.props.selection.gear.map(item => {
+          return (
+            <span key={item}>{item} </span>
+          )
+        })}
+      </div>
+    )
+  }
 }
 
-export default FormHeader
+function mapStateToProps (state) {
+  return {
+    selection: state.selection
+  }
+}
+
+export default connect(mapStateToProps)(FormHeader)

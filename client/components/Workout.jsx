@@ -1,77 +1,49 @@
 import React from 'react'
-import request from 'superagent'
+import {connect} from 'react-redux'
+
+import {backFromWod, backHome} from '../actions/back'
+import {getWorkouts, newNumber} from '../actions/workout'
 
 class Workout extends React.Component {
-  constructor (props) {
-    super(props)
-    this.state = {
-      noneAvailable: '',
-      allWorkouts: '',
-      workoutNumber: ''
-    }
+  constructor () {
+    super()
+    this.handleBack = this.handleBack.bind(this)
+    this.handleHome = this.handleHome.bind(this)
     this.anotherWorkout = this.anotherWorkout.bind(this)
   }
 
-  randomizeWorkout (workouts) {
-    const randomNumber = Math.floor(Math.random() * (workouts.length))
-    this.setState({
-      workoutNumber: randomNumber
-    })
-  }
-
   componentDidMount () {
-    request
-      .post('/api/v1/workouts')
-      .set('Content-Type', 'application/json')
-      .send(this.props)
-      .then(workout => {
-        let noneAvailable = ''
-        let allWorkouts = false
-        if (workout.body.result.length < 1) {
-          noneAvailable = 'There are no workouts based on your selection. Please try again'
-        } else {
-          allWorkouts = workout.body.result
-          this.randomizeWorkout(allWorkouts)
-        }
-        this.setState({
-          noneAvailable,
-          allWorkouts
-        })
-      })
+    this.props.dispatch(getWorkouts(this.props.selection))
   }
 
+  handleBack () {
+    this.props.dispatch(backFromWod(this.props.selection.wodType))
+  }
+  handleHome () {
+    this.props.dispatch(backHome())
+  }
   anotherWorkout () {
-    const nextWorkout = this.state.workoutNumber + 1
-    if (nextWorkout === this.state.allWorkouts.length) {
-      this.setState({
-        workoutNumber: 0
-      })
-    } else {
-      this.setState({
-        workoutNumber: nextWorkout
-      })
-    }
+    this.props.dispatch(newNumber(this.props.wodNumber, this.props.wod))
   }
-
   render () {
     return (
       <div className='form-container'>
         <div className="header">
-          <h1 className='wod-title'>{this.state.allWorkouts ? this.state.allWorkouts[this.state.workoutNumber].workout : 'Sorry'}</h1>
+          <h1 className='wod-title'>{this.props.wod[this.props.wodNumber] ? this.props.wod[this.props.wodNumber].workout : 'Sorry'}</h1>
         </div>
         <div>
           <div className='flex-container'>
             <div className="general-form">
               <div className='form-body'>
                 <div className='wod-desc'>
-                  <p>{this.state.allWorkouts ? this.state.allWorkouts[this.state.workoutNumber].description : this.state.noneAvailable}
+                  <p>{this.props.wod[this.props.wodNumber] ? this.props.wod[this.props.wodNumber].description : 'There are no available workouts based on your selection. Please try again.'}
                   </p>
-                  <p>Number of Workouts: {this.state.allWorkouts.length || 0}</p>
+                  <p>Number of Workouts: {this.props.wod ? this.props.wod.length : 0}</p>
                 </div>
               </div>
               <button type='button' onClick={this.anotherWorkout}>Give me Another</button>
-              <button type='button' onClick={this.props.back}>Back</button>
-              <button type='button' onClick={this.props.home}>Start Over</button>
+              <button type='button' onClick={this.handleBack}>Back</button>
+              <button type='button' onClick={this.handleHome}>Start Over</button>
             </div>
           </div>
         </div>
@@ -80,4 +52,12 @@ class Workout extends React.Component {
   }
 }
 
-export default Workout
+function mapStateToProps (state) {
+  return {
+    selection: state.selection,
+    wod: state.workouts.workoutList,
+    wodNumber: state.workouts.wodNumber
+  }
+}
+
+export default connect(mapStateToProps)(Workout)

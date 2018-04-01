@@ -1,17 +1,22 @@
 import React from 'react'
+import {connect} from 'react-redux'
+
+import {setTime} from '../actions/selection'
+import {backHome} from '../actions/back'
 
 class Time extends React.Component {
-  constructor (props) {
-    super(props)
+  constructor () {
+    super()
     this.state = {
       duration: '',
       disable: true
     }
-    this.setTime = this.setTime.bind(this)
+    this.selectedTime = this.selectedTime.bind(this)
     this.handleClick = this.handleClick.bind(this)
+    this.goBack = this.goBack.bind(this)
   }
 
-  setTime (evt) {
+  selectedTime (evt) {
     this.setState({
       duration: evt.target.value,
       disable: false
@@ -19,7 +24,13 @@ class Time extends React.Component {
   }
 
   handleClick () {
-    this.props.time(this.state.duration)
+    this.props.dispatch(
+      setTime(this.props.wodType, this.state.duration)
+    )
+  }
+
+  goBack () {
+    this.props.dispatch(backHome())
   }
 
   render () {
@@ -34,23 +45,23 @@ class Time extends React.Component {
               <div className='form-body'>
                 <label>0-20 min
                   <input className='input-0-20' type='radio' name='time' value='0-20 min'
-                    checked={this.state.duration === '0-20 min'} onChange={this.setTime} />
+                    checked={this.state.duration === '0-20 min'} onChange={this.selectedTime} />
                 </label>
                 <label>20-40 min
                   <input className='general-input' type='radio' name='time' value='20-40 min'
-                    checked={this.state.duration === '20-40 min'} onChange={this.setTime} />
+                    checked={this.state.duration === '20-40 min'} onChange={this.selectedTime} />
                 </label>
                 <label>40-60 min
                   <input className='general-input' type='radio' name='time' value='40-60 min'
-                    checked={this.state.duration === '40-60 min'} onChange={this.setTime}/>
+                    checked={this.state.duration === '40-60 min'} onChange={this.selectedTime}/>
                 </label>
                 <label>&gt;60 min
                   <input className='input-60' type='radio' name='time' value='>60 min'
-                    checked={this.state.duration === '>60 min'} onChange={this.setTime} />
+                    checked={this.state.duration === '>60 min'} onChange={this.selectedTime} />
                 </label>
               </div>
               <button type='button' onClick={this.handleClick} disabled={this.state.disable}>Next</button>
-              <button type='button' onClick={this.props.back}>Back</button>
+              <button type='button' onClick={this.goBack}>Back</button>
             </form>
           </div>
         </div>
@@ -58,4 +69,11 @@ class Time extends React.Component {
     )
   }
 }
-export default Time
+
+function mapStateToProps (state) {
+  return {
+    wodType: state.selection.wodType
+  }
+}
+
+export default connect(mapStateToProps)(Time)
