@@ -81,34 +81,37 @@ label {
 }
 
 .general-input {
+  margin-left: 1.1rem
+}
+.strength-input {
   margin-left: 1rem
 }
 .ocr-input {
-  margin-left: 3.7rem;
+  margin-left: 4.1rem;
 }
 .input-0-20 {
-  margin-left: 1.95rem;
+  margin-left: 2.2rem;
 }
 .input-60 {
-  margin-left: 2.5rem;
+  margin-left: 2.8rem;
 }
 .input-none {
-  margin-left: 9.3rem;
+  margin-left: 9.32rem;
 }
 .input-kb {
-  margin-left: 1.46rem;
+  margin-left: 1.35rem;
 }
 .input-pullUp {
   margin-left: 6.05rem;
 }
 .input-sandbag {
-  margin-left: 4rem;
+  margin-left: 3.35rem;
 }
 .input-barbell {
-  margin-left: 8.4rem;
+  margin-left: 8.5rem;
 }
 .input-box {
-  margin-left: 9.9rem;
+  margin-left: 10.15rem;
 }
 
 
