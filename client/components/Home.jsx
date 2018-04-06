@@ -38,7 +38,7 @@ class Home extends React.Component {
                     checked={this.state.workoutType === 'Running'} onChange={this.selectedWorkout}/>
                 </label>
                 <label>Strength
-                  <input className='general-input' type='radio' name='type' value='Strength'
+                  <input className='strength-input' type='radio' name='type' value='Strength'
                     checked={this.state.workoutType === 'Strength'} onChange={this.selectedWorkout} />
                 </label>
                 <label>OCR
