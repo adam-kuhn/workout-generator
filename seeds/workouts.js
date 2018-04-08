@@ -81,7 +81,10 @@ exports.seed = function (knex, Promise) {
         {id: 75, workout: 'Long Hill', description: '15 min warm up, 3x 2 km hill - 2 min rest, 10 min cool down', type: 'Running', time: '>60 min'},
         {id: 76, workout: 'Progression 2.0', description: '15 min warm up, 20 min easy, 20 min mod, 20 min hard, 10 min cool down', type: 'Running', time: '>60 min'},
         {id: 77, workout: 'Long Progression', description: '30 min easy, 30 min mod, 30 min hard, 10 min cool down', type: 'Running', time: '>60 min'},
-        {id: 78, workout: 'Long Fartlek', description: '15 min warm up, 10x 1 min hard, 6 min mod', type: 'Running', time: '>60 min'}
+        {id: 78, workout: 'Long Fartlek', description: '15 min warm up, 10x 1 min hard, 6 min mod', type: 'Running', time: '>60 min'},
+        {id: 79, workout: 'Spartan KB', description: '5 Rounds: 200 m run - 2x KB clean and press (each side) - 5x Goblet Squat - 20 KB swings - rest 2 min', type: 'OCR', time: '0-20 min'},
+        {id: 80, workout: 'Farmer Squat', description: '5 Rounds: suit case carry 20 m (left hand) - 1 x front squat - 20 m carry (left hand) - 2x front squat - 20 m carry - 3x front squat, repeat with right arm. 1 round = left and right arm', type: 'OCR', time: '0-20 min'},
+        {id: 81, workout: 'One Arm Swing', description: '10 Rounds: 30s one armed KB swing (left) - 30s rest - 30s one armed KB swing (right) - 30s rest', type: 'OCR', time: '0-20 min'}
       ])
     })
 }
