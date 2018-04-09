@@ -1,7 +1,10 @@
 {
-  "name": "boilerplate-react-webpack",
+  "name": "ocr-trainer",
   "version": "0.2.0",
-  "description": "A webpack React starter",
+  "engines": {
+    "node" : "8.9.4"
+  },
+  "description": "Workout generator for OCR athletes",
   "repository": "https://github.com/dev-academy-challenges/boilerplate-react-webpack.git",
   "main": "server/index.js",
   "scripts": {
@@ -10,7 +13,6 @@
     "test": "jest --watch --noStackTrace",
     "knex": "knex",
     "postinstall": "webpack && knex migrate:latest"
- 
   },
   "babel": {
     "presets": [
@@ -26,7 +28,6 @@
     "express": "^4.16.2",
     "knex": "^0.14.3",
     "pg": "^7.4.1"
-
   },
   "devDependencies": {
     "babel-core": "^6.26.0",
