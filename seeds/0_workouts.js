@@ -77,7 +77,7 @@ exports.seed = function (knex, Promise) {
         {id: 71, workout: "Cwy's Special - Bonus", description: '10 min warm up, 50 min AMRAP: 100 m hill sprint - sandbag/bucket carry up the hill - 10 pull ups - 10 push ups - 100 m hill sprint - 10 sandbag/bucket squats - 250 m run - 10 squat jumps - 15 burpees. Then: 3x 10 toes2bar - deadhang to failure - 2 min plank', type: 'OCR', time: '>60 min'},
         {id: 72, workout: "Cwy's Special - Bonus(box)", description: '10 min warm up, 50 min AMRAP: 100 m hill sprint - sandbag/bucket carry up the hill - 10 pull ups - 10 push ups - 100 m hill sprint - 10 sandbag/bucket squats - 250 m run - 10 box jumps - 15 burpees. Then: 3x 10 toes2bar - deadhang to failure - 2 min plank', type: 'OCR', time: '>60 min'},
         {id: 73, workout: 'JayMan XL', description: '15x run 1 km, 30 burpees', type: 'OCR', time: '>60 min'},
-        {id: 74, workout: 'Hold On-XL', description: '25 min warm up, 3x 10 min har, 90s rest, 25 min cool down', type: 'Running', time: '>60 min'},
+        {id: 74, workout: 'Hold On-XL', description: '25 min warm up, 3x 10 min hard, 90s rest, 25 min cool down', type: 'Running', time: '>60 min'},
         {id: 75, workout: 'Long Hill', description: '15 min warm up, 3x 2 km hill - 2 min rest, 10 min cool down', type: 'Running', time: '>60 min'},
         {id: 76, workout: 'Progression 2.0', description: '15 min warm up, 20 min easy, 20 min mod, 20 min hard, 10 min cool down', type: 'Running', time: '>60 min'},
         {id: 77, workout: 'Long Progression', description: '30 min easy, 30 min mod, 30 min hard, 10 min cool down', type: 'Running', time: '>60 min'},
