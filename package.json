@@ -8,7 +8,9 @@
     "start": "webpack && node server",
     "dev": "nodemon --watch server & webpack --watch",
     "test": "jest --watch --noStackTrace",
-    "knex": "knex"
+    "knex": "knex",
+    "postinstall": "webpack && knex migrate:latest"
+ 
   },
   "babel": {
     "presets": [
@@ -20,15 +22,11 @@
   "author": "EDA",
   "license": "ISC",
   "dependencies": {
-    "babel-preset-stage-3": "^6.24.1",
     "body-parser": "^1.18.2",
     "express": "^4.16.2",
     "knex": "^0.14.3",
-    "react-redux": "^5.0.7",
-    "redux": "^3.7.2",
-    "redux-thunk": "^2.2.0",
-    "sqlite3": "^3.1.13",
-    "superagent": "^3.8.2"
+    "pg": "^7.4.1"
+
   },
   "devDependencies": {
     "babel-core": "^6.26.0",
@@ -36,6 +34,7 @@
     "babel-preset-env": "^1.6.1",
     "babel-preset-react": "^6.24.1",
     "babel-register": "^6.26.0",
+    "babel-preset-stage-3": "^6.24.1",
     "enzyme": "^3.3.0",
     "enzyme-adapter-react-16": "^1.1.1",
     "jest": "^22.1.4",
@@ -46,6 +45,11 @@
     "react-router-dom": "^4.2.2",
     "supertest": "^3.0.0",
     "webpack": "^3.10.0",
-    "webpack-dev-server": "^2.11.1"
+    "webpack-dev-server": "^2.11.1",
+    "react-redux": "^5.0.7",
+    "redux": "^3.7.2",
+    "redux-thunk": "^2.2.0",
+    "sqlite3": "^3.1.13",
+    "superagent": "^3.8.2"
   }
 }
