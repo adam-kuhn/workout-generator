@@ -17,6 +17,7 @@ export const getWorkouts = (selection) => {
       .set('Content-Type', 'application/json')
       .send(selection)
       .then(workout => {
+        console.log(workout)
         dispatch(showWorkouts(workout))
       }
       )
