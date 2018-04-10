@@ -13,7 +13,7 @@ class App extends React.Component {
       <div>
         <div className='main-container'>
           <div className='main-item'>
-            <h1 className='main-title'>WOD Generator</h1>
+            <h1 className='main-title'>OCR WOD Generator</h1>
           </div>
           <div className='main-item'>
             {this.props.display.showHeader && <FormHeader/>}
