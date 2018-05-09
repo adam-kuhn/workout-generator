@@ -66,7 +66,9 @@ exports.seed = function (knex, Promise) {
         {id: 60, workout_id: 73, gear_id: 1}, // JayMan XL: none
         {id: 61, workout_id: 79, gear_id: 2}, // Spartan KB: kb
         {id: 62, workout_id: 80, gear_id: 2}, // Farmer Squat: kb
-        {id: 63, workout_id: 81, gear_id: 2} // One Arm Swing: kb
+        {id: 63, workout_id: 81, gear_id: 2}, // One Arm Swing: kb
+        {id: 64, workout_id: 82, gear_id: 3}, // Gassed: pull up
+        {id: 65, workout_id: 82, gear_id: 4} // Gassed: barbell
       ])
     })
 }
