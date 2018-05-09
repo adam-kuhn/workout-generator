@@ -18,7 +18,7 @@ exports.seed = function (knex, Promise) {
         {id: 12, workout: '5x 1000', description: '5 min warmup - 5x 1000m, rest 2-2.5 min, 5 min cooldown', type: 'Running', time: '20-40 min'},
         {id: 13, workout: 'Fartleking', description: '10 min warmup - 5x 1 min hard, 5 min mod', type: 'Running', time: '20-40 min'},
         {id: 14, workout: 'Build-Up', description: '15 min warmup - 1-2-3-4-5-4-3-2-1 min hard, with equal easy interval (1 min hard, 1 min easy, 2 min hard, 2 min easy...)', type: 'Running', time: '>60 min'},
-        {id: 15, workout: 'Chrissy', description: 'For Time: Alternate between Burpee Tuck Jumps (30-25-20-15-10-5) and KB swings (20-25-30-35-40-45)', type: 'Strength', time: '0-20 min'},
+        {id: 15, workout: 'Chrissy', description: 'For Time: Alternate between Burpee Tuck Jumps (30-25-20-15-10-5) and KB swings (20-25-30-35-40-45)', type: 'S', time: '0-20 min'},
         {id: 16, workout: "8's", description: '8x 8 deadlifts (mod-heavy), 8 burpees, 8 shoulder press(mod-heavy)', type: 'Strength', time: '20-40 min'},
         {id: 17, workout: 'Chelsea', description: "30 min EMOM: 5 pull-ups, 10 push-ups, 15 squats. Workout ends when you can't complete the work in 1 min", type: 'Strength', time: '20-40 min'},
         {id: 18, workout: 'Chipper', description: 'For Time: 50 KB swings, 40 KB goblet lunges, 30 box jumps, 20 pull-ups, 10 burpee box jump overs', type: 'Strength', time: '0-20 min'},
@@ -84,7 +84,8 @@ exports.seed = function (knex, Promise) {
         {id: 78, workout: 'Long Fartlek', description: '15 min warm up, 10x 1 min hard, 6 min mod', type: 'Running', time: '>60 min'},
         {id: 79, workout: 'Spartan KB', description: '5 Rounds: 200 m run - 2x KB clean and press (each side) - 5x Goblet Squat - 20 KB swings - rest 2 min', type: 'OCR', time: '0-20 min'},
         {id: 80, workout: 'Farmer Squat', description: '5 Rounds: suit case carry 20 m (left hand) - 1 x front squat - 20 m carry (left hand) - 2x front squat - 20 m carry - 3x front squat, repeat with right arm. 1 round = left and right arm', type: 'OCR', time: '0-20 min'},
-        {id: 81, workout: 'One Arm Swing', description: '10 Rounds: 30s one armed KB swing (left) - 30s rest - 30s one armed KB swing (right) - 30s rest', type: 'OCR', time: '0-20 min'}
+        {id: 81, workout: 'One Arm Swing', description: '10 Rounds: 30s one armed KB swing (left) - 30s rest - 30s one armed KB swing (right) - 30s rest', type: 'OCR', time: '0-20 min'},
+        {id: 82, workout: 'Gassed', description: '3-5 rounds: 10 thrusters (95 lb), ~100 m sprint, 10 pull ups, 100 m sprint, rest', type: 'Strength', time: '0-20 min'}
       ])
     })
 }
