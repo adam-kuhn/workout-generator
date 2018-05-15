@@ -1,12 +1,13 @@
 import {SET_TYPE, SET_TIME, SET_GEAR} from '../actions/selection'
 import {BACK_HOME, BACK_TIME, BACK_FROM_WOD} from '../actions/back'
+import {SHOW_WOD} from '../actions/workout'
 
 const initialState = {
   showHeader: false,
   showHome: true,
   showTime: false,
   showGear: false,
-  showWaiting: false,
+  showWaiting: true,
   showWorkout: false
 }
 
@@ -63,6 +64,12 @@ function display (state = initialState, action) {
         ...state,
         showGear: true,
         showWorkout: false
+      }
+    }
+    case (SHOW_WOD): {
+      return {
+        ...state,
+        showWaiting: false
       }
     }
     default:
