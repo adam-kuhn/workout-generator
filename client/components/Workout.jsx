@@ -29,7 +29,7 @@ class Workout extends React.Component {
   render () {
     return (
       <div className='form-container'>
-        {this.props.showWaitng ? <Waiting />
+        {this.props.showWaiting ? <Waiting />
           : <div>
             <div className="header">
               <h1 className='wod-title'>{this.props.wod[this.props.wodNumber] ? this.props.wod[this.props.wodNumber].workout : 'Sorry'}</h1>
