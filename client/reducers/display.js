@@ -63,7 +63,8 @@ function display (state = initialState, action) {
       return {
         ...state,
         showGear: true,
-        showWorkout: false
+        showWorkout: false,
+        showWaiting: true
       }
     }
     case (SHOW_WOD): {
