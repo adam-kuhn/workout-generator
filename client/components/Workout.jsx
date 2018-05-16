@@ -3,6 +3,7 @@ import {connect} from 'react-redux'
 
 import {backFromWod, backHome} from '../actions/back'
 import {getWorkouts, newNumber} from '../actions/workout'
+import Waiting from './Waiting'
 
 class Workout extends React.Component {
   constructor () {
@@ -28,25 +29,29 @@ class Workout extends React.Component {
   render () {
     return (
       <div className='form-container'>
-        <div className="header">
-          <h1 className='wod-title'>{this.props.wod[this.props.wodNumber] ? this.props.wod[this.props.wodNumber].workout : 'Sorry'}</h1>
-        </div>
-        <div>
-          <div className='flex-container'>
-            <div className="general-form">
-              <div className='form-body'>
-                <div className='wod-desc'>
-                  <p>{this.props.wod[this.props.wodNumber] ? this.props.wod[this.props.wodNumber].description : 'There are no available workouts based on your selection. Please try again.'}
-                  </p>
-                  <p>Number of Workouts: {this.props.wod ? this.props.wod.length : 0}</p>
+        {this.props.showWaiting ? <Waiting />
+          : <div>
+            <div className="header">
+              <h1 className='wod-title'>{this.props.wod[this.props.wodNumber] ? this.props.wod[this.props.wodNumber].workout : 'Sorry'}</h1>
+            </div>
+            <div>
+              <div className='flex-container'>
+                <div className="general-form">
+                  <div className='form-body'>
+                    <div className='wod-desc'>
+
+                      <p>{this.props.wod[this.props.wodNumber] ? this.props.wod[this.props.wodNumber].description : 'There are no available workouts based on your selection. Please try again.'}
+                      </p>
+                      <p>Number of Workouts: {this.props.wod ? this.props.wod.length : 0}</p>
+                    </div>
+                  </div>
+                  <button type='button' onClick={this.anotherWorkout}>Give me Another</button>
+                  <button type='button' onClick={this.handleBack}>Back</button>
+                  <button type='button' onClick={this.handleHome}>Start Over</button>
                 </div>
               </div>
-              <button type='button' onClick={this.anotherWorkout}>Give me Another</button>
-              <button type='button' onClick={this.handleBack}>Back</button>
-              <button type='button' onClick={this.handleHome}>Start Over</button>
             </div>
-          </div>
-        </div>
+          </div>}
       </div>
     )
   }
@@ -56,7 +61,8 @@ function mapStateToProps (state) {
   return {
     selection: state.selection,
     wod: state.workouts.workoutList,
-    wodNumber: state.workouts.wodNumber
+    wodNumber: state.workouts.wodNumber,
+    showWaiting: state.display.showWaiting
   }
 }
 

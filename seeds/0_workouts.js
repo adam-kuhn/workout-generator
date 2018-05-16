@@ -18,7 +18,7 @@ exports.seed = function (knex, Promise) {
         {id: 12, workout: '5x 1000', description: '5 min warmup - 5x 1000m, rest 2-2.5 min, 5 min cooldown', type: 'Running', time: '20-40 min'},
         {id: 13, workout: 'Fartleking', description: '10 min warmup - 5x 1 min hard, 5 min mod', type: 'Running', time: '20-40 min'},
         {id: 14, workout: 'Build-Up', description: '15 min warmup - 1-2-3-4-5-4-3-2-1 min hard, with equal easy interval (1 min hard, 1 min easy, 2 min hard, 2 min easy...)', type: 'Running', time: '>60 min'},
-        {id: 15, workout: 'Chrissy', description: 'For Time: Alternate between Burpee Tuck Jumps (30-25-20-15-10-5) and KB swings (20-25-30-35-40-45)', type: 'S', time: '0-20 min'},
+        {id: 15, workout: 'Chrissy', description: 'For Time: Alternate between Burpee Tuck Jumps (30-25-20-15-10-5) and KB swings (20-25-30-35-40-45)', type: 'Strength', time: '0-20 min'},
         {id: 16, workout: "8's", description: '8x 8 deadlifts (mod-heavy), 8 burpees, 8 shoulder press(mod-heavy)', type: 'Strength', time: '20-40 min'},
         {id: 17, workout: 'Chelsea', description: "30 min EMOM: 5 pull-ups, 10 push-ups, 15 squats. Workout ends when you can't complete the work in 1 min", type: 'Strength', time: '20-40 min'},
         {id: 18, workout: 'Chipper', description: 'For Time: 50 KB swings, 40 KB goblet lunges, 30 box jumps, 20 pull-ups, 10 burpee box jump overs', type: 'Strength', time: '0-20 min'},
