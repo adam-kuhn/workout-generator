@@ -57,7 +57,8 @@ function display (state = initialState, action) {
         return {
           ...state,
           showTime: true,
-          showWorkout: false
+          showWorkout: false,
+          showWaiting: true
         }
       }
       return {
