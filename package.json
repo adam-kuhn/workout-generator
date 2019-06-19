@@ -2,7 +2,7 @@
   "name": "ocr-trainer",
   "version": "0.2.0",
   "engines": {
-    "node" : "8.9.4"
+    "node": "8.9.4"
   },
   "description": "Workout generator for OCR athletes",
   "repository": "https://github.com/dev-academy-challenges/boilerplate-react-webpack.git",
@@ -34,8 +34,8 @@
     "babel-loader": "^7.1.2",
     "babel-preset-env": "^1.6.1",
     "babel-preset-react": "^6.24.1",
-    "babel-register": "^6.26.0",
     "babel-preset-stage-3": "^6.24.1",
+    "babel-register": "^6.26.0",
     "enzyme": "^3.3.0",
     "enzyme-adapter-react-16": "^1.1.1",
     "jest": "^22.1.4",
@@ -43,14 +43,14 @@
     "react": "^16.2.0",
     "react-addons-test-utils": "^15.6.2",
     "react-dom": "^16.2.0",
-    "react-router-dom": "^4.2.2",
-    "supertest": "^3.0.0",
-    "webpack": "^3.10.0",
-    "webpack-dev-server": "^2.11.1",
     "react-redux": "^5.0.7",
+    "react-router-dom": "^4.2.2",
     "redux": "^3.7.2",
     "redux-thunk": "^2.2.0",
     "sqlite3": "^3.1.13",
-    "superagent": "^3.8.2"
+    "superagent": "^3.8.2",
+    "supertest": "^3.0.0",
+    "webpack": "^3.10.0",
+    "webpack-dev-server": ">=3.1.11"
   }
 }
