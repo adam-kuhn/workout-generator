@@ -12,7 +12,7 @@ afterEach(() => env.cleanup(testDb))
 
 test('getRunningWorkout returns correct WODS for: Running, >60 min', () => {
   const wodSelection = {
-    type: 'Running',
+    wodType: 'Running',
     duration: '>60 min'
   }
   return getRunningWorkout(wodSelection, testDb)
@@ -23,7 +23,7 @@ test('getRunningWorkout returns correct WODS for: Running, >60 min', () => {
 
 test('getRunningWorkout returns correct WODS for: Running, >60 min', () => {
   const wodSelection = {
-    type: 'Running',
+    wodType: 'Running',
     duration: '40-60 min'
   }
   return getRunningWorkout(wodSelection, testDb)

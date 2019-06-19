@@ -12,7 +12,7 @@ afterEach(() => env.cleanup(testDb))
 
 test('getMulti returns correct WODS for: OCR, 40-60 min, no gear', () => {
   const wodSelection = {
-    type: 'OCR',
+    wodType: 'OCR',
     duration: '40-60 min',
     gear: ['none']
   }
@@ -24,7 +24,7 @@ test('getMulti returns correct WODS for: OCR, 40-60 min, no gear', () => {
 
 test('getMulti returns correct WODS for: OCR, 20-40 min, sandbag', () => {
   const wodSelection = {
-    type: 'OCR',
+    wodType: 'OCR',
     duration: '20-40 min',
     gear: ['sandbag']
   }
@@ -36,7 +36,7 @@ test('getMulti returns correct WODS for: OCR, 20-40 min, sandbag', () => {
 
 test('getMulti returns correct WODS for: OCR, 20-40 min, pull-up', () => {
   const wodSelection = {
-    type: 'OCR',
+    wodType: 'OCR',
     duration: '20-40 min',
     gear: ['pull-up']
   }
@@ -48,7 +48,7 @@ test('getMulti returns correct WODS for: OCR, 20-40 min, pull-up', () => {
 
 test('getMulti returns correct WODS for: Strength, >60 min, kb, box, pull-up', () => {
   const wodSelection = {
-    type: 'Strength',
+    wodType: 'Strength',
     duration: '>60 min',
     gear: ['kb/db', 'pull-up', 'box']
   }
@@ -60,7 +60,7 @@ test('getMulti returns correct WODS for: Strength, >60 min, kb, box, pull-up', (
 
 test('getMulti returns correct WODS for: Strength, >60 min, kb, box, barbell', () => {
   const wodSelection = {
-    type: 'Strength',
+    wodType: 'Strength',
     duration: '>60 min',
     gear: ['kb/db', 'barbell', 'box']
   }
