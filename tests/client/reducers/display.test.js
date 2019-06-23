@@ -1,5 +1,5 @@
 import display from '../../../client/reducers/display'
-import {SET_TYPE, SET_TIME} from '../../../client/actions/selection'
+import {SET_TYPE, SET_TIME, SET_GEAR} from '../../../client/actions/selection'
 import {BACK_HOME, BACK_FROM_WOD} from '../../../client/actions/back'
 import {SHOW_WOD} from '../../../client/actions/workout'
 
@@ -71,6 +71,24 @@ test('on SET_TIME, showTime is set to false, and showWorkout to true when wodTyp
   expect(actual.showTime).toBe(expected.showTime)
   expect(actual.showGear).toBe(expected.showGear)
   expect(actual.showWorkout).toBe(expected.showWorkout)
+})
+
+test('on SET_GEAR, showGear is set to false and showWorkout is set to true', () => {
+  const appState = {
+    showGear: true,
+    showWorkout: false
+  }
+  const action = {
+    type: SET_GEAR
+  }
+  const expected = {
+    showGear: false,
+    showWorkout: true
+  }
+  const actual = display(appState, action)
+
+  expect(actual.showGear).toBe(expected.showGear)
+  expect(actual.shoWorkout).toBe(expected.shoWorkout)
 })
 
 test('on BACK_HOME app returns to initial state', () => {
