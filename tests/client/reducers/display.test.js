@@ -1,6 +1,7 @@
 import display from '../../../client/reducers/display'
 import {SET_TYPE, SET_TIME} from '../../../client/actions/selection'
 import {BACK_HOME, BACK_FROM_WOD} from '../../../client/actions/back'
+import {SHOW_WOD} from '../../../client/actions/workout'
 
 const initialState = {
   showHeader: false,
@@ -134,4 +135,20 @@ test('on BACK_FROM_WOD showTime and showGear are set to true, showWorkout is set
 
   expect(actual.showGear).toBe(expected.showGear)
   expect(actual.showWorkout).toBe(expected.showWorkout)
+})
+
+test('on SHOW_WOD, waiting indicator is turn off by setting showWaiting to false', () => {
+  const appState = {
+    showWaiting: true
+  }
+  const action = {
+    type: SHOW_WOD,
+    workoutList: []
+  }
+  const expected = {
+    showWaiting: false
+  }
+  const actual = display(appState, action)
+
+  expect(actual.showWaiting).toBe(expected.showWaiting)
 })
