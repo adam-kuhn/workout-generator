@@ -99,8 +99,8 @@ test('on BACK_HOME app returns to initial state', () => {
 test('on BACK_FROM_WOD showTime and showWaiting are set to true, showWorkout is set to false when wodType is "Running"', () => {
   const appState = {
     showTime: false,
-    showWorkout: true,
-    showWaiting: false
+    showWorkout: true
+
   }
   const action = {
     type: BACK_FROM_WOD,
@@ -108,21 +108,19 @@ test('on BACK_FROM_WOD showTime and showWaiting are set to true, showWorkout is 
   }
   const expected = {
     showTime: true,
-    showWorkout: false,
-    showWaiting: true
+    showWorkout: false
   }
   const actual = display(appState, action)
 
   expect(actual.showTime).toBe(expected.showTime)
   expect(actual.showWorkout).toBe(expected.showWorkout)
-  expect(actual.showWaiting).toBe(expected.showWaiting)
 })
 
 test('on BACK_FROM_WOD showTime and showGear are set to true, showWorkout is set to false when wodType is not "Running"', () => {
   const appState = {
     showGear: false,
-    showWorkout: true,
-    showWaiting: false
+    showWorkout: true
+
   }
   const action = {
     type: BACK_FROM_WOD,
@@ -130,12 +128,10 @@ test('on BACK_FROM_WOD showTime and showGear are set to true, showWorkout is set
   }
   const expected = {
     showGear: true,
-    showWorkout: false,
-    showWaiting: true
+    showWorkout: false
   }
   const actual = display(appState, action)
 
   expect(actual.showGear).toBe(expected.showGear)
   expect(actual.showWorkout).toBe(expected.showWorkout)
-  expect(actual.showWaiting).toBe(expected.showWaiting)
 })
