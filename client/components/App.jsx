@@ -8,6 +8,7 @@ import Gear from './Gear'
 import Workout from './Workout'
 
 const App = (props) => {
+  const {showHome, showTime, showGear, showWorkout, showHeader} = props
   return (
     <div>
       <div className='main-container'>
@@ -15,23 +16,21 @@ const App = (props) => {
           <h1 className='main-title'>OCR WOD Generator</h1>
         </div>
         <div className='main-item'>
-          {props.display.showHeader && <FormHeader/>}
+          {showHeader && <FormHeader/>}
         </div>
         <div className='main-item'>
-          {props.display.showHome && <Home />}
-          {props.display.showTime && <Time />}
-          {props.display.showGear && <Gear />}
-          {props.display.showWorkout && <Workout />}
+          {showHome && <Home />}
+          {showTime && <Time />}
+          {showGear && <Gear />}
+          {showWorkout && <Workout />}
         </div>
       </div>
     </div>
   )
 }
 
-function mapStateToProps (state) {
-  return {
-    display: state.display
-  }
+const mapStateToProps = (state) => {
+  return state.display
 }
 
 export default connect(mapStateToProps)(App)
