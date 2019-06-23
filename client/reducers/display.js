@@ -22,19 +22,19 @@ function display (state = initialState, action) {
       }
     }
     case (SET_TIME): {
-      if (action.wodType === 'Running') {
-        return {
-          ...state,
-          showTime: false,
-          showWorkout: true
-        }
-      }
-      return {
+      const updatedState = {
         ...state,
-        showTime: false,
-        showGear: true
+        showTime: false
       }
+      if (action.wodType === 'Running') {
+        updatedState.showWorkout = true
+      } else {
+        updatedState.showGear = true
+      }
+
+      return updatedState
     }
+
     case (SET_GEAR): {
       return {
         ...state,
