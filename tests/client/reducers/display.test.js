@@ -1,6 +1,6 @@
 import display from '../../../client/reducers/display'
 import {SET_TYPE, SET_TIME} from '../../../client/actions/selection'
-import {BACK_HOME} from '../../../client/actions/back'
+import {BACK_HOME, BACK_FROM_WOD} from '../../../client/actions/back'
 
 const initialState = {
   showHeader: false,
@@ -94,4 +94,48 @@ test('on BACK_HOME app returns to initial state', () => {
   expect(actual.showGear).toBe(expected.showGear)
   expect(actual.showWaiting).toBe(expected.showWaiting)
   expect(actual.showWorkout).toBe(expected.showWorkout)
+})
+
+test('on BACK_FROM_WOD showTime and showWaiting are set to true, showWorkout is set to false when wodType is "Running"', () => {
+  const appState = {
+    showTime: false,
+    showWorkout: true,
+    showWaiting: false
+  }
+  const action = {
+    type: BACK_FROM_WOD,
+    wodType: 'Running'
+  }
+  const expected = {
+    showTime: true,
+    showWorkout: false,
+    showWaiting: true
+  }
+  const actual = display(appState, action)
+
+  expect(actual.showTime).toBe(expected.showTime)
+  expect(actual.showWorkout).toBe(expected.showWorkout)
+  expect(actual.showWaiting).toBe(expected.showWaiting)
+})
+
+test('on BACK_FROM_WOD showTime and showGear are set to true, showWorkout is set to false when wodType is not "Running"', () => {
+  const appState = {
+    showGear: false,
+    showWorkout: true,
+    showWaiting: false
+  }
+  const action = {
+    type: BACK_FROM_WOD,
+    wodType: 'not running'
+  }
+  const expected = {
+    showGear: true,
+    showWorkout: false,
+    showWaiting: true
+  }
+  const actual = display(appState, action)
+
+  expect(actual.showGear).toBe(expected.showGear)
+  expect(actual.showWorkout).toBe(expected.showWorkout)
+  expect(actual.showWaiting).toBe(expected.showWaiting)
 })
