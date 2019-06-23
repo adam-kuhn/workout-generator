@@ -1,5 +1,6 @@
 import display from '../../../client/reducers/display'
 import {SET_TYPE, SET_TIME} from '../../../client/actions/selection'
+import {BACK_HOME} from '../../../client/actions/back'
 
 const initialState = {
   showHeader: false,
@@ -68,5 +69,29 @@ test('on SET_TIME, showTime is set to false, and showWorkout to true when wodTyp
 
   expect(actual.showTime).toBe(expected.showTime)
   expect(actual.showGear).toBe(expected.showGear)
+  expect(actual.showWorkout).toBe(expected.showWorkout)
+})
+
+test('on BACK_HOME app returns to initial state', () => {
+  const appState = {
+    showHeader: true,
+    showHome: false,
+    showTime: true,
+    showGear: true,
+    showWaiting: false,
+    showWorkout: true
+  }
+  const action = {
+    type: BACK_HOME
+  }
+
+  const expected = initialState
+  const actual = display(appState, action)
+
+  expect(actual.showHeader).toBe(expected.showHeader)
+  expect(actual.showHome).toBe(expected.showHome)
+  expect(actual.showTime).toBe(expected.showTime)
+  expect(actual.showGear).toBe(expected.showGear)
+  expect(actual.showWaiting).toBe(expected.showWaiting)
   expect(actual.showWorkout).toBe(expected.showWorkout)
 })
