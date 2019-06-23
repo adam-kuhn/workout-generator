@@ -53,20 +53,17 @@ function display (state = initialState, action) {
       }
     }
     case (BACK_FROM_WOD): {
-      if (action.wodType === 'Running') {
-        return {
-          ...state,
-          showTime: true,
-          showWorkout: false,
-          showWaiting: true
-        }
-      }
-      return {
+      const updatedState = {
         ...state,
-        showGear: true,
         showWorkout: false,
         showWaiting: true
       }
+      if (action.wodType === 'Running') {
+        updatedState.showTime = true
+      } else {
+        updatedState.showGear = true
+      }
+      return updatedState
     }
     case (SHOW_WOD): {
       return {
