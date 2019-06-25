@@ -3,12 +3,12 @@ import {BACK_HOME, BACK_TIME, BACK_FROM_WOD} from '../actions/back'
 import {SHOW_WOD} from '../actions/workout'
 
 const initialState = {
-  showHeader: false,
-  showHome: true,
-  showTime: false,
-  showGear: false,
-  showWaiting: true,
-  showWorkout: false
+  showHeaderComponent: false,
+  showHomeComponent: true,
+  showTimeComponent: false,
+  showGearComponent: false,
+  showWaitingComponent: true,
+  showWorkoutComponent: false
 }
 
 function display (state = initialState, action) {
@@ -16,30 +16,31 @@ function display (state = initialState, action) {
     case (SET_TYPE): {
       return {
         ...state,
-        showHeader: true,
-        showHome: false,
-        showTime: true
+        showHeaderComponent: true,
+        showHomeComponent: false,
+        showTimeComponent: true
       }
     }
     case (SET_TIME): {
       const updatedState = {
         ...state,
-        showTime: false
+        showTimeComponent: false
       }
       if (action.wodType === 'Running') {
-        updatedState.showWorkout = true
+        updatedState.showWorkoutComponent = true
       } else {
-        updatedState.showGear = true
+        updatedState.showGearComponent = true
       }
 
       return updatedState
     }
-
+    // it weird that setGear sets show gear to false
+    // need better action names
     case (SET_GEAR): {
       return {
         ...state,
-        showGear: false,
-        showWorkout: true
+        showGearComponent: false,
+        showWorkoutComponent: true
       }
     }
     case (BACK_HOME): {
@@ -48,19 +49,19 @@ function display (state = initialState, action) {
     case (BACK_TIME): {
       return {
         ...state,
-        showGear: false,
-        showTime: true
+        showGearComponent: false,
+        showTimeComponent: true
       }
     }
     case (BACK_FROM_WOD): {
       const updatedState = {
         ...state,
-        showWorkout: false
+        showWorkoutComponent: false
       }
       if (action.wodType === 'Running') {
-        updatedState.showTime = true
+        updatedState.showTimeComponent = true
       } else {
-        updatedState.showGear = true
+        updatedState.showGearComponent = true
       }
 
       return updatedState
@@ -69,7 +70,7 @@ function display (state = initialState, action) {
     case (SHOW_WOD): {
       return {
         ...state,
-        showWaiting: false
+        showWaitingComponent: false
       }
     }
     default:

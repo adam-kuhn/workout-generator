@@ -8,7 +8,13 @@ import Gear from './Gear'
 import Workout from './Workout'
 
 const App = (props) => {
-  const {showHome, showTime, showGear, showWorkout, showHeader} = props
+  const {
+    showHomeComponent,
+    showTimeComponent,
+    showGearComponent,
+    showWorkoutComponent,
+    showHeaderComponent
+  } = props
   return (
     <div>
       <div className='main-container'>
@@ -16,13 +22,13 @@ const App = (props) => {
           <h1 className='main-title'>OCR WOD Generator</h1>
         </div>
         <div className='main-item'>
-          {showHeader && <FormHeader/>}
+          {showHeaderComponent && <FormHeader/>}
         </div>
         <div className='main-item'>
-          {showHome && <Home />}
-          {showTime && <Time />}
-          {showGear && <Gear />}
-          {showWorkout && <Workout />}
+          {showHomeComponent && <Home />}
+          {showTimeComponent && <Time />}
+          {showGearComponent && <Gear />}
+          {showWorkoutComponent && <Workout />}
         </div>
       </div>
     </div>

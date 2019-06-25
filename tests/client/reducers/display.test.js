@@ -4,101 +4,101 @@ import {BACK_HOME, BACK_FROM_WOD} from '../../../client/actions/back'
 import {SHOW_WOD} from '../../../client/actions/workout'
 
 const initialState = {
-  showHeader: false,
-  showHome: true,
-  showTime: false,
-  showGear: false,
-  showWaiting: true,
-  showWorkout: false
+  showHeaderComponent: false,
+  showHomeComponent: true,
+  showTimeComponent: false,
+  showGearComponent: false,
+  showWaitingComponent: true,
+  showWorkoutComponent: false
 }
 
-test('on SET_TYPE showHeader and showTime are true, showHome is false', () => {
+test('on SET_TYPE showHeader and showTimeComponent are true, showHomeComponent is false', () => {
   const action = {
     type: SET_TYPE,
     wodType: 'running'
   }
   const expected = {
-    showHeader: true,
-    showHome: false,
-    showTime: true
+    showHeaderComponent: true,
+    showHomeComponent: false,
+    showTimeComponent: true
   }
   const actual = display(initialState, action)
 
-  expect(actual.showHeader).toBe(expected.showHeader)
-  expect(actual.showHome).toBe(expected.showHome)
-  expect(actual.showTime).toBe(expected.showTime)
+  expect(actual.showHeaderComponent).toBe(expected.showHeaderComponent)
+  expect(actual.showHomeComponent).toBe(expected.showHomeComponent)
+  expect(actual.showTimeComponent).toBe(expected.showTimeComponent)
 })
 
-test('on SET_TIME, showTime is set to false, and showGear to true when wodType is not "Running"', () => {
+test('on SET_TIME, showTimeComponent is set to false, and showGearComponent to true when wodType is not "Running"', () => {
   const appState = {
-    showTime: true,
-    showGear: false,
-    showWorkout: false
+    showTimeComponent: true,
+    showGearComponent: false,
+    showWorkoutComponent: false
   }
   const action = {
     type: SET_TIME,
     wodType: 'strength'
   }
   const expected = {
-    showTime: false,
-    showGear: true,
-    showWorkout: false
+    showTimeComponent: false,
+    showGearComponent: true,
+    showWorkoutComponent: false
   }
   const actual = display(appState, action)
 
-  expect(actual.showTime).toBe(expected.showTime)
-  expect(actual.showGear).toBe(expected.showGear)
-  expect(actual.showWorkout).toBe(expected.showWorkout)
+  expect(actual.showTimeComponent).toBe(expected.showTimeComponent)
+  expect(actual.showGearComponent).toBe(expected.showGearComponent)
+  expect(actual.showWorkoutComponent).toBe(expected.showWorkoutComponent)
 })
 
-test('on SET_TIME, showTime is set to false, and showWorkout to true when wodType is "Running"', () => {
+test('on SET_TIME, showTimeComponent is set to false, and showWorkoutComponent to true when wodType is "Running"', () => {
   const appState = {
-    showTime: true,
-    showGear: false,
-    showWorkout: false
+    showTimeComponent: true,
+    showGearComponent: false,
+    showWorkoutComponent: false
   }
   const action = {
     type: SET_TIME,
     wodType: 'Running'
   }
   const expected = {
-    showTime: false,
-    showGear: false,
-    showWorkout: true
+    showTimeComponent: false,
+    showGearComponent: false,
+    showWorkoutComponent: true
   }
   const actual = display(appState, action)
 
-  expect(actual.showTime).toBe(expected.showTime)
-  expect(actual.showGear).toBe(expected.showGear)
-  expect(actual.showWorkout).toBe(expected.showWorkout)
+  expect(actual.showTimeComponent).toBe(expected.showTimeComponent)
+  expect(actual.showGearComponent).toBe(expected.showGearComponent)
+  expect(actual.showWorkoutComponent).toBe(expected.showWorkoutComponent)
 })
 
-test('on SET_GEAR, showGear is set to false and showWorkout is set to true', () => {
+test('on SET_GEAR, showGearComponent is set to false and showWorkoutComponent is set to true', () => {
   const appState = {
-    showGear: true,
-    showWorkout: false
+    showGearComponent: true,
+    showWorkoutComponent: false
   }
   const action = {
     type: SET_GEAR
   }
   const expected = {
-    showGear: false,
-    showWorkout: true
+    showGearComponent: false,
+    showWorkoutComponent: true
   }
   const actual = display(appState, action)
 
-  expect(actual.showGear).toBe(expected.showGear)
+  expect(actual.showGearComponent).toBe(expected.showGearComponent)
   expect(actual.shoWorkout).toBe(expected.shoWorkout)
 })
 
 test('on BACK_HOME app returns to initial state', () => {
   const appState = {
     showHeader: true,
-    showHome: false,
-    showTime: true,
-    showGear: true,
-    showWaiting: false,
-    showWorkout: true
+    showHomeComponent: false,
+    showTimeComponent: true,
+    showGearComponent: true,
+    showWaitingComponent: false,
+    showWorkoutComponent: true
   }
   const action = {
     type: BACK_HOME
@@ -108,17 +108,17 @@ test('on BACK_HOME app returns to initial state', () => {
   const actual = display(appState, action)
 
   expect(actual.showHeader).toBe(expected.showHeader)
-  expect(actual.showHome).toBe(expected.showHome)
-  expect(actual.showTime).toBe(expected.showTime)
-  expect(actual.showGear).toBe(expected.showGear)
-  expect(actual.showWaiting).toBe(expected.showWaiting)
-  expect(actual.showWorkout).toBe(expected.showWorkout)
+  expect(actual.showHomeComponent).toBe(expected.showHomeComponent)
+  expect(actual.showTimeComponent).toBe(expected.showTimeComponent)
+  expect(actual.showGearComponent).toBe(expected.showGearComponent)
+  expect(actual.showWaitingComponent).toBe(expected.showWaitingComponent)
+  expect(actual.showWorkoutComponent).toBe(expected.showWorkoutComponent)
 })
 
-test('on BACK_FROM_WOD showTime and showWaiting are set to true, showWorkout is set to false when wodType is "Running"', () => {
+test('on BACK_FROM_WOD showTimeComponent and showWaitingComponent are set to true, showWorkoutComponent is set to false when wodType is "Running"', () => {
   const appState = {
-    showTime: false,
-    showWorkout: true
+    showTimeComponent: false,
+    showWorkoutComponent: true
 
   }
   const action = {
@@ -126,19 +126,19 @@ test('on BACK_FROM_WOD showTime and showWaiting are set to true, showWorkout is 
     wodType: 'Running'
   }
   const expected = {
-    showTime: true,
-    showWorkout: false
+    showTimeComponent: true,
+    showWorkoutComponent: false
   }
   const actual = display(appState, action)
 
-  expect(actual.showTime).toBe(expected.showTime)
-  expect(actual.showWorkout).toBe(expected.showWorkout)
+  expect(actual.showTimeComponent).toBe(expected.showTimeComponent)
+  expect(actual.showWorkoutComponent).toBe(expected.showWorkoutComponent)
 })
 
-test('on BACK_FROM_WOD showTime and showGear are set to true, showWorkout is set to false when wodType is not "Running"', () => {
+test('on BACK_FROM_WOD showTimeComponent and showGearComponent are set to true, showWorkoutComponent is set to false when wodType is not "Running"', () => {
   const appState = {
-    showGear: false,
-    showWorkout: true
+    showGearComponent: false,
+    showWorkoutComponent: true
 
   }
   const action = {
@@ -146,27 +146,27 @@ test('on BACK_FROM_WOD showTime and showGear are set to true, showWorkout is set
     wodType: 'not running'
   }
   const expected = {
-    showGear: true,
-    showWorkout: false
+    showGearComponent: true,
+    showWorkoutComponent: false
   }
   const actual = display(appState, action)
 
-  expect(actual.showGear).toBe(expected.showGear)
-  expect(actual.showWorkout).toBe(expected.showWorkout)
+  expect(actual.showGearComponent).toBe(expected.showGearComponent)
+  expect(actual.showWorkoutComponent).toBe(expected.showWorkoutComponent)
 })
 
-test('on SHOW_WOD, waiting indicator is turn off by setting showWaiting to false', () => {
+test('on SHOW_WOD, waiting indicator is turn off by setting showWaitingComponent to false', () => {
   const appState = {
-    showWaiting: true
+    showWaitingComponent: true
   }
   const action = {
     type: SHOW_WOD,
     workoutList: []
   }
   const expected = {
-    showWaiting: false
+    showWaitingComponent: false
   }
   const actual = display(appState, action)
 
-  expect(actual.showWaiting).toBe(expected.showWaiting)
+  expect(actual.showWaitingComponent).toBe(expected.showWaitingComponent)
 })

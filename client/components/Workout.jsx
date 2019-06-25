@@ -29,7 +29,7 @@ class Workout extends React.Component {
   render () {
     return (
       <div className='form-container'>
-        {this.props.showWaiting ? <Waiting />
+        {this.props.showWaitingComponent ? <Waiting />
           : <div>
             <div className="header">
               <h1 className='wod-title'>{this.props.wod[this.props.wodNumber] ? this.props.wod[this.props.wodNumber].workout : 'Sorry'}</h1>
@@ -62,7 +62,7 @@ function mapStateToProps (state) {
     selection: state.selection,
     wod: state.workouts.workoutList,
     wodNumber: state.workouts.wodNumber,
-    showWaiting: state.display.showWaiting
+    showWaitingComponent: state.display.showWaitingComponent
   }
 }
 

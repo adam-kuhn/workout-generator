@@ -3,7 +3,7 @@ import request from 'superagent'
 export const SHOW_WOD = 'SHOW_WOD'
 export const NEW_NUM = 'NEW_NUM'
 
-const showWorkouts = (workout) => {
+const showWorkoutComponents = (workout) => {
   return {
     type: SHOW_WOD,
     workoutList: workout.body
@@ -18,7 +18,7 @@ export const getWorkouts = (selection) => {
       .send(selection)
       .then(workout => {
         console.log(workout)
-        dispatch(showWorkouts(workout))
+        dispatch(showWorkoutComponents(workout))
       }
       )
   }
