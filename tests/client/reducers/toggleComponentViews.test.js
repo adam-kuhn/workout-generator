@@ -1,5 +1,5 @@
 import toggleComponentViews from '../../../client/reducers/toggleComponentViews'
-import {SET_TYPE, SET_TIME, SET_GEAR} from '../../../client/actions/selection'
+import {SAVE_WORKOUT_TYPE_SHOW_TIME, SET_TIME, SET_GEAR} from '../../../client/actions/selection'
 import {BACK_HOME, BACK_FROM_WOD} from '../../../client/actions/back'
 import {SHOW_WOD} from '../../../client/actions/workout'
 
@@ -12,9 +12,9 @@ const initialState = {
   showWorkoutComponent: false
 }
 
-test('on SET_TYPE showHeader and showTimeComponent are true, showHomeComponent is false', () => {
+test('on SAVE_WORKOUT_TYPE_SHOW_TIME showHeader and showTimeComponent are true, showHomeComponent is false', () => {
   const action = {
-    type: SET_TYPE,
+    type: SAVE_WORKOUT_TYPE_SHOW_TIME,
     wodType: 'running'
   }
   const expected = {

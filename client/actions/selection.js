@@ -1,10 +1,10 @@
-export const SET_TYPE = 'SET_TYPE'
+export const SAVE_WORKOUT_TYPE_SHOW_TIME = 'SAVE_WORKOUT_TYPE_SHOW_TIME'
 export const SET_TIME = 'SET_TIME'
 export const SET_GEAR = 'SET_GEAR'
 
-export const setType = (wodType) => {
+export const saveWorkoutTypeMoveToTime = (wodType) => {
   return {
-    type: SET_TYPE,
+    type: SAVE_WORKOUT_TYPE_SHOW_TIME,
     wodType
   }
 }

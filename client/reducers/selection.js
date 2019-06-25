@@ -1,4 +1,4 @@
-import {SET_TYPE, SET_TIME, SET_GEAR} from '../actions/selection'
+import {SAVE_WORKOUT_TYPE_SHOW_TIME, SET_TIME, SET_GEAR} from '../actions/selection'
 import {BACK_HOME, BACK_TIME, BACK_FROM_WOD} from '../actions/back'
 
 const initialState = {
@@ -9,7 +9,7 @@ const initialState = {
 
 function selection (state = initialState, action) {
   switch (action.type) {
-    case (SET_TYPE): {
+    case (SAVE_WORKOUT_TYPE_SHOW_TIME): {
       return {
         ...state,
         wodType: action.wodType

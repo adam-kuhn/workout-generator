@@ -1,6 +1,6 @@
 import React from 'react'
 import {connect} from 'react-redux'
-import {setType} from '../actions/selection'
+import {saveWorkoutTypeMoveToTime} from '../actions/selection'
 
 class Home extends React.Component {
   constructor () {
@@ -20,7 +20,7 @@ class Home extends React.Component {
   }
 
   handleClick () {
-    this.props.dispatch(setType(this.state.workoutType))
+    this.props.dispatch(saveWorkoutTypeMoveToTime(this.state.workoutType))
   }
 
   render () {
