@@ -36,7 +36,7 @@ const App = (props) => {
 }
 
 const mapStateToProps = (state) => {
-  return state.display
+  return state.toggleComponentViews
 }
 
 export default connect(mapStateToProps)(App)

@@ -1,4 +1,4 @@
-import display from '../../../client/reducers/display'
+import toggleComponentViews from '../../../client/reducers/toggleComponentViews'
 import {SET_TYPE, SET_TIME, SET_GEAR} from '../../../client/actions/selection'
 import {BACK_HOME, BACK_FROM_WOD} from '../../../client/actions/back'
 import {SHOW_WOD} from '../../../client/actions/workout'
@@ -22,7 +22,7 @@ test('on SET_TYPE showHeader and showTimeComponent are true, showHomeComponent i
     showHomeComponent: false,
     showTimeComponent: true
   }
-  const actual = display(initialState, action)
+  const actual = toggleComponentViews(initialState, action)
 
   expect(actual.showHeaderComponent).toBe(expected.showHeaderComponent)
   expect(actual.showHomeComponent).toBe(expected.showHomeComponent)
@@ -44,7 +44,7 @@ test('on SET_TIME, showTimeComponent is set to false, and showGearComponent to t
     showGearComponent: true,
     showWorkoutComponent: false
   }
-  const actual = display(appState, action)
+  const actual = toggleComponentViews(appState, action)
 
   expect(actual.showTimeComponent).toBe(expected.showTimeComponent)
   expect(actual.showGearComponent).toBe(expected.showGearComponent)
@@ -66,7 +66,7 @@ test('on SET_TIME, showTimeComponent is set to false, and showWorkoutComponent t
     showGearComponent: false,
     showWorkoutComponent: true
   }
-  const actual = display(appState, action)
+  const actual = toggleComponentViews(appState, action)
 
   expect(actual.showTimeComponent).toBe(expected.showTimeComponent)
   expect(actual.showGearComponent).toBe(expected.showGearComponent)
@@ -85,7 +85,7 @@ test('on SET_GEAR, showGearComponent is set to false and showWorkoutComponent is
     showGearComponent: false,
     showWorkoutComponent: true
   }
-  const actual = display(appState, action)
+  const actual = toggleComponentViews(appState, action)
 
   expect(actual.showGearComponent).toBe(expected.showGearComponent)
   expect(actual.shoWorkout).toBe(expected.shoWorkout)
@@ -105,7 +105,7 @@ test('on BACK_HOME app returns to initial state', () => {
   }
 
   const expected = initialState
-  const actual = display(appState, action)
+  const actual = toggleComponentViews(appState, action)
 
   expect(actual.showHeader).toBe(expected.showHeader)
   expect(actual.showHomeComponent).toBe(expected.showHomeComponent)
@@ -129,7 +129,7 @@ test('on BACK_FROM_WOD showTimeComponent and showWaitingComponent are set to tru
     showTimeComponent: true,
     showWorkoutComponent: false
   }
-  const actual = display(appState, action)
+  const actual = toggleComponentViews(appState, action)
 
   expect(actual.showTimeComponent).toBe(expected.showTimeComponent)
   expect(actual.showWorkoutComponent).toBe(expected.showWorkoutComponent)
@@ -149,7 +149,7 @@ test('on BACK_FROM_WOD showTimeComponent and showGearComponent are set to true, 
     showGearComponent: true,
     showWorkoutComponent: false
   }
-  const actual = display(appState, action)
+  const actual = toggleComponentViews(appState, action)
 
   expect(actual.showGearComponent).toBe(expected.showGearComponent)
   expect(actual.showWorkoutComponent).toBe(expected.showWorkoutComponent)
@@ -166,7 +166,7 @@ test('on SHOW_WOD, waiting indicator is turn off by setting showWaitingComponent
   const expected = {
     showWaitingComponent: false
   }
-  const actual = display(appState, action)
+  const actual = toggleComponentViews(appState, action)
 
   expect(actual.showWaitingComponent).toBe(expected.showWaitingComponent)
 })

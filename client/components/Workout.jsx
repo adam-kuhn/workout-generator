@@ -62,7 +62,7 @@ function mapStateToProps (state) {
     selection: state.selection,
     wod: state.workouts.workoutList,
     wodNumber: state.workouts.wodNumber,
-    showWaitingComponent: state.display.showWaitingComponent
+    showWaitingComponent: state.toggleComponentViews.showWaitingComponent
   }
 }
 

@@ -11,7 +11,7 @@ const initialState = {
   showWorkoutComponent: false
 }
 
-function display (state = initialState, action) {
+function toggleComponentViews (state = initialState, action) {
   switch (action.type) {
     case (SET_TYPE): {
       return {
@@ -78,4 +78,4 @@ function display (state = initialState, action) {
   }
 }
 
-export default display
+export default toggleComponentViews
