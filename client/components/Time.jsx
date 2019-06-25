@@ -1,7 +1,9 @@
 import React from 'react'
 import {connect} from 'react-redux'
 
-import {setTime} from '../actions/selection'
+import {saveDurationShowRunningWorkout,
+  saveDurationShowGearSelection
+} from '../actions/selection'
 import {backHome} from '../actions/back'
 
 class Time extends React.Component {
@@ -24,9 +26,13 @@ class Time extends React.Component {
   }
 
   handleClick () {
-    this.props.dispatch(
-      setTime(this.props.wodType, this.state.duration)
-    )
+    if (this.props.wodType === 'Running') {
+      this.props.dispatch(saveDurationShowRunningWorkout(this.state.duration))
+    } else {
+      this.props.dispatch(
+        saveDurationShowGearSelection(this.state.duration)
+      )
+    }
   }
 
   goBack () {

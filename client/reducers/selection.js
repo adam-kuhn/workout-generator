@@ -1,4 +1,6 @@
-import {SAVE_WORKOUT_TYPE_SHOW_TIME, SET_TIME, SET_GEAR} from '../actions/selection'
+import {SAVE_WORKOUT_TYPE_SHOW_TIME,
+  SAVE_DURATION_SHOW_GEAR, SET_GEAR,
+  SAVE_DURATION_RUNNING_WORKOUT} from '../actions/selection'
 import {BACK_HOME, BACK_TIME, BACK_FROM_WOD} from '../actions/back'
 
 const initialState = {
@@ -15,7 +17,13 @@ function selection (state = initialState, action) {
         wodType: action.wodType
       }
     }
-    case (SET_TIME): {
+    case (SAVE_DURATION_RUNNING_WORKOUT): {
+      return {
+        ...state,
+        duration: action.duration
+      }
+    }
+    case (SAVE_DURATION_SHOW_GEAR): {
       return {
         ...state,
         duration: action.duration

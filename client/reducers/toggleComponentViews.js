@@ -1,4 +1,6 @@
-import {SAVE_WORKOUT_TYPE_SHOW_TIME, SET_TIME, SET_GEAR} from '../actions/selection'
+import {SAVE_WORKOUT_TYPE_SHOW_TIME,
+  SAVE_DURATION_SHOW_GEAR, SET_GEAR,
+  SAVE_DURATION_RUNNING_WORKOUT} from '../actions/selection'
 import {BACK_HOME, BACK_TIME, BACK_FROM_WOD} from '../actions/back'
 import {SHOW_WOD} from '../actions/workout'
 
@@ -21,18 +23,19 @@ function toggleComponentViews (state = initialState, action) {
         showTimeComponent: true
       }
     }
-    case (SET_TIME): {
-      const updatedState = {
+    case (SAVE_DURATION_RUNNING_WORKOUT): {
+      return {
         ...state,
-        showTimeComponent: false
+        showTimeComponent: false,
+        showWorkoutComponent: true
       }
-      if (action.wodType === 'Running') {
-        updatedState.showWorkoutComponent = true
-      } else {
-        updatedState.showGearComponent = true
+    }
+    case (SAVE_DURATION_SHOW_GEAR): {
+      return {
+        ...state,
+        showTimeComponent: false,
+        showGearComponent: true
       }
-
-      return updatedState
     }
     // it weird that setGear sets show gear to false
     // need better action names

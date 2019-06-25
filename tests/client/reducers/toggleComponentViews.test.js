@@ -1,5 +1,5 @@
 import toggleComponentViews from '../../../client/reducers/toggleComponentViews'
-import {SAVE_WORKOUT_TYPE_SHOW_TIME, SET_TIME, SET_GEAR} from '../../../client/actions/selection'
+import {SAVE_WORKOUT_TYPE_SHOW_TIME, SAVE_DURATION_SHOW_GEAR, SAVE_DURATION_RUNNING_WORKOUT, SET_GEAR} from '../../../client/actions/selection'
 import {BACK_HOME, BACK_FROM_WOD} from '../../../client/actions/back'
 import {SHOW_WOD} from '../../../client/actions/workout'
 
@@ -14,8 +14,7 @@ const initialState = {
 
 test('on SAVE_WORKOUT_TYPE_SHOW_TIME showHeader and showTimeComponent are true, showHomeComponent is false', () => {
   const action = {
-    type: SAVE_WORKOUT_TYPE_SHOW_TIME,
-    wodType: 'running'
+    type: SAVE_WORKOUT_TYPE_SHOW_TIME
   }
   const expected = {
     showHeaderComponent: true,
@@ -29,15 +28,14 @@ test('on SAVE_WORKOUT_TYPE_SHOW_TIME showHeader and showTimeComponent are true, 
   expect(actual.showTimeComponent).toBe(expected.showTimeComponent)
 })
 
-test('on SET_TIME, showTimeComponent is set to false, and showGearComponent to true when wodType is not "Running"', () => {
+test('on SAVE_DURATION_SHOW_GEAR, showTimeComponent is set to false, and showGearComponent to true', () => {
   const appState = {
     showTimeComponent: true,
     showGearComponent: false,
     showWorkoutComponent: false
   }
   const action = {
-    type: SET_TIME,
-    wodType: 'strength'
+    type: SAVE_DURATION_SHOW_GEAR
   }
   const expected = {
     showTimeComponent: false,
@@ -51,15 +49,14 @@ test('on SET_TIME, showTimeComponent is set to false, and showGearComponent to t
   expect(actual.showWorkoutComponent).toBe(expected.showWorkoutComponent)
 })
 
-test('on SET_TIME, showTimeComponent is set to false, and showWorkoutComponent to true when wodType is "Running"', () => {
+test('on SAVE_DURATION_RUNNING_WORKOUT, showTimeComponent is set to false, and showWorkoutComponent to true', () => {
   const appState = {
     showTimeComponent: true,
     showGearComponent: false,
     showWorkoutComponent: false
   }
   const action = {
-    type: SET_TIME,
-    wodType: 'Running'
+    type: SAVE_DURATION_RUNNING_WORKOUT
   }
   const expected = {
     showTimeComponent: false,
@@ -115,7 +112,7 @@ test('on BACK_HOME app returns to initial state', () => {
   expect(actual.showWorkoutComponent).toBe(expected.showWorkoutComponent)
 })
 
-test('on BACK_FROM_WOD showTimeComponent and showWaitingComponent are set to true, showWorkoutComponent is set to false when wodType is "Running"', () => {
+test('on BACK_FROM_WOD showTimeComponent and showWaitingComponent are set to true, showWorkoutComponent is set to false', () => {
   const appState = {
     showTimeComponent: false,
     showWorkoutComponent: true
