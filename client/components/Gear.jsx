@@ -1,7 +1,7 @@
 import React from 'react'
 import {connect} from 'react-redux'
 
-import {saveGearSelectionShowWorkout, toTime} from '../actions/appNavigation'
+import {saveGearSelectionShowWorkout, goBackToTime} from '../actions/appNavigation'
 
 class Gear extends React.Component {
   constructor (props) {
@@ -17,7 +17,7 @@ class Gear extends React.Component {
     }
     this.saveGearSelectionShowWorkoutList = this.saveGearSelectionShowWorkoutList.bind(this)
     this.makeList = this.makeList.bind(this)
-    this.backToTime = this.backToTime.bind(this)
+    this.backgoBackToTime = this.backgoBackToTime.bind(this)
   }
   saveGearSelectionShowWorkoutList (evt) {
     if (this.state.none === evt.target.value ||
@@ -43,8 +43,8 @@ class Gear extends React.Component {
     this.props.dispatch(saveGearSelectionShowWorkout(gearList))
   }
 
-  backToTime () {
-    this.props.dispatch(toTime())
+  backgoBackToTime () {
+    this.props.dispatch(goBackToTime())
   }
 
   render () {
@@ -69,7 +69,7 @@ class Gear extends React.Component {
                 )}
               </div>
               <button type='button' onClick={this.makeList}>Next</button>
-              <button type='button' onClick={this.backToTime}>Back</button>
+              <button type='button' onClick={this.backgoBackToTime}>Back</button>
             </form>
           </div>
         </div>

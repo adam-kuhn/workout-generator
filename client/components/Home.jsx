@@ -1,6 +1,6 @@
 import React from 'react'
 import {connect} from 'react-redux'
-import {saveWorkoutTypeMoveToTime} from '../actions/appNavigation'
+import {saveWorkoutTypeMovegoBackToTime} from '../actions/appNavigation'
 
 class Home extends React.Component {
   constructor () {
@@ -20,7 +20,7 @@ class Home extends React.Component {
   }
 
   handleClick () {
-    this.props.dispatch(saveWorkoutTypeMoveToTime(this.state.workoutType))
+    this.props.dispatch(saveWorkoutTypeMovegoBackToTime(this.state.workoutType))
   }
 
   render () {

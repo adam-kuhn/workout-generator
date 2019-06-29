@@ -1,6 +1,6 @@
 import {SAVE_WORKOUT_TYPE_SHOW_TIME,
   SAVE_DURATION_SHOW_GEAR, SAVE_GEAR_SHOW_WORKOUT,
-  SAVE_DURATION_RUNNING_WORKOUT, GO_BACK_TO_HOME, BACK_TIME, BACK_FROM_WOD} from '../actions/appNavigation'
+  SAVE_DURATION_RUNNING_WORKOUT, GO_BACK_TO_HOME, GO_BACK_TO_TIME, BACK_FROM_WOD} from '../actions/appNavigation'
 
 const initialState = {
   wodType: '',
@@ -37,7 +37,7 @@ function selection (state = initialState, action) {
     case (GO_BACK_TO_HOME): {
       return initialState
     }
-    case (BACK_TIME): {
+    case (GO_BACK_TO_TIME): {
       return {
         ...state,
         duration: ''
