@@ -2,7 +2,7 @@ export const SAVE_WORKOUT_TYPE_SHOW_TIME = 'SAVE_WORKOUT_TYPE_SHOW_TIME'
 export const SAVE_DURATION_SHOW_GEAR = 'SAVE_DURATION_SHOW_GEAR'
 export const SAVE_DURATION_RUNNING_WORKOUT = 'SAVE_DURATION_RUNNING_WORKOUT'
 export const SAVE_GEAR_SHOW_WORKOUT = 'SAVE_GEAR_SHOW_WORKOUT'
-export const BACK_HOME = 'BACK_HOME'
+export const GO_BACK_TO_HOME = 'GO_BACK_TO_HOME'
 export const BACK_TIME = 'BACK_TIME'
 export const BACK_FROM_WOD = 'BACK_FROM_WOD'
 
@@ -34,9 +34,9 @@ export const saveGearSelectionShowWorkout = (gearList) => {
   }
 }
 
-export const backHome = () => {
+export const goBackToHome = () => {
   return {
-    type: BACK_HOME
+    type: GO_BACK_TO_HOME
   }
 }
 

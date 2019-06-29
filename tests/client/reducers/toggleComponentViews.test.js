@@ -3,7 +3,7 @@ import {SAVE_WORKOUT_TYPE_SHOW_TIME,
   SAVE_DURATION_SHOW_GEAR,
   SAVE_DURATION_RUNNING_WORKOUT,
   SAVE_GEAR_SHOW_WORKOUT,
-  BACK_HOME,
+  GO_BACK_TO_HOME,
   BACK_FROM_WOD} from '../../../client/actions/appNavigation'
 import {SHOW_WOD} from '../../../client/actions/workout'
 
@@ -92,7 +92,7 @@ test('on SAVE_GEAR_SHOW_WORKOUT, showGearComponent is set to false and showWorko
   expect(actual.shoWorkout).toBe(expected.shoWorkout)
 })
 
-test('on BACK_HOME app returns to initial state', () => {
+test('on GO_BACK_TO_HOME app returns to initial state', () => {
   const appState = {
     showHeader: true,
     showHomeComponent: false,
@@ -102,7 +102,7 @@ test('on BACK_HOME app returns to initial state', () => {
     showWorkoutComponent: true
   }
   const action = {
-    type: BACK_HOME
+    type: GO_BACK_TO_HOME
   }
 
   const expected = initialState

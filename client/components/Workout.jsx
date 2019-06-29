@@ -1,7 +1,7 @@
 import React from 'react'
 import {connect} from 'react-redux'
 
-import {backFromWod, backHome} from '../actions/appNavigation'
+import {backFromWod, goBackToHome} from '../actions/appNavigation'
 import {getWorkouts, newNumber} from '../actions/workout'
 import Waiting from './Waiting'
 
@@ -21,7 +21,7 @@ class Workout extends React.Component {
     this.props.dispatch(backFromWod(this.props.selection.wodType))
   }
   handleHome () {
-    this.props.dispatch(backHome())
+    this.props.dispatch(goBackToHome())
   }
   anotherWorkout () {
     this.props.dispatch(newNumber(this.props.wodNumber, this.props.wod))

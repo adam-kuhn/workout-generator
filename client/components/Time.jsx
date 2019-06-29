@@ -3,7 +3,7 @@ import {connect} from 'react-redux'
 
 import {saveDurationShowRunningWorkout,
   saveDurationShowGearSelection,
-  backHome
+  goBackToHome
 } from '../actions/appNavigation'
 
 class Time extends React.Component {
@@ -36,7 +36,7 @@ class Time extends React.Component {
   }
 
   goBack () {
-    this.props.dispatch(backHome())
+    this.props.dispatch(goBackToHome())
   }
 
   render () {
