@@ -3,6 +3,12 @@ import {connect} from 'react-redux'
 
 import {saveGearSelectionShowWorkout, goBackToTime} from '../actions/appNavigation'
 
+export const hasItemBeenChecked = (selectedItem, allGear) => {
+  const currentGearSelection = Object.values(allGear)
+  const itemsThatAreChecked = currentGearSelection.filter(item => item === selectedItem)
+  return itemsThatAreChecked.length
+}
+
 class Gear extends React.Component {
   constructor (props) {
     super(props)
@@ -13,25 +19,20 @@ class Gear extends React.Component {
       sandbag: '',
       barbell: '',
       box: ''
-
     }
-    this.saveGearSelectionShowWorkoutList = this.saveGearSelectionShowWorkoutList.bind(this)
+    this.updateSelectedGear = this.updateSelectedGear.bind(this)
     this.makeList = this.makeList.bind(this)
     this.backgoBackToTime = this.backgoBackToTime.bind(this)
   }
-  saveGearSelectionShowWorkoutList (evt) {
-    if (this.state.none === evt.target.value ||
-        this.state.kb === evt.target.value ||
-        this.state.pullUp === evt.target.value ||
-        this.state.sandbag === evt.target.value ||
-        this.state.barbell === evt.target.value ||
-        this.state.box === evt.target.value) {
+  updateSelectedGear (evt) {
+    const {value, name} = evt.target
+    if (hasItemBeenChecked(value, this.state)) {
       this.setState({
-        [evt.target.value]: ''
+        [value]: ''
       })
     } else {
       this.setState({
-        [evt.target.name]: evt.target.value
+        [name]: value
       })
     }
   }
@@ -62,7 +63,7 @@ class Gear extends React.Component {
                     <label key={item.id} className='gear'>{item.text}
                       <input className={`input-${item.name}`}
                         type='checkbox' name={item.name} value=
-                          {item.value} onChange={this.saveGearSelectionShowWorkoutList} />
+                          {item.value} onChange={this.updateSelectedGear} />
                     </label>
                   )
                 }
