@@ -1,7 +1,7 @@
 import React from 'react'
 import {connect} from 'react-redux'
 
-import {setGear} from '../actions/selection'
+import {saveGearSelectionShowWorkout} from '../actions/selection'
 import {toTime} from '../actions/back'
 
 class Gear extends React.Component {
@@ -16,11 +16,11 @@ class Gear extends React.Component {
       box: ''
 
     }
-    this.setGearList = this.setGearList.bind(this)
+    this.saveGearSelectionShowWorkoutList = this.saveGearSelectionShowWorkoutList.bind(this)
     this.makeList = this.makeList.bind(this)
     this.backToTime = this.backToTime.bind(this)
   }
-  setGearList (evt) {
+  saveGearSelectionShowWorkoutList (evt) {
     if (this.state.none === evt.target.value ||
         this.state.kb === evt.target.value ||
         this.state.pullUp === evt.target.value ||
@@ -41,7 +41,7 @@ class Gear extends React.Component {
     const gearList = Object.values(this.state).filter(equipment => {
       return equipment !== ''
     })
-    this.props.dispatch(setGear(gearList))
+    this.props.dispatch(saveGearSelectionShowWorkout(gearList))
   }
 
   backToTime () {
@@ -63,7 +63,7 @@ class Gear extends React.Component {
                     <label key={item.id} className='gear'>{item.text}
                       <input className={`input-${item.name}`}
                         type='checkbox' name={item.name} value=
-                          {item.value} onChange={this.setGearList} />
+                          {item.value} onChange={this.saveGearSelectionShowWorkoutList} />
                     </label>
                   )
                 }

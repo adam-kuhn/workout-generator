@@ -1,5 +1,5 @@
 import {SAVE_WORKOUT_TYPE_SHOW_TIME,
-  SAVE_DURATION_SHOW_GEAR, SET_GEAR,
+  SAVE_DURATION_SHOW_GEAR, SAVE_GEAR_SHOW_WORKOUT,
   SAVE_DURATION_RUNNING_WORKOUT} from '../actions/selection'
 import {BACK_HOME, BACK_TIME, BACK_FROM_WOD} from '../actions/back'
 
@@ -29,7 +29,7 @@ function selection (state = initialState, action) {
         duration: action.duration
       }
     }
-    case (SET_GEAR): {
+    case (SAVE_GEAR_SHOW_WORKOUT): {
       return {
         ...state,
         gear: action.gearList

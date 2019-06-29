@@ -1,5 +1,5 @@
 import toggleComponentViews from '../../../client/reducers/toggleComponentViews'
-import {SAVE_WORKOUT_TYPE_SHOW_TIME, SAVE_DURATION_SHOW_GEAR, SAVE_DURATION_RUNNING_WORKOUT, SET_GEAR} from '../../../client/actions/selection'
+import {SAVE_WORKOUT_TYPE_SHOW_TIME, SAVE_DURATION_SHOW_GEAR, SAVE_DURATION_RUNNING_WORKOUT, SAVE_GEAR_SHOW_WORKOUT} from '../../../client/actions/selection'
 import {BACK_HOME, BACK_FROM_WOD} from '../../../client/actions/back'
 import {SHOW_WOD} from '../../../client/actions/workout'
 
@@ -70,13 +70,13 @@ test('on SAVE_DURATION_RUNNING_WORKOUT, showTimeComponent is set to false, and s
   expect(actual.showWorkoutComponent).toBe(expected.showWorkoutComponent)
 })
 
-test('on SET_GEAR, showGearComponent is set to false and showWorkoutComponent is set to true', () => {
+test('on SAVE_GEAR_SHOW_WORKOUT, showGearComponent is set to false and showWorkoutComponent is set to true', () => {
   const appState = {
     showGearComponent: true,
     showWorkoutComponent: false
   }
   const action = {
-    type: SET_GEAR
+    type: SAVE_GEAR_SHOW_WORKOUT
   }
   const expected = {
     showGearComponent: false,
