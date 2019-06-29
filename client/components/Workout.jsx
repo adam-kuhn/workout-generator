@@ -3,7 +3,7 @@ import {connect} from 'react-redux'
 
 import {goBackToGearSelection, goBackToTime, goBackToHome} from '../actions/appNavigation'
 import {getWorkouts, newNumber} from '../actions/workout'
-import Waiting from './Waiting'
+import WaitingIcon from './WaitingIcon'
 
 class Workout extends React.Component {
   constructor () {
@@ -33,7 +33,7 @@ class Workout extends React.Component {
   render () {
     return (
       <div className='form-container'>
-        {this.props.showWaitingComponent ? <Waiting />
+        {this.props.showWaitingComponent ? <WaitingIcon />
           : <div>
             <div className="header">
               <h1 className='wod-title'>{this.props.wod[this.props.wodNumber] ? this.props.wod[this.props.wodNumber].workout : 'Sorry'}</h1>
