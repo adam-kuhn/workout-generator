@@ -1,6 +1,6 @@
 import React from 'react'
 import {connect} from 'react-redux'
-import {saveWorkoutTypeMoveToTime} from '../actions/selection'
+import {saveWorkoutTypeMoveToTime} from '../actions/appNavigation'
 
 class Home extends React.Component {
   constructor () {

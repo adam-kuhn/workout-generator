@@ -2,6 +2,9 @@ export const SAVE_WORKOUT_TYPE_SHOW_TIME = 'SAVE_WORKOUT_TYPE_SHOW_TIME'
 export const SAVE_DURATION_SHOW_GEAR = 'SAVE_DURATION_SHOW_GEAR'
 export const SAVE_DURATION_RUNNING_WORKOUT = 'SAVE_DURATION_RUNNING_WORKOUT'
 export const SAVE_GEAR_SHOW_WORKOUT = 'SAVE_GEAR_SHOW_WORKOUT'
+export const BACK_HOME = 'BACK_HOME'
+export const BACK_TIME = 'BACK_TIME'
+export const BACK_FROM_WOD = 'BACK_FROM_WOD'
 
 export const saveWorkoutTypeMoveToTime = (wodType) => {
   return {
@@ -28,5 +31,24 @@ export const saveGearSelectionShowWorkout = (gearList) => {
   return {
     type: SAVE_GEAR_SHOW_WORKOUT,
     gearList
+  }
+}
+
+export const backHome = () => {
+  return {
+    type: BACK_HOME
+  }
+}
+
+export const toTime = () => {
+  return {
+    type: BACK_TIME
+  }
+}
+
+export const backFromWod = (wodType) => {
+  return {
+    type: BACK_FROM_WOD,
+    wodType
   }
 }

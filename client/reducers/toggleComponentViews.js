@@ -1,7 +1,9 @@
 import {SAVE_WORKOUT_TYPE_SHOW_TIME,
-  SAVE_DURATION_SHOW_GEAR, SAVE_GEAR_SHOW_WORKOUT,
-  SAVE_DURATION_RUNNING_WORKOUT} from '../actions/selection'
-import {BACK_HOME, BACK_TIME, BACK_FROM_WOD} from '../actions/back'
+  SAVE_DURATION_SHOW_GEAR,
+  SAVE_GEAR_SHOW_WORKOUT,
+  SAVE_DURATION_RUNNING_WORKOUT,
+  BACK_HOME, BACK_TIME,
+  BACK_FROM_WOD} from '../actions/appNavigation'
 import {SHOW_WOD} from '../actions/workout'
 
 const initialState = {

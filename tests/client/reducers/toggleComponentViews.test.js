@@ -1,6 +1,10 @@
 import toggleComponentViews from '../../../client/reducers/toggleComponentViews'
-import {SAVE_WORKOUT_TYPE_SHOW_TIME, SAVE_DURATION_SHOW_GEAR, SAVE_DURATION_RUNNING_WORKOUT, SAVE_GEAR_SHOW_WORKOUT} from '../../../client/actions/selection'
-import {BACK_HOME, BACK_FROM_WOD} from '../../../client/actions/back'
+import {SAVE_WORKOUT_TYPE_SHOW_TIME,
+  SAVE_DURATION_SHOW_GEAR,
+  SAVE_DURATION_RUNNING_WORKOUT,
+  SAVE_GEAR_SHOW_WORKOUT,
+  BACK_HOME,
+  BACK_FROM_WOD} from '../../../client/actions/appNavigation'
 import {SHOW_WOD} from '../../../client/actions/workout'
 
 const initialState = {

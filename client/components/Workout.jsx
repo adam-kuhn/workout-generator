@@ -1,7 +1,7 @@
 import React from 'react'
 import {connect} from 'react-redux'
 
-import {backFromWod, backHome} from '../actions/back'
+import {backFromWod, backHome} from '../actions/appNavigation'
 import {getWorkouts, newNumber} from '../actions/workout'
 import Waiting from './Waiting'
 

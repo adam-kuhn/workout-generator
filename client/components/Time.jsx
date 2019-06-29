@@ -2,9 +2,9 @@ import React from 'react'
 import {connect} from 'react-redux'
 
 import {saveDurationShowRunningWorkout,
-  saveDurationShowGearSelection
-} from '../actions/selection'
-import {backHome} from '../actions/back'
+  saveDurationShowGearSelection,
+  backHome
+} from '../actions/appNavigation'
 
 class Time extends React.Component {
   constructor () {

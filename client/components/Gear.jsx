@@ -1,8 +1,7 @@
 import React from 'react'
 import {connect} from 'react-redux'
 
-import {saveGearSelectionShowWorkout} from '../actions/selection'
-import {toTime} from '../actions/back'
+import {saveGearSelectionShowWorkout, toTime} from '../actions/appNavigation'
 
 class Gear extends React.Component {
   constructor (props) {
