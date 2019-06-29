@@ -1,6 +1,6 @@
 import {SAVE_WORKOUT_TYPE_SHOW_TIME,
   SAVE_DURATION_SHOW_GEAR, SAVE_GEAR_SHOW_WORKOUT,
-  SAVE_DURATION_RUNNING_WORKOUT, GO_BACK_TO_HOME, GO_BACK_TO_TIME, BACK_FROM_WOD} from '../actions/appNavigation'
+  SAVE_DURATION_RUNNING_WORKOUT, GO_BACK_TO_HOME, GO_BACK_TO_TIME, BACK_TO_GEAR_LIST_SELECTION} from '../actions/appNavigation'
 
 const initialState = {
   wodType: '',
@@ -43,13 +43,7 @@ function selection (state = initialState, action) {
         duration: ''
       }
     }
-    case (BACK_FROM_WOD): {
-      if (action.wodType === 'Running') {
-        return {
-          ...state,
-          duration: ''
-        }
-      }
+    case (BACK_TO_GEAR_LIST_SELECTION): {
       return {
         ...state,
         gear: []

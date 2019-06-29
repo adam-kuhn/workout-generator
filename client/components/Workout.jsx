@@ -1,7 +1,7 @@
 import React from 'react'
 import {connect} from 'react-redux'
 
-import {backFromWod, goBackToHome} from '../actions/appNavigation'
+import {goBackToGearSelection, goBackToTime, goBackToHome} from '../actions/appNavigation'
 import {getWorkouts, newNumber} from '../actions/workout'
 import Waiting from './Waiting'
 
@@ -18,7 +18,11 @@ class Workout extends React.Component {
   }
 
   handleBack () {
-    this.props.dispatch(backFromWod(this.props.selection.wodType))
+    if (this.props.selection.wodType === 'Running') {
+      this.props.dispatch(goBackToTime())
+    } else {
+      this.props.dispatch(goBackToGearSelection())
+    }
   }
   handleHome () {
     this.props.dispatch(goBackToHome())

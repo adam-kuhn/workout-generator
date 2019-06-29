@@ -4,7 +4,8 @@ import {SAVE_WORKOUT_TYPE_SHOW_TIME,
   SAVE_DURATION_RUNNING_WORKOUT,
   SAVE_GEAR_SHOW_WORKOUT,
   GO_BACK_TO_HOME,
-  BACK_FROM_WOD} from '../../../client/actions/appNavigation'
+  GO_BACK_TO_TIME,
+  BACK_TO_GEAR_LIST_SELECTION} from '../../../client/actions/appNavigation'
 import {SHOW_WOD} from '../../../client/actions/workout'
 
 const initialState = {
@@ -116,15 +117,13 @@ test('on GO_BACK_TO_HOME app returns to initial state', () => {
   expect(actual.showWorkoutComponent).toBe(expected.showWorkoutComponent)
 })
 
-test('on BACK_FROM_WOD showTimeComponent and showWaitingComponent are set to true, showWorkoutComponent is set to false', () => {
+test('on GO_BACK_TO_TIME showTimeComponent is set to true everything else is false', () => {
   const appState = {
     showTimeComponent: false,
     showWorkoutComponent: true
-
   }
   const action = {
-    type: BACK_FROM_WOD,
-    wodType: 'Running'
+    type: GO_BACK_TO_TIME
   }
   const expected = {
     showTimeComponent: true,
@@ -136,15 +135,14 @@ test('on BACK_FROM_WOD showTimeComponent and showWaitingComponent are set to tru
   expect(actual.showWorkoutComponent).toBe(expected.showWorkoutComponent)
 })
 
-test('on BACK_FROM_WOD showTimeComponent and showGearComponent are set to true, showWorkoutComponent is set to false when wodType is not "Running"', () => {
+test('on BACK_TO_GEAR_LIST_SELECTION showGearComponent is set to true, showWorkoutComponent is set to false', () => {
   const appState = {
     showGearComponent: false,
     showWorkoutComponent: true
 
   }
   const action = {
-    type: BACK_FROM_WOD,
-    wodType: 'not running'
+    type: BACK_TO_GEAR_LIST_SELECTION
   }
   const expected = {
     showGearComponent: true,

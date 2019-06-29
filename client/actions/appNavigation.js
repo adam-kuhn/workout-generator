@@ -4,7 +4,7 @@ export const SAVE_DURATION_RUNNING_WORKOUT = 'SAVE_DURATION_RUNNING_WORKOUT'
 export const SAVE_GEAR_SHOW_WORKOUT = 'SAVE_GEAR_SHOW_WORKOUT'
 export const GO_BACK_TO_HOME = 'GO_BACK_TO_HOME'
 export const GO_BACK_TO_TIME = 'GO_BACK_TO_TIME'
-export const BACK_FROM_WOD = 'BACK_FROM_WOD'
+export const BACK_TO_GEAR_LIST_SELECTION = 'BACK_TO_GEAR_LIST_SELECTION'
 
 export const saveWorkoutTypeMovegoBackToTime = (wodType) => {
   return {
@@ -46,9 +46,8 @@ export const goBackToTime = () => {
   }
 }
 
-export const backFromWod = (wodType) => {
+export const goBackToGearSelection = () => {
   return {
-    type: BACK_FROM_WOD,
-    wodType
+    type: BACK_TO_GEAR_LIST_SELECTION
   }
 }

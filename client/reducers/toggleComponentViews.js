@@ -3,7 +3,7 @@ import {SAVE_WORKOUT_TYPE_SHOW_TIME,
   SAVE_GEAR_SHOW_WORKOUT,
   SAVE_DURATION_RUNNING_WORKOUT,
   GO_BACK_TO_HOME, GO_BACK_TO_TIME,
-  BACK_FROM_WOD} from '../actions/appNavigation'
+  BACK_TO_GEAR_LIST_SELECTION} from '../actions/appNavigation'
 import {SHOW_WOD} from '../actions/workout'
 
 const initialState = {
@@ -55,21 +55,16 @@ function toggleComponentViews (state = initialState, action) {
       return {
         ...state,
         showGearComponent: false,
-        showTimeComponent: true
-      }
-    }
-    case (BACK_FROM_WOD): {
-      const updatedState = {
-        ...state,
+        showTimeComponent: true,
         showWorkoutComponent: false
       }
-      if (action.wodType === 'Running') {
-        updatedState.showTimeComponent = true
-      } else {
-        updatedState.showGearComponent = true
+    }
+    case (BACK_TO_GEAR_LIST_SELECTION): {
+      return {
+        ...state,
+        showWorkoutComponent: false,
+        showGearComponent: true
       }
-
-      return updatedState
     }
 
     case (SHOW_WOD): {
