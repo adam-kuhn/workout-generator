@@ -10,7 +10,7 @@ class Time extends React.Component {
   constructor () {
     super()
     this.state = {
-      duration: '',
+      workoutDuration: '',
       disable: true
     }
     this.selectedTime = this.selectedTime.bind(this)
@@ -20,17 +20,17 @@ class Time extends React.Component {
 
   selectedTime (evt) {
     this.setState({
-      duration: evt.target.value,
+      workoutDuration: evt.target.value,
       disable: false
     })
   }
 
   handleClick () {
     if (this.props.wodType === 'Running') {
-      this.props.dispatch(saveDurationShowRunningWorkout(this.state.duration))
+      this.props.dispatch(saveDurationShowRunningWorkout(this.state.workoutDuration))
     } else {
       this.props.dispatch(
-        saveDurationShowGearSelection(this.state.duration)
+        saveDurationShowGearSelection(this.state.workoutDuration)
       )
     }
   }
@@ -43,7 +43,7 @@ class Time extends React.Component {
     return (
       <div className='form-container'>
         <div className="header">
-          <h1>Select Duration: </h1>
+          <h1>Select workoutDuration: </h1>
         </div>
         <div>
           <div className='flex-container'>
@@ -51,19 +51,19 @@ class Time extends React.Component {
               <div className='form-body'>
                 <label>0-20 min
                   <input className='input-0-20' type='radio' name='time' value='0-20 min'
-                    checked={this.state.duration === '0-20 min'} onChange={this.selectedTime} />
+                    checked={this.state.workoutDuration === '0-20 min'} onChange={this.selectedTime} />
                 </label>
                 <label>20-40 min
                   <input className='general-input' type='radio' name='time' value='20-40 min'
-                    checked={this.state.duration === '20-40 min'} onChange={this.selectedTime} />
+                    checked={this.state.workoutDuration === '20-40 min'} onChange={this.selectedTime} />
                 </label>
                 <label>40-60 min
                   <input className='general-input' type='radio' name='time' value='40-60 min'
-                    checked={this.state.duration === '40-60 min'} onChange={this.selectedTime}/>
+                    checked={this.state.workoutDuration === '40-60 min'} onChange={this.selectedTime}/>
                 </label>
                 <label>&gt;60 min
                   <input className='input-60' type='radio' name='time' value='>60 min'
-                    checked={this.state.duration === '>60 min'} onChange={this.selectedTime} />
+                    checked={this.state.workoutDuration === '>60 min'} onChange={this.selectedTime} />
                 </label>
               </div>
               <button type='button' onClick={this.handleClick} disabled={this.state.disable}>Next</button>
