@@ -13,12 +13,12 @@ class Time extends React.Component {
       workoutDuration: '',
       disableNextButton: true
     }
-    this.selectedTime = this.selectedTime.bind(this)
+    this.selectWorkoutDuration = this.selectWorkoutDuration.bind(this)
     this.handleClick = this.handleClick.bind(this)
     this.goBack = this.goBack.bind(this)
   }
 
-  selectedTime (evt) {
+  selectWorkoutDuration (evt) {
     this.setState({
       workoutDuration: evt.target.value,
       disableNextButton: false
@@ -51,19 +51,19 @@ class Time extends React.Component {
               <div className='form-body'>
                 <label>0-20 min
                   <input className='input-0-20' type='radio' name='time' value='0-20 min'
-                    checked={this.state.workoutDuration === '0-20 min'} onChange={this.selectedTime} />
+                    checked={this.state.workoutDuration === '0-20 min'} onChange={this.selectWorkoutDuration} />
                 </label>
                 <label>20-40 min
                   <input className='general-input' type='radio' name='time' value='20-40 min'
-                    checked={this.state.workoutDuration === '20-40 min'} onChange={this.selectedTime} />
+                    checked={this.state.workoutDuration === '20-40 min'} onChange={this.selectWorkoutDuration} />
                 </label>
                 <label>40-60 min
                   <input className='general-input' type='radio' name='time' value='40-60 min'
-                    checked={this.state.workoutDuration === '40-60 min'} onChange={this.selectedTime}/>
+                    checked={this.state.workoutDuration === '40-60 min'} onChange={this.selectWorkoutDuration}/>
                 </label>
                 <label>&gt;60 min
                   <input className='input-60' type='radio' name='time' value='>60 min'
-                    checked={this.state.workoutDuration === '>60 min'} onChange={this.selectedTime} />
+                    checked={this.state.workoutDuration === '>60 min'} onChange={this.selectWorkoutDuration} />
                 </label>
               </div>
               <button type='button' onClick={this.handleClick} disabled={this.state.disableNextButton}>Next</button>
