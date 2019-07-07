@@ -11,7 +11,7 @@ class Time extends React.Component {
     super()
     this.state = {
       workoutDuration: '',
-      disable: true
+      disableNextButton: true
     }
     this.selectedTime = this.selectedTime.bind(this)
     this.handleClick = this.handleClick.bind(this)
@@ -21,7 +21,7 @@ class Time extends React.Component {
   selectedTime (evt) {
     this.setState({
       workoutDuration: evt.target.value,
-      disable: false
+      disableNextButton: false
     })
   }
 
@@ -66,7 +66,7 @@ class Time extends React.Component {
                     checked={this.state.workoutDuration === '>60 min'} onChange={this.selectedTime} />
                 </label>
               </div>
-              <button type='button' onClick={this.handleClick} disabled={this.state.disable}>Next</button>
+              <button type='button' onClick={this.handleClick} disabled={this.state.disableNextButton}>Next</button>
               <button type='button' onClick={this.goBack}>Back</button>
             </form>
           </div>
