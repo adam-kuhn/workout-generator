@@ -1,9 +1,9 @@
 import React from 'react'
 import {connect} from 'react-redux'
 
-import {backFromWod, backHome} from '../actions/back'
+import {goBackToGearSelection, goBackToTime, goBackToHome} from '../actions/appNavigation'
 import {getWorkouts, newNumber} from '../actions/workout'
-import Waiting from './Waiting'
+import WaitingIcon from './WaitingIcon'
 
 class Workout extends React.Component {
   constructor () {
@@ -18,10 +18,14 @@ class Workout extends React.Component {
   }
 
   handleBack () {
-    this.props.dispatch(backFromWod(this.props.selection.wodType))
+    if (this.props.selection.wodType === 'Running') {
+      this.props.dispatch(goBackToTime())
+    } else {
+      this.props.dispatch(goBackToGearSelection())
+    }
   }
   handleHome () {
-    this.props.dispatch(backHome())
+    this.props.dispatch(goBackToHome())
   }
   anotherWorkout () {
     this.props.dispatch(newNumber(this.props.wodNumber, this.props.wod))
@@ -29,7 +33,7 @@ class Workout extends React.Component {
   render () {
     return (
       <div className='form-container'>
-        {this.props.showWaiting ? <Waiting />
+        {this.props.showWaitingComponent ? <WaitingIcon />
           : <div>
             <div className="header">
               <h1 className='wod-title'>{this.props.wod[this.props.wodNumber] ? this.props.wod[this.props.wodNumber].workout : 'Sorry'}</h1>
@@ -62,7 +66,7 @@ function mapStateToProps (state) {
     selection: state.selection,
     wod: state.workouts.workoutList,
     wodNumber: state.workouts.wodNumber,
-    showWaiting: state.display.showWaiting
+    showWaitingComponent: state.toggleComponentViews.showWaitingComponent
   }
 }
 

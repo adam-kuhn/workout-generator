@@ -1,4 +1,4 @@
-import {SHOW_WOD, BACK_HOME, NEW_NUM} from '../actions/workout'
+import {SHOW_WOD, GO_BACK_TO_HOME, NEW_NUM} from '../actions/workout'
 
 const initialState = {
   workoutList: [],
@@ -40,7 +40,7 @@ function workouts (state = initialState, action) {
 
       }
     }
-    case (BACK_HOME): {
+    case (GO_BACK_TO_HOME): {
       return initialState
     }
     default: {

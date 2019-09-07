@@ -1,5 +1,6 @@
-import {SET_TYPE, SET_TIME, SET_GEAR} from '../actions/selection'
-import {BACK_HOME, BACK_TIME, BACK_FROM_WOD} from '../actions/back'
+import {SAVE_WORKOUT_TYPE_SHOW_TIME,
+  SAVE_DURATION_SHOW_GEAR, SAVE_GEAR_SHOW_WORKOUT,
+  SAVE_DURATION_RUNNING_WORKOUT, GO_BACK_TO_HOME, GO_BACK_TO_TIME, BACK_TO_GEAR_LIST_SELECTION} from '../actions/appNavigation'
 
 const initialState = {
   wodType: '',
@@ -9,40 +10,40 @@ const initialState = {
 
 function selection (state = initialState, action) {
   switch (action.type) {
-    case (SET_TYPE): {
+    case (SAVE_WORKOUT_TYPE_SHOW_TIME): {
       return {
         ...state,
         wodType: action.wodType
       }
     }
-    case (SET_TIME): {
+    case (SAVE_DURATION_RUNNING_WORKOUT): {
       return {
         ...state,
         duration: action.duration
       }
     }
-    case (SET_GEAR): {
+    case (SAVE_DURATION_SHOW_GEAR): {
+      return {
+        ...state,
+        duration: action.duration
+      }
+    }
+    case (SAVE_GEAR_SHOW_WORKOUT): {
       return {
         ...state,
         gear: action.gearList
       }
     }
-    case (BACK_HOME): {
+    case (GO_BACK_TO_HOME): {
       return initialState
     }
-    case (BACK_TIME): {
+    case (GO_BACK_TO_TIME): {
       return {
         ...state,
         duration: ''
       }
     }
-    case (BACK_FROM_WOD): {
-      if (action.wodType === 'Running') {
-        return {
-          ...state,
-          duration: ''
-        }
-      }
+    case (BACK_TO_GEAR_LIST_SELECTION): {
       return {
         ...state,
         gear: []

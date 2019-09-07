@@ -1,8 +1,13 @@
 import React from 'react'
 import {connect} from 'react-redux'
 
-import {setGear} from '../actions/selection'
-import {toTime} from '../actions/back'
+import {saveGearSelectionShowWorkout, goBackToTime} from '../actions/appNavigation'
+
+export const hasItemBeenChecked = (selectedItem, allGear) => {
+  const currentGearSelection = Object.values(allGear)
+  const itemsThatAreChecked = currentGearSelection.filter(item => item === selectedItem)
+  return itemsThatAreChecked.length
+}
 
 class Gear extends React.Component {
   constructor (props) {
@@ -14,25 +19,20 @@ class Gear extends React.Component {
       sandbag: '',
       barbell: '',
       box: ''
-
     }
-    this.setGearList = this.setGearList.bind(this)
+    this.updateSelectedGear = this.updateSelectedGear.bind(this)
     this.makeList = this.makeList.bind(this)
-    this.backToTime = this.backToTime.bind(this)
+    this.backgoBackToTime = this.backgoBackToTime.bind(this)
   }
-  setGearList (evt) {
-    if (this.state.none === evt.target.value ||
-        this.state.kb === evt.target.value ||
-        this.state.pullUp === evt.target.value ||
-        this.state.sandbag === evt.target.value ||
-        this.state.barbell === evt.target.value ||
-        this.state.box === evt.target.value) {
+  updateSelectedGear (evt) {
+    const {value, name} = evt.target
+    if (hasItemBeenChecked(value, this.state)) {
       this.setState({
-        [evt.target.value]: ''
+        [value]: ''
       })
     } else {
       this.setState({
-        [evt.target.name]: evt.target.value
+        [name]: value
       })
     }
   }
@@ -41,11 +41,11 @@ class Gear extends React.Component {
     const gearList = Object.values(this.state).filter(equipment => {
       return equipment !== ''
     })
-    this.props.dispatch(setGear(gearList))
+    this.props.dispatch(saveGearSelectionShowWorkout(gearList))
   }
 
-  backToTime () {
-    this.props.dispatch(toTime())
+  backgoBackToTime () {
+    this.props.dispatch(goBackToTime())
   }
 
   render () {
@@ -63,14 +63,14 @@ class Gear extends React.Component {
                     <label key={item.id} className='gear'>{item.text}
                       <input className={`input-${item.name}`}
                         type='checkbox' name={item.name} value=
-                          {item.value} onChange={this.setGearList} />
+                          {item.value} onChange={this.updateSelectedGear} />
                     </label>
                   )
                 }
                 )}
               </div>
               <button type='button' onClick={this.makeList}>Next</button>
-              <button type='button' onClick={this.backToTime}>Back</button>
+              <button type='button' onClick={this.backgoBackToTime}>Back</button>
             </form>
           </div>
         </div>
