@@ -43,7 +43,6 @@ class Workout extends React.Component {
                 <div className="general-form">
                   <div className='form-body'>
                     <div className='wod-desc'>
-
                       <p>{this.props.wod[this.props.wodNumber] ? this.props.wod[this.props.wodNumber].description : 'There are no available workouts based on your selection. Please try again.'}
                       </p>
                       <p>Number of Workouts: {this.props.wod ? this.props.wod.length : 0}</p>
